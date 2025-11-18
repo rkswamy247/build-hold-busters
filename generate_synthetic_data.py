@@ -13,8 +13,8 @@ import uuid
 VENDOR_NAME = "Synthetic Tech Partners 11"
 PO_NAME = "Synthetic_PO_15"
 PROJECT_NAME = "Synthetic Project Alpha"
-PROJECT_NUMBER = "PROJ-SYN-001"
-COMPANY = "Frontier Communications"
+PROJECT_NUMBER = 999001  # Must be numeric to match schema
+COMPANY_CODE = 944  # Numeric company code (matches schema)
 
 # Status definitions
 STATUSES = ["Draft", "Submitted", "Approved", "Paid", "Hold"]
@@ -35,14 +35,17 @@ def generate_invoice_id():
 
 def generate_project():
     """Generate project data"""
-    project_id = f"a0F{uuid.uuid4().hex[:15]}"
+    # Generate project ID in format PRJ######
+    project_id = f"PRJ{random.randint(900000, 999999)}"
+    budget_id = f"BUD{random.randint(900000, 999999)}"
     
     project = {
         'Project_Id': project_id,
+        'Budget_Id': budget_id,
         'Infinium_Project_Number__c': PROJECT_NUMBER,
-        'Company__c': COMPANY,
+        'Company__c': COMPANY_CODE,
         'Infinium_Status__c': 'Active',
-        'Approval_Status__c': 'Approved'
+        'Approval_Status__c': 'Infinium Approved'
     }
     
     return pd.DataFrame([project])
@@ -80,21 +83,21 @@ def generate_invoice(status, project_id, index):
     # Set dates and status based on invoice status
     if status == "Draft":
         days_pending = random.randint(1, 5)
-        integration_status = "Not Submitted"
+        integration_status = None  # Blank for Draft
     elif status == "Submitted":
         days_pending = random.randint(5, 15)
-        integration_status = "Pending"
+        integration_status = None  # Blank for Submitted
     elif status == "Approved":
         approval_date = invoice_date + timedelta(days=random.randint(3, 10))
         days_pending = (datetime.now() - approval_date).days
-        integration_status = "Success"
+        integration_status = None  # Blank for Approved
     elif status == "Paid":
         approval_date = invoice_date + timedelta(days=random.randint(3, 10))
         days_pending = (datetime.now() - approval_date).days
-        integration_status = "Success"
+        integration_status = "Success"  # Success for Paid
     elif status == "Hold":
         days_pending = random.randint(30, 90)
-        integration_status = "Error"
+        integration_status = "Fail"  # Fail for Hold
         error_message = random.choice([
             "Vendor validation failed: Vendor ID not found in Infinium system",
             "Budget line not found for cost category in project",
@@ -107,8 +110,9 @@ def generate_invoice(status, project_id, index):
         'Invoice_Id': invoice_id,
         'Invoice_Name': f"{VENDOR_NAME}-{status}-{index:02d}",
         'Vendor__Name': VENDOR_NAME,
-        'PO_Name__c': PO_NAME,
-        'Project_Id': project_id,
+        'PO_Name': PO_NAME,  # Note: PO_Name not PO_Name__c
+        'PO_Description__c': f"Purchase Order for {PROJECT_NAME}",
+        # 'Project_Id': project_id,  # Not in invoices table schema
         'Invoice_Date__c': invoice_date.strftime('%Y-%m-%d'),
         'Total_Amount__c': round(random.uniform(5000, 75000), 2),
         'sitetracker__Status__c': status,
@@ -134,7 +138,8 @@ def generate_invoice_lines(invoice_id, invoice_amount, num_lines=None):
     for i in range(num_lines):
         # Split amount across lines
         if i == num_lines - 1:
-            line_amount = remaining_amount
+            # Last line gets remaining amount, rounded to 2 decimals
+            line_amount = round(remaining_amount, 2)
         else:
             line_amount = round(remaining_amount * random.uniform(0.1, 0.4), 2)
             remaining_amount -= line_amount
@@ -146,12 +151,12 @@ def generate_invoice_lines(invoice_id, invoice_amount, num_lines=None):
             'Invoice_Line_Id': f"a0H{uuid.uuid4().hex[:15]}",
             'Invoice_Id': invoice_id,
             'Invoice_Line_Number__c': i + 1,
-            'Invoice_Amount__c': line_amount,
+            'Invoice_Amount__c': round(line_amount, 2),  # Ensure precision of 2
             'Invoice_Status__c': random.choice(['Approved', 'Pending', 'Review Required']),
             'Cost_Category_Name__c': random.choice(COST_CATEGORIES),
             'sitetracker__Quantity__c': quantity,
-            'sitetracker__Unit_Price__c': unit_price,
-            'Description__c': f"Line item {i+1} for {PO_NAME}"
+            'sitetracker__Unit_Price__c': round(unit_price, 2)
+            # Note: Description__c doesn't exist in table - removed
         }
         lines.append(line)
     
@@ -163,9 +168,9 @@ def generate_integration_response(invoice_id, invoice_status, error_message):
     # Determine operation based on status
     operation = "CREATE"
     if invoice_status == "Paid":
-        operation = "UPDATE"
+        operation = "Invoice Commit"  # Invoice Commit for Paid
     elif invoice_status == "Hold":
-        operation = "VALIDATE"
+        operation = "Invoice Release"  # Invoice Release for Hold
     
     # Create request
     infinium_request = {
@@ -248,8 +253,8 @@ def generate_all_data(num_invoices_per_status=2):
             )
             all_invoice_lines.append(lines_df)
             
-            # Generate integration response (not for Draft)
-            if status != "Draft":
+            # Generate integration response (only for Paid and Hold)
+            if status in ["Paid", "Hold"]:
                 response = generate_integration_response(
                     invoice['Invoice_Id'],
                     status,
@@ -292,6 +297,7 @@ def save_to_csv(data_dict, output_dir='synthetic_data'):
     
     for name, df in data_dict.items():
         filepath = os.path.join(output_dir, f'{name}.csv')
+        # Save to CSV (dates are already formatted as strings YYYY-MM-DD)
         df.to_csv(filepath, index=False)
         print(f"   + {filepath} ({len(df)} rows)")
     

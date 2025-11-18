@@ -32,10 +32,10 @@ def get_credentials():
         'schema': input("Schema (default: hackathon.hackathon_build_hold_busters): ") or 'hackathon.hackathon_build_hold_busters'
     }
 
-# CSV files to upload
+# CSV files to upload (skip budget_lines - not used in dashboard)
 FILES_TO_UPLOAD = {
     'projects': 'synthetic_data/projects.csv',
-    'budget_lines': 'synthetic_data/budget_lines.csv',
+    # 'budget_lines': 'synthetic_data/budget_lines.csv',  # Skipped - different schema, not needed for dashboard
     'invoices': 'synthetic_data/invoices.csv',
     'invoice_lines': 'synthetic_data/invoice_lines.csv',
     'Integration_Responses': 'synthetic_data/integration_responses.csv'
@@ -46,8 +46,8 @@ def upload_csv_to_table(connection, csv_file, table_name, schema):
     
     print(f"\nUploading {csv_file} to {schema}.{table_name}...")
     
-    # Read CSV
-    df = pd.read_csv(csv_file)
+    # Read CSV (keep dates as strings, don't parse)
+    df = pd.read_csv(csv_file, dtype=str)  # Read all columns as strings
     print(f"  Read {len(df)} rows from CSV")
     
     if len(df) == 0:
@@ -74,12 +74,11 @@ def upload_csv_to_table(connection, csv_file, table_name, schema):
             for _, row in batch.iterrows():
                 values = []
                 for val in row:
-                    if pd.isna(val):
+                    # Handle NaN/None and empty strings
+                    if pd.isna(val) or val == '' or val == 'nan':
                         values.append('NULL')
-                    elif isinstance(val, (int, float)) and not pd.isna(val):
-                        values.append(str(val))
                     else:
-                        # Escape single quotes
+                        # All values are strings now - escape single quotes
                         escaped_val = str(val).replace("'", "''")
                         values.append(f"'{escaped_val}'")
                 
