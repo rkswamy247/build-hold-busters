@@ -1,0 +1,37 @@
+[
+  {
+    "timestamp": "2025-11-18T13:09:34.950123",
+    "question": "How many invoices are on hold?",
+    "genie_response": "SELECT COUNT(*) FROM invoices WHERE status = 'Hold'",
+    "feedback": "Always use full schema path: hackathon.hackathon_build_hold_busters",
+    "correction": "When asked 'How many invoices are on hold?', remember: Always use full schema path: hackathon.hackathon_build_hold_busters"
+  },
+  {
+    "timestamp": "2025-11-18T13:09:34.950123",
+    "question": "Which vendor has the most holds?",
+    "genie_response": "SELECT vendor, COUNT(*) FROM invoices GROUP BY vendor",
+    "feedback": "The vendor column is 'Vendor__Name' not 'vendor'",
+    "correction": "When asked 'Which vendor has the most holds?', remember: The vendor column is 'Vendor__Name' not 'vendor'"
+  },
+  {
+    "timestamp": "2025-11-18T13:43:00.489590",
+    "question": "what are the top 10 common errors?",
+    "genie_response": "what are the top 10 common errors?\n\n\ud83d\udcdd IMPORTANT: Learn from these previous corrections:\n1. When asked 'How many invoices are on hold?', remember: Always use full schema path: hackathon.hackathon_build",
+    "feedback": "Create an error pattern so that individual GL accounts don't show up like this:  GL account 441.000.2421.201.000.345",
+    "correction": "When asked 'what are the top 10 common errors?', remember: Create an error pattern so that individual GL accounts don't show up like this:  GL account 441.000.2421.201.000.345"
+  },
+  {
+    "timestamp": "2025-11-18T13:46:36.184376",
+    "question": "what are the top 10 common errors?",
+    "genie_response": "what are the top 10 common errors?\n\n\ud83d\udcdd IMPORTANT: Learn from these previous corrections:\n1. When asked 'How many invoices are on hold?', remember: Always use full schema path: hackathon.hackathon_build",
+    "feedback": "Can you provide a summary of the error in business friendly wording and then a way to view the full error JSON message",
+    "correction": "When asked 'what are the top 10 common errors?', remember: Can you provide a summary of the error in business friendly wording and then a way to view the full error JSON message"
+  },
+  {
+    "timestamp": "2025-11-18T13:51:03.786321",
+    "question": "what's the total amount in $ for those 49 invoices?",
+    "genie_response": "what's the total amount in $ for those 49 invoices?\n\n\u2705 Found 1 results.",
+    "feedback": "Can you format currency fields so they have a $ and commas?",
+    "correction": "When asked 'what's the total amount in $ for those 49 invoices?', remember: Can you format currency fields so they have a $ and commas?"
+  }
+]
