@@ -555,9 +555,10 @@ def main():
                         
                         # Calculate Days Since Approval
                         if 'Approval_Date__c' in pattern_invoices.columns:
-                            pattern_invoices['Days_Since_Approval'] = (
-                                pd.Timestamp.now() - pd.to_datetime(pattern_invoices['Approval_Date__c'])
-                            ).dt.days
+                            # Use timezone-naive datetime for both to avoid tz-aware/tz-naive mismatch
+                            now = pd.Timestamp.now().tz_localize(None)
+                            approval_dates = pd.to_datetime(pattern_invoices['Approval_Date__c']).dt.tz_localize(None)
+                            pattern_invoices['Days_Since_Approval'] = (now - approval_dates).dt.days
                         else:
                             pattern_invoices['Days_Since_Approval'] = None
                         
