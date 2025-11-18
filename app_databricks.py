@@ -458,8 +458,17 @@ def main():
                     total_amt = row['Total Amount']
                     
                     with st.expander(f"🔴 {error_pattern[:100]}... ({invoice_count} invoices, ${total_amt:,.2f})"):
-                        # Filter invoices for this error pattern
-                        pattern_invoices = hold_invoices[hold_invoices['Error_Summary'] == error_pattern]
+                        # Filter invoices for this error pattern and sort by amount descending
+                        pattern_invoices = hold_invoices[hold_invoices['Error_Summary'] == error_pattern].copy()
+                        pattern_invoices = pattern_invoices.sort_values('Total_Amount__c', ascending=False)
+                        
+                        # Calculate Days Since Approval
+                        if 'Approval_Date__c' in pattern_invoices.columns:
+                            pattern_invoices['Days_Since_Approval'] = (
+                                pd.Timestamp.now() - pd.to_datetime(pattern_invoices['Approval_Date__c'])
+                            ).dt.days
+                        else:
+                            pattern_invoices['Days_Since_Approval'] = None
                         
                         # Display summary
                         st.markdown(f"**Full Error Message:**")
@@ -494,10 +503,10 @@ def main():
                             invoice_name = invoice_row.get('Invoice_Name', invoice_id)
                             vendor = invoice_row.get('Vendor__Name', 'N/A')
                             amount = invoice_row.get('Total_Amount__c', 0)
-                            days_pending = invoice_row.get('Days_Pending_Approval__c', 0)
+                            days_since_approval = invoice_row.get('Days_Since_Approval', 0)
                             
                             # Create expandable section for each invoice
-                            with st.expander(f"📄 {invoice_name} | {vendor} | ${amount:,.2f} | {days_pending:.0f} days pending"):
+                            with st.expander(f"📄 {invoice_name} | {vendor} | ${amount:,.2f} | {days_since_approval:.0f} days since approval"):
                                 # Show basic invoice info
                                 col1, col2, col3 = st.columns(3)
                                 with col1:
@@ -511,7 +520,12 @@ def main():
                                         st.markdown(f"**State:** {invoice_row['State__c']}")
                                 with col3:
                                     st.markdown(f"**Amount:** ${amount:,.2f}")
-                                    st.markdown(f"**Days Pending:** {days_pending:.0f}")
+                                    if 'Approval_Date__c' in invoice_row and pd.notna(invoice_row['Approval_Date__c']):
+                                        approval_date = pd.to_datetime(invoice_row['Approval_Date__c']).strftime('%Y-%m-%d')
+                                        st.markdown(f"**Approval Date:** {approval_date}")
+                                        st.markdown(f"**Days Since Approval:** {days_since_approval:.0f}")
+                                    else:
+                                        st.markdown(f"**Approval Date:** Not Available")
                                 
                                 st.markdown("---")
                                 
