@@ -28,23 +28,30 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Databricks connection (automatically authenticated in Databricks environment)
+# Databricks connection
 @st.cache_resource
 def get_databricks_connection():
     """
     Create a connection to Databricks SQL Warehouse
-    In Databricks Apps, authentication is handled automatically
     """
     try:
-        # In Databricks environment, use environment variables
-        return sql.connect(
-            server_hostname=os.environ.get("DATABRICKS_SERVER_HOSTNAME", "dbc-4a93b454-f17b.cloud.databricks.com"),
-            http_path=os.environ.get("DATABRICKS_HTTP_PATH", "/sql/1.0/warehouses/b1bcf72a9e8b65b8"),
-            access_token=os.environ.get("DATABRICKS_TOKEN")
-        )
+        # Try to get from Streamlit secrets first (recommended)
+        if hasattr(st, 'secrets') and 'databricks' in st.secrets:
+            return sql.connect(
+                server_hostname=st.secrets.databricks.server_hostname,
+                http_path=st.secrets.databricks.http_path,
+                access_token=st.secrets.databricks.token
+            )
+        # Fallback to environment variables
+        else:
+            return sql.connect(
+                server_hostname=os.getenv("DATABRICKS_SERVER_HOSTNAME"),
+                http_path=os.getenv("DATABRICKS_HTTP_PATH"),
+                access_token=os.getenv("DATABRICKS_TOKEN")
+            )
     except Exception as e:
         st.error(f"Failed to connect to Databricks: {str(e)}")
-        st.info("Ensure your Databricks App is configured with the correct SQL Warehouse.")
+        st.info("Please configure your Databricks credentials in .streamlit/secrets.toml")
         return None
 
 # Query functions with caching
@@ -54,6 +61,7 @@ def query_databricks(_conn, query):
     try:
         cursor = _conn.cursor()
         cursor.execute(query)
+        # Fetch as Arrow table and convert to pandas
         result = cursor.fetchall_arrow().to_pandas()
         cursor.close()
         return result
@@ -62,7 +70,7 @@ def query_databricks(_conn, query):
         return pd.DataFrame()
 
 @st.cache_data(ttl=600)
-def get_invoices(_conn, schema_name):
+def get_invoices(_conn, schema_name="default"):
     """Fetch invoices from Databricks table"""
     query = f"""
     SELECT 
@@ -86,7 +94,7 @@ def get_invoices(_conn, schema_name):
     return query_databricks(_conn, query)
 
 @st.cache_data(ttl=600)
-def get_invoice_lines(_conn, schema_name):
+def get_invoice_lines(_conn, schema_name="default"):
     """Fetch invoice lines from Databricks table"""
     query = f"""
     SELECT 
@@ -105,7 +113,7 @@ def get_invoice_lines(_conn, schema_name):
     return query_databricks(_conn, query)
 
 @st.cache_data(ttl=600)
-def get_projects(_conn, schema_name):
+def get_projects(_conn, schema_name="default"):
     """Fetch projects from Databricks table"""
     query = f"""
     SELECT 
@@ -119,7 +127,7 @@ def get_projects(_conn, schema_name):
     return query_databricks(_conn, query)
 
 @st.cache_data(ttl=600)
-def get_integration_responses(_conn, schema_name):
+def get_integration_responses(_conn, schema_name="default"):
     """Fetch integration responses from Databricks table"""
     query = f"""
     SELECT 
@@ -132,6 +140,59 @@ def get_integration_responses(_conn, schema_name):
     """
     return query_databricks(_conn, query)
 
+@st.cache_data(ttl=600)
+def get_purchase_orders(_conn, schema_name="default"):
+    """Fetch purchase orders from Databricks table"""
+    query = f"""
+    SELECT 
+        PO_Name,
+        PO_Amount,
+        Vendor__Name,
+        Status__c
+    FROM {schema_name}.Purchase_Orders
+    """
+    return query_databricks(_conn, query)
+
+def insert_linus_request(_conn, request_data, schema_name="default"):
+    """Insert a Linus request into the database"""
+    try:
+        cursor = _conn.cursor()
+        
+        insert_query = f"""
+        INSERT INTO {schema_name}.Linus_Requests (
+            Request_Id, Invoice_Id, Invoice_Name, PO_Name, Vendor_Name,
+            Invoice_Amount, Months_Into_Year, Total_Approved_PO, 
+            Invoiced_Year_To_Date, Remaining_Balance, Total_Pending,
+            Expected_Additional, Supplemental_Amount, Request_Date, 
+            Created_By, Status, LastModifiedDate
+        ) VALUES (
+            '{request_data['Request_Id']}',
+            '{request_data['Invoice_Id']}',
+            '{request_data['Invoice_Name']}',
+            '{request_data['PO_Name']}',
+            '{request_data['Vendor_Name']}',
+            {request_data['Invoice_Amount']},
+            {request_data['Months_Into_Year']},
+            {request_data['Total_Approved_PO']},
+            {request_data['Invoiced_Year_To_Date']},
+            {request_data['Remaining_Balance']},
+            {request_data['Total_Pending']},
+            {request_data['Expected_Additional']},
+            {request_data['Supplemental_Amount']},
+            CURRENT_TIMESTAMP(),
+            'Streamlit App',
+            'Pending',
+            CURRENT_TIMESTAMP()
+        )
+        """
+        
+        cursor.execute(insert_query)
+        cursor.close()
+        return True
+    except Exception as e:
+        st.error(f"Error inserting request: {str(e)}")
+        return False
+
 # Main app
 def main():
     st.title("🔍 Hold Busters - Invoice Analysis Dashboard")
@@ -141,18 +202,71 @@ def main():
     # Sidebar configuration
     st.sidebar.header("⚙️ Configuration")
     
-    # Schema selector - default for Databricks deployment
+    # Get default schema from secrets
+    default_schema = "default"
+    if hasattr(st, 'secrets') and 'databricks' in st.secrets:
+        if 'default_schema' in st.secrets.databricks:
+            default_schema = st.secrets.databricks.default_schema
+    
+    # Schema selector
     schema_name = st.sidebar.text_input(
         "Databricks Schema Name",
-        value="hackathon.hackathon_build_hold_busters",
-        help="Enter the name of your Databricks schema/database"
+        value=default_schema,
+        help="Enter the name of your Databricks schema/database (e.g., default, invoices_db, hackathon/hackathon_build_hold_busters)"
     )
     
     # Get connection
     conn = get_databricks_connection()
     
     if conn is None:
-        st.warning("⚠️ Not connected to Databricks.")
+        st.warning("⚠️ Not connected to Databricks. Please configure your credentials.")
+        
+        with st.expander("📋 Setup Instructions - Click to expand"):
+            st.markdown("""
+            ### How to configure Databricks connection:
+            
+            **Option 1: Using secrets.toml (Recommended)**
+            
+            1. Create a folder `.streamlit` in your project directory
+            2. Create a file `.streamlit/secrets.toml` with the following content:
+            
+            ```toml
+            [databricks]
+            server_hostname = "dbc-4a93b454-f17b.cloud.databricks.com"
+            http_path = "/sql/1.0/warehouses/YOUR_WAREHOUSE_ID"
+            token = "YOUR_PERSONAL_ACCESS_TOKEN"
+            ```
+            
+            **Option 2: Using environment variables**
+            
+            Set these environment variables:
+            - `DATABRICKS_SERVER_HOSTNAME` = "dbc-4a93b454-f17b.cloud.databricks.com"
+            - `DATABRICKS_HTTP_PATH` = "/sql/1.0/warehouses/YOUR_WAREHOUSE_ID"
+            - `DATABRICKS_TOKEN` = "YOUR_PERSONAL_ACCESS_TOKEN"
+            
+            ---
+            
+            ### Where to find these values:
+            
+            1. **server_hostname**: `dbc-4a93b454-f17b.cloud.databricks.com` (already set!)
+            
+            2. **http_path**: 
+               - Go to your Databricks workspace
+               - Click "SQL Warehouses" in the left sidebar
+               - Select your warehouse
+               - Click "Connection details" tab
+               - Copy the "HTTP Path" (looks like `/sql/1.0/warehouses/abc123def456`)
+            
+            3. **token** (Personal Access Token):
+               - In Databricks, click your username in top-right
+               - Select "User Settings"
+               - Go to "Access tokens" tab
+               - Click "Generate new token"
+               - Give it a name (e.g., "Streamlit App")
+               - Set expiration (optional)
+               - Copy the token (save it securely!)
+            """)
+        
         return
     
     st.success("✅ Connected to Databricks!")
@@ -169,19 +283,28 @@ def main():
             
             if invoices_df.empty:
                 st.warning(f"⚠️ No data found in schema: `{schema_name}`")
-                st.info("Verify the schema name and ensure tables exist")
+                st.info("""
+                **Troubleshooting:**
+                - Verify the schema name is correct
+                - Check that tables exist in your Databricks workspace
+                - Ensure your SQL Warehouse is running
+                - Verify table names match: `invoices`, `invoice_lines`, `projects`
+                """)
                 return
             
             # Try to load related tables
             try:
                 invoice_lines_df = get_invoice_lines(conn, schema_name)
                 projects_df = get_projects(conn, schema_name)
+                purchase_orders_df = get_purchase_orders(conn, schema_name)
             except:
                 invoice_lines_df = pd.DataFrame()
                 projects_df = pd.DataFrame()
+                purchase_orders_df = pd.DataFrame()
                 
         except Exception as e:
             st.error(f"❌ Error loading data: {str(e)}")
+            st.info("Please check your table names and schema configuration")
             return
     
     # Sidebar filters
@@ -315,12 +438,16 @@ def main():
         # Display count
         st.info(f"Showing {len(search_df)} of {len(filtered_df)} invoices")
         
-        # Display dataframe
+        # Display dataframe with formatting
         display_df = search_df.copy()
         if 'Invoice_Date__c' in display_df.columns:
             display_df['Invoice_Date__c'] = display_df['Invoice_Date__c'].dt.strftime('%Y-%m-%d')
         
-        st.dataframe(display_df, use_container_width=True, height=400)
+        st.dataframe(
+            display_df,
+            use_container_width=True,
+            height=400
+        )
         
         # Download button
         csv = search_df.to_csv(index=False)
@@ -378,6 +505,25 @@ def main():
                 }),
                 use_container_width=True
             )
+        
+        # Integration status analysis
+        if 'Integration_Status__c' in filtered_df.columns:
+            st.subheader("Integration Status Analysis")
+            integration_counts = filtered_df['Integration_Status__c'].value_counts()
+            
+            col1, col2 = st.columns([1, 2])
+            with col1:
+                st.dataframe(integration_counts, use_container_width=True)
+            with col2:
+                fig_integration = px.bar(
+                    x=integration_counts.index,
+                    y=integration_counts.values,
+                    title="Integration Status Distribution",
+                    labels={'x': 'Status', 'y': 'Count'},
+                    color=integration_counts.values,
+                    color_continuous_scale='Reds'
+                )
+                st.plotly_chart(fig_integration, use_container_width=True)
     
     with tab4:
         st.subheader("🚨 Invoices on Hold - Error Pattern Analysis")
@@ -550,8 +696,14 @@ def main():
                             # Show invoice summary
                             st.info(f"📄 **{selected_invoice_name}** | Amount: ${invoice_row.get('Total_Amount__c', 0):,.2f}")
                             
-                            # Create two columns for drill-downs
-                            col1, col2 = st.columns(2)
+                            # Check if this is a PO amount error - if so, create 3 columns, else 2
+                            is_po_amount_error = "amount is greater than the amount available on the PO" in error_pattern.lower()
+                            
+                            # Create columns for drill-downs
+                            if is_po_amount_error:
+                                col1, col2, col3 = st.columns(3)
+                            else:
+                                col1, col2 = st.columns(2)
                             
                             with col1:
                                 st.markdown("### 📋 Invoice Line Items")
@@ -633,6 +785,98 @@ def main():
                                         st.warning("⚠️ No integration response found")
                                 else:
                                     st.warning("Integration responses data not loaded")
+                            
+                            # Add "Send to Linus" tab for PO amount errors
+                            if is_po_amount_error:
+                                with col3:
+                                    st.markdown("### 📨 Send to Linus")
+                                    
+                                    # Get PO_Name from the invoice
+                                    po_name = invoice_row.get('PO_Name', None)
+                                    
+                                    if po_name and not purchase_orders_df.empty:
+                                        # Get PO details
+                                        po_info = purchase_orders_df[purchase_orders_df['PO_Name'] == po_name]
+                                        
+                                        if not po_info.empty:
+                                            total_approved_po = po_info['PO_Amount'].iloc[0] if 'PO_Amount' in po_info.columns else 0
+                                            
+                                            # Calculate Months into Year (remaining months with 1 decimal)
+                                            import datetime as dt
+                                            today = dt.datetime.now()
+                                            end_of_year = dt.datetime(today.year, 12, 31)
+                                            months_remaining = (end_of_year - today).days / 30.0
+                                            months_into_year = round(months_remaining, 1)
+                                            
+                                            # Get all invoices for this PO_Name
+                                            po_invoices = invoices_df[invoices_df['PO_Name'] == po_name].copy()
+                                            
+                                            # Invoiced Year to Date - Sum of Total_Invoice_Amount__c for all invoices (irrespective of status)
+                                            # Note: Using Total_Amount__c as Total_Invoice_Amount__c may not exist
+                                            invoiced_ytd = po_invoices['Total_Amount__c'].sum() if not po_invoices.empty else 0
+                                            
+                                            # Remaining Balance - Total Approved PO - Sum for Paid and Committed
+                                            paid_committed = po_invoices[
+                                                po_invoices['Status'].isin(['Paid', 'Committed'])
+                                            ]['Total_Amount__c'].sum() if not po_invoices.empty else 0
+                                            remaining_balance = total_approved_po - paid_committed
+                                            
+                                            # Total Pending - Sum for Draft, Submitted, Approved, Hold
+                                            total_pending = po_invoices[
+                                                po_invoices['Status'].isin(['Draft', 'Submitted', 'Approved', 'Hold'])
+                                            ]['Total_Amount__c'].sum() if not po_invoices.empty else 0
+                                            
+                                            # Expected Additional - 10% of Total Pending
+                                            expected_additional = total_pending * 0.10
+                                            
+                                            # Supplemental Amount
+                                            supplemental_amount = (total_pending + expected_additional) - remaining_balance
+                                            
+                                            # Display calculated fields
+                                            st.markdown("**📊 Calculated Fields:**")
+                                            
+                                            st.metric("Months into Year", f"{months_into_year}")
+                                            st.metric("Total Approved PO", f"${total_approved_po:,.2f}")
+                                            st.metric("Invoiced YTD", f"${invoiced_ytd:,.2f}")
+                                            st.metric("Remaining Balance", f"${remaining_balance:,.2f}")
+                                            st.metric("Total Pending", f"${total_pending:,.2f}")
+                                            st.metric("Expected Additional (10%)", f"${expected_additional:,.2f}")
+                                            st.metric("**Supplemental Amount**", f"**${supplemental_amount:,.2f}**")
+                                            
+                                            st.markdown("---")
+                                            
+                                            # Send to Linus button
+                                            if st.button("📨 Send to Linus", key=f"send_linus_{idx}_{invoice_id}", type="primary"):
+                                                import uuid
+                                                
+                                                # Prepare request data
+                                                request_data = {
+                                                    'Request_Id': f"REQ-{uuid.uuid4().hex[:12].upper()}",
+                                                    'Invoice_Id': invoice_id,
+                                                    'Invoice_Name': selected_invoice_name,
+                                                    'PO_Name': po_name,
+                                                    'Vendor_Name': invoice_row.get('Vendor__Name', ''),
+                                                    'Invoice_Amount': float(invoice_row.get('Total_Amount__c', 0)),
+                                                    'Months_Into_Year': float(months_into_year),
+                                                    'Total_Approved_PO': float(total_approved_po),
+                                                    'Invoiced_Year_To_Date': float(invoiced_ytd),
+                                                    'Remaining_Balance': float(remaining_balance),
+                                                    'Total_Pending': float(total_pending),
+                                                    'Expected_Additional': float(expected_additional),
+                                                    'Supplemental_Amount': float(supplemental_amount)
+                                                }
+                                                
+                                                # Insert into database
+                                                if insert_linus_request(conn, request_data, schema_name):
+                                                    st.success(f"✅ Request sent to Linus! Request ID: {request_data['Request_Id']}")
+                                                    st.balloons()
+                                                else:
+                                                    st.error("❌ Failed to send request. Please try again.")
+                                        
+                                        else:
+                                            st.warning(f"⚠️ PO {po_name} not found in Purchase Orders")
+                                    else:
+                                        st.warning("⚠️ PO Name not available or Purchase Orders data not loaded")
                         
                         # Download button for this error pattern
                         csv_pattern = pattern_invoices.to_csv(index=False)

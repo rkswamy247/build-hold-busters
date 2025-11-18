@@ -140,6 +140,59 @@ def get_integration_responses(_conn, schema_name="default"):
     """
     return query_databricks(_conn, query)
 
+@st.cache_data(ttl=600)
+def get_purchase_orders(_conn, schema_name="default"):
+    """Fetch purchase orders from Databricks table"""
+    query = f"""
+    SELECT 
+        PO_Name,
+        PO_Amount,
+        Vendor__Name,
+        Status__c
+    FROM {schema_name}.Purchase_Orders
+    """
+    return query_databricks(_conn, query)
+
+def insert_linus_request(_conn, request_data, schema_name="default"):
+    """Insert a Linus request into the database"""
+    try:
+        cursor = _conn.cursor()
+        
+        insert_query = f"""
+        INSERT INTO {schema_name}.Linus_Requests (
+            Request_Id, Invoice_Id, Invoice_Name, PO_Name, Vendor_Name,
+            Invoice_Amount, Months_Into_Year, Total_Approved_PO, 
+            Invoiced_Year_To_Date, Remaining_Balance, Total_Pending,
+            Expected_Additional, Supplemental_Amount, Request_Date, 
+            Created_By, Status, LastModifiedDate
+        ) VALUES (
+            '{request_data['Request_Id']}',
+            '{request_data['Invoice_Id']}',
+            '{request_data['Invoice_Name']}',
+            '{request_data['PO_Name']}',
+            '{request_data['Vendor_Name']}',
+            {request_data['Invoice_Amount']},
+            {request_data['Months_Into_Year']},
+            {request_data['Total_Approved_PO']},
+            {request_data['Invoiced_Year_To_Date']},
+            {request_data['Remaining_Balance']},
+            {request_data['Total_Pending']},
+            {request_data['Expected_Additional']},
+            {request_data['Supplemental_Amount']},
+            CURRENT_TIMESTAMP(),
+            'Streamlit App',
+            'Pending',
+            CURRENT_TIMESTAMP()
+        )
+        """
+        
+        cursor.execute(insert_query)
+        cursor.close()
+        return True
+    except Exception as e:
+        st.error(f"Error inserting request: {str(e)}")
+        return False
+
 # Main app
 def main():
     st.title("🔍 Hold Busters - Invoice Analysis Dashboard")
@@ -243,9 +296,11 @@ def main():
             try:
                 invoice_lines_df = get_invoice_lines(conn, schema_name)
                 projects_df = get_projects(conn, schema_name)
+                purchase_orders_df = get_purchase_orders(conn, schema_name)
             except:
                 invoice_lines_df = pd.DataFrame()
                 projects_df = pd.DataFrame()
+                purchase_orders_df = pd.DataFrame()
                 
         except Exception as e:
             st.error(f"❌ Error loading data: {str(e)}")
@@ -641,8 +696,14 @@ def main():
                             # Show invoice summary
                             st.info(f"📄 **{selected_invoice_name}** | Amount: ${invoice_row.get('Total_Amount__c', 0):,.2f}")
                             
-                            # Create two columns for drill-downs
-                            col1, col2 = st.columns(2)
+                            # Check if this is a PO amount error - if so, create 3 columns, else 2
+                            is_po_amount_error = "amount is greater than the amount available on the PO" in error_pattern.lower()
+                            
+                            # Create columns for drill-downs
+                            if is_po_amount_error:
+                                col1, col2, col3 = st.columns(3)
+                            else:
+                                col1, col2 = st.columns(2)
                             
                             with col1:
                                 st.markdown("### 📋 Invoice Line Items")
@@ -724,6 +785,98 @@ def main():
                                         st.warning("⚠️ No integration response found")
                                 else:
                                     st.warning("Integration responses data not loaded")
+                            
+                            # Add "Send to Linus" tab for PO amount errors
+                            if is_po_amount_error:
+                                with col3:
+                                    st.markdown("### 📨 Send to Linus")
+                                    
+                                    # Get PO_Name from the invoice
+                                    po_name = invoice_row.get('PO_Name', None)
+                                    
+                                    if po_name and not purchase_orders_df.empty:
+                                        # Get PO details
+                                        po_info = purchase_orders_df[purchase_orders_df['PO_Name'] == po_name]
+                                        
+                                        if not po_info.empty:
+                                            total_approved_po = po_info['PO_Amount'].iloc[0] if 'PO_Amount' in po_info.columns else 0
+                                            
+                                            # Calculate Months into Year (remaining months with 1 decimal)
+                                            import datetime as dt
+                                            today = dt.datetime.now()
+                                            end_of_year = dt.datetime(today.year, 12, 31)
+                                            months_remaining = (end_of_year - today).days / 30.0
+                                            months_into_year = round(months_remaining, 1)
+                                            
+                                            # Get all invoices for this PO_Name
+                                            po_invoices = invoices_df[invoices_df['PO_Name'] == po_name].copy()
+                                            
+                                            # Invoiced Year to Date - Sum of Total_Invoice_Amount__c for all invoices (irrespective of status)
+                                            # Note: Using Total_Amount__c as Total_Invoice_Amount__c may not exist
+                                            invoiced_ytd = po_invoices['Total_Amount__c'].sum() if not po_invoices.empty else 0
+                                            
+                                            # Remaining Balance - Total Approved PO - Sum for Paid and Committed
+                                            paid_committed = po_invoices[
+                                                po_invoices['Status'].isin(['Paid', 'Committed'])
+                                            ]['Total_Amount__c'].sum() if not po_invoices.empty else 0
+                                            remaining_balance = total_approved_po - paid_committed
+                                            
+                                            # Total Pending - Sum for Draft, Submitted, Approved, Hold
+                                            total_pending = po_invoices[
+                                                po_invoices['Status'].isin(['Draft', 'Submitted', 'Approved', 'Hold'])
+                                            ]['Total_Amount__c'].sum() if not po_invoices.empty else 0
+                                            
+                                            # Expected Additional - 10% of Total Pending
+                                            expected_additional = total_pending * 0.10
+                                            
+                                            # Supplemental Amount
+                                            supplemental_amount = (total_pending + expected_additional) - remaining_balance
+                                            
+                                            # Display calculated fields
+                                            st.markdown("**📊 Calculated Fields:**")
+                                            
+                                            st.metric("Months into Year", f"{months_into_year}")
+                                            st.metric("Total Approved PO", f"${total_approved_po:,.2f}")
+                                            st.metric("Invoiced YTD", f"${invoiced_ytd:,.2f}")
+                                            st.metric("Remaining Balance", f"${remaining_balance:,.2f}")
+                                            st.metric("Total Pending", f"${total_pending:,.2f}")
+                                            st.metric("Expected Additional (10%)", f"${expected_additional:,.2f}")
+                                            st.metric("**Supplemental Amount**", f"**${supplemental_amount:,.2f}**")
+                                            
+                                            st.markdown("---")
+                                            
+                                            # Send to Linus button
+                                            if st.button("📨 Send to Linus", key=f"send_linus_{idx}_{invoice_id}", type="primary"):
+                                                import uuid
+                                                
+                                                # Prepare request data
+                                                request_data = {
+                                                    'Request_Id': f"REQ-{uuid.uuid4().hex[:12].upper()}",
+                                                    'Invoice_Id': invoice_id,
+                                                    'Invoice_Name': selected_invoice_name,
+                                                    'PO_Name': po_name,
+                                                    'Vendor_Name': invoice_row.get('Vendor__Name', ''),
+                                                    'Invoice_Amount': float(invoice_row.get('Total_Amount__c', 0)),
+                                                    'Months_Into_Year': float(months_into_year),
+                                                    'Total_Approved_PO': float(total_approved_po),
+                                                    'Invoiced_Year_To_Date': float(invoiced_ytd),
+                                                    'Remaining_Balance': float(remaining_balance),
+                                                    'Total_Pending': float(total_pending),
+                                                    'Expected_Additional': float(expected_additional),
+                                                    'Supplemental_Amount': float(supplemental_amount)
+                                                }
+                                                
+                                                # Insert into database
+                                                if insert_linus_request(conn, request_data, schema_name):
+                                                    st.success(f"✅ Request sent to Linus! Request ID: {request_data['Request_Id']}")
+                                                    st.balloons()
+                                                else:
+                                                    st.error("❌ Failed to send request. Please try again.")
+                                        
+                                        else:
+                                            st.warning(f"⚠️ PO {po_name} not found in Purchase Orders")
+                                    else:
+                                        st.warning("⚠️ PO Name not available or Purchase Orders data not loaded")
                         
                         # Download button for this error pattern
                         csv_pattern = pattern_invoices.to_csv(index=False)
