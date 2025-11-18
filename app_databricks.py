@@ -74,6 +74,7 @@ def get_invoices(_conn, schema_name):
         sitetracker__Status__c as Status,
         Days_Pending_Approval__c,
         Integration_Status__c,
+        Integration_Error_Message__c,
         Reason__c,
         State__c,
         Approval_Date__c,
@@ -114,6 +115,20 @@ def get_projects(_conn, schema_name):
         Infinium_Status__c,
         Approval_Status__c
     FROM {schema_name}.projects
+    """
+    return query_databricks(_conn, query)
+
+@st.cache_data(ttl=600)
+def get_integration_responses(_conn, schema_name):
+    """Fetch integration responses from Databricks table"""
+    query = f"""
+    SELECT 
+        Invoice_Id,
+        Infinium_Request__c,
+        Infinium_Response__c,
+        Error_Message__c,
+        Operation__c
+    FROM {schema_name}.Integration_Responses
     """
     return query_databricks(_conn, query)
 
@@ -228,10 +243,11 @@ def main():
     st.markdown("---")
     
     # Tabs for different views
-    tab1, tab2, tab3, tab4 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5 = st.tabs([
         "📈 Overview", 
         "📋 Invoice Details", 
         "🔍 Deep Analysis",
+        "🚨 Error Analysis",
         "💾 Custom Query"
     ])
     
@@ -364,6 +380,263 @@ def main():
             )
     
     with tab4:
+        st.subheader("🚨 Invoices on Hold - Error Pattern Analysis")
+        st.markdown("Drill-down by integration error patterns to identify and resolve holds")
+        
+        # Filter for invoices on hold
+        hold_invoices = filtered_df[filtered_df['Status'] == 'Hold'].copy()
+        
+        if hold_invoices.empty:
+            st.success("🎉 No invoices currently on hold!")
+            st.info("All invoices are either approved or in progress.")
+        else:
+            # Summary metrics
+            col1, col2, col3 = st.columns(3)
+            with col1:
+                st.metric("Total on Hold", len(hold_invoices))
+            with col2:
+                hold_amount = hold_invoices['Total_Amount__c'].sum()
+                st.metric("Amount on Hold", f"${hold_amount:,.2f}")
+            with col3:
+                avg_hold_days = hold_invoices['Days_Pending_Approval__c'].mean()
+                st.metric("Avg Days on Hold", f"{avg_hold_days:.1f}")
+            
+            st.markdown("---")
+            
+            # Extract error patterns from Integration_Error_Message__c
+            if 'Integration_Error_Message__c' in hold_invoices.columns:
+                # Clean and extract error patterns
+                hold_invoices['Error_Pattern'] = hold_invoices['Integration_Error_Message__c'].fillna('No Error Message')
+                
+                # Extract first line or main error message
+                hold_invoices['Error_Summary'] = hold_invoices['Error_Pattern'].apply(
+                    lambda x: str(x).split('\n')[0] if pd.notna(x) else 'No Error Message'
+                )
+                
+                # Group by error pattern
+                error_groups = hold_invoices.groupby('Error_Summary').agg({
+                    'Invoice_Id': 'count',
+                    'Total_Amount__c': 'sum',
+                    'Days_Pending_Approval__c': 'mean'
+                }).reset_index()
+                error_groups.columns = ['Error Pattern', 'Invoice Count', 'Total Amount', 'Avg Days Pending']
+                error_groups = error_groups.sort_values('Invoice Count', ascending=False)
+                
+                # Display error pattern summary
+                st.subheader("📊 Error Pattern Summary")
+                
+                # Bar chart of error patterns
+                fig_errors = px.bar(
+                    error_groups.head(10),
+                    x='Invoice Count',
+                    y='Error Pattern',
+                    orientation='h',
+                    title='Top 10 Most Common Error Patterns',
+                    labels={'Invoice Count': 'Number of Invoices', 'Error Pattern': ''},
+                    color='Invoice Count',
+                    color_continuous_scale='Reds'
+                )
+                fig_errors.update_layout(height=400, yaxis={'categoryorder': 'total ascending'})
+                st.plotly_chart(fig_errors, use_container_width=True)
+                
+                st.markdown("---")
+                
+                # Drill-down section
+                st.subheader("🔍 Drill-Down by Error Pattern")
+                st.markdown("Click to expand each error pattern and see affected invoices")
+                
+                # Load integration responses
+                try:
+                    integration_responses = get_integration_responses(conn, schema_name)
+                except:
+                    integration_responses = pd.DataFrame()
+                
+                # Create expandable sections for each error pattern
+                for idx, row in error_groups.iterrows():
+                    error_pattern = row['Error Pattern']
+                    invoice_count = row['Invoice Count']
+                    total_amt = row['Total Amount']
+                    
+                    with st.expander(f"🔴 {error_pattern[:100]}... ({invoice_count} invoices, ${total_amt:,.2f})"):
+                        # Filter invoices for this error pattern
+                        pattern_invoices = hold_invoices[hold_invoices['Error_Summary'] == error_pattern]
+                        
+                        # Display summary
+                        st.markdown(f"**Full Error Message:**")
+                        st.text_area(
+                            "Error Details",
+                            value=error_pattern,
+                            height=100,
+                            key=f"error_{idx}",
+                            label_visibility="collapsed"
+                        )
+                        
+                        st.markdown(f"**Affected Invoices ({len(pattern_invoices)}):**")
+                        
+                        # Display invoices in a table
+                        display_cols = ['Invoice_Name', 'Vendor__Name', 'Total_Amount__c', 
+                                       'Days_Pending_Approval__c', 'Invoice_Date__c', 'State__c']
+                        available_cols = [col for col in display_cols if col in pattern_invoices.columns]
+                        
+                        pattern_display = pattern_invoices[available_cols].copy()
+                        if 'Invoice_Date__c' in pattern_display.columns:
+                            pattern_display['Invoice_Date__c'] = pd.to_datetime(
+                                pattern_display['Invoice_Date__c']
+                            ).dt.strftime('%Y-%m-%d')
+                        
+                        # Create clickable invoice rows with drill-down
+                        st.markdown("---")
+                        st.markdown(f"**📋 Click on any invoice to see details:**")
+                        
+                        # Display each invoice as an expandable row
+                        for inv_idx, invoice_row in pattern_invoices.iterrows():
+                            invoice_id = invoice_row['Invoice_Id']
+                            invoice_name = invoice_row.get('Invoice_Name', invoice_id)
+                            vendor = invoice_row.get('Vendor__Name', 'N/A')
+                            amount = invoice_row.get('Total_Amount__c', 0)
+                            days_pending = invoice_row.get('Days_Pending_Approval__c', 0)
+                            
+                            # Create expandable section for each invoice
+                            with st.expander(f"📄 {invoice_name} | {vendor} | ${amount:,.2f} | {days_pending:.0f} days pending"):
+                                # Show basic invoice info
+                                col1, col2, col3 = st.columns(3)
+                                with col1:
+                                    st.markdown(f"**Invoice ID:** `{invoice_id}`")
+                                    if 'Invoice_Date__c' in invoice_row:
+                                        inv_date = pd.to_datetime(invoice_row['Invoice_Date__c']).strftime('%Y-%m-%d')
+                                        st.markdown(f"**Invoice Date:** {inv_date}")
+                                with col2:
+                                    st.markdown(f"**Vendor:** {vendor}")
+                                    if 'State__c' in invoice_row:
+                                        st.markdown(f"**State:** {invoice_row['State__c']}")
+                                with col3:
+                                    st.markdown(f"**Amount:** ${amount:,.2f}")
+                                    st.markdown(f"**Days Pending:** {days_pending:.0f}")
+                                
+                                st.markdown("---")
+                                
+                                # Drill-down 1: Invoice Line Details
+                                with st.expander("📋 **Invoice Line Items**", expanded=True):
+                                    if not invoice_lines_df.empty:
+                                        invoice_lines = invoice_lines_df[
+                                            invoice_lines_df['Invoice_Id'] == invoice_id
+                                        ]
+                                        
+                                        if not invoice_lines.empty:
+                                            line_display_cols = ['Invoice_Line_Number__c', 'Invoice_Amount__c', 
+                                                                 'Invoice_Status__c', 'Cost_Category_Name__c',
+                                                                 'sitetracker__Quantity__c', 'sitetracker__Unit_Price__c']
+                                            available_line_cols = [col for col in line_display_cols if col in invoice_lines.columns]
+                                            
+                                            # Format and display
+                                            line_display = invoice_lines[available_line_cols].copy()
+                                            st.dataframe(
+                                                line_display,
+                                                use_container_width=True,
+                                                hide_index=True
+                                            )
+                                            
+                                            # Summary
+                                            total_lines = len(invoice_lines)
+                                            total_line_amount = invoice_lines['Invoice_Amount__c'].sum() if 'Invoice_Amount__c' in invoice_lines.columns else 0
+                                            st.caption(f"📊 Total: {total_lines} line items | ${total_line_amount:,.2f}")
+                                        else:
+                                            st.info("No line items found for this invoice")
+                                    else:
+                                        st.warning("Invoice lines data not loaded")
+                                
+                                # Drill-down 2: Integration Response Details
+                                with st.expander("🔗 **Integration Response Details**", expanded=True):
+                                    if not integration_responses.empty:
+                                        invoice_response = integration_responses[
+                                            integration_responses['Invoice_Id'] == invoice_id
+                                        ]
+                                        
+                                        if not invoice_response.empty:
+                                            # Get all response fields
+                                            operation = invoice_response['Operation__c'].iloc[0] if 'Operation__c' in invoice_response.columns else 'N/A'
+                                            error_msg = invoice_response['Error_Message__c'].iloc[0] if 'Error_Message__c' in invoice_response.columns else 'N/A'
+                                            infinium_request = invoice_response['Infinium_Request__c'].iloc[0] if 'Infinium_Request__c' in invoice_response.columns else 'N/A'
+                                            infinium_response = invoice_response['Infinium_Response__c'].iloc[0] if 'Infinium_Response__c' in invoice_response.columns else 'N/A'
+                                            
+                                            # Display operation and error
+                                            col1, col2 = st.columns(2)
+                                            with col1:
+                                                st.markdown(f"**Operation:** `{operation}`")
+                                            with col2:
+                                                st.markdown(f"**Error Message:** {error_msg}")
+                                            
+                                            st.markdown("---")
+                                            
+                                            # Display Infinium Request
+                                            st.markdown("**📤 Infinium Request:**")
+                                            try:
+                                                import json
+                                                request_json = json.loads(str(infinium_request))
+                                                st.json(request_json)
+                                            except:
+                                                st.text_area(
+                                                    "Raw Request",
+                                                    value=str(infinium_request),
+                                                    height=150,
+                                                    key=f"request_{idx}_{inv_idx}",
+                                                    label_visibility="collapsed"
+                                                )
+                                            
+                                            # Display Infinium Response
+                                            st.markdown("**📥 Infinium Response:**")
+                                            try:
+                                                import json
+                                                response_json = json.loads(str(infinium_response))
+                                                st.json(response_json)
+                                            except:
+                                                st.text_area(
+                                                    "Raw Response",
+                                                    value=str(infinium_response),
+                                                    height=150,
+                                                    key=f"response_{idx}_{inv_idx}",
+                                                    label_visibility="collapsed"
+                                                )
+                                        else:
+                                            st.warning("⚠️ No integration response found for this invoice")
+                                            st.info("This invoice may not have been processed through the integration system yet.")
+                                    else:
+                                        st.warning("Integration responses data not loaded")
+                                
+                                # Download button for this specific invoice
+                                invoice_csv = invoice_row.to_frame().T.to_csv(index=False)
+                                st.download_button(
+                                    label="📥 Download Invoice Data",
+                                    data=invoice_csv,
+                                    file_name=f"invoice_{invoice_id}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+                                    mime="text/csv",
+                                    key=f"download_inv_{idx}_{inv_idx}"
+                                )
+                        
+                        # Download button for this error pattern
+                        csv_pattern = pattern_invoices.to_csv(index=False)
+                        st.download_button(
+                            label=f"📥 Download Invoices for this Error Pattern",
+                            data=csv_pattern,
+                            file_name=f"error_pattern_{idx}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+                            mime="text/csv",
+                            key=f"download_{idx}"
+                        )
+                
+                # Overall download for all hold invoices
+                st.markdown("---")
+                csv_all_holds = hold_invoices.to_csv(index=False)
+                st.download_button(
+                    label="📥 Download All Invoices on Hold",
+                    data=csv_all_holds,
+                    file_name=f"all_holds_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+                    mime="text/csv"
+                )
+            else:
+                st.warning("Integration_Error_Message__c column not found in data")
+                st.dataframe(hold_invoices, use_container_width=True)
+    
+    with tab5:
         st.subheader("Custom SQL Query Tool")
         st.info("Execute custom queries against your Databricks tables")
         
