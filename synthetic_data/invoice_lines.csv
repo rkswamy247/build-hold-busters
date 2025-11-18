@@ -1,0 +1,53 @@
+Invoice_Line_Id,Invoice_Id,Invoice_Line_Number__c,Invoice_Amount__c,Invoice_Status__c,Cost_Category_Name__c,sitetracker__Quantity__c,sitetracker__Unit_Price__c,Description__c
+a0H37c85814014f4e6,INV-SYN-43622,1,11419.2,Review Required,Materials - Fiber Cable,17,671.72,Line item 1 for Synthetic_PO_15
+a0He3f7dd03ec75473,INV-SYN-43622,2,4384.97,Pending,Materials - Hardware,41,106.95,Line item 2 for Synthetic_PO_15
+a0H3c809ff57b594f4,INV-SYN-43622,3,6231.31,Approved,Materials - Hardware,21,296.73,Line item 3 for Synthetic_PO_15
+a0H578c787a200943e,INV-SYN-43622,4,4679.18,Pending,Services - Project Management,5,935.84,Line item 4 for Synthetic_PO_15
+a0H828519916ca94b0,INV-SYN-43622,5,2763.06,Pending,Labor - Installation,54,51.17,Line item 5 for Synthetic_PO_15
+a0Hac4ed6b9799b4ac,INV-SYN-43622,6,5731.409999999994,Review Required,Materials - Fiber Cable,20,286.57,Line item 6 for Synthetic_PO_15
+a0Hdca220837f0b4f6,INV-SYN-93238,1,15184.26,Pending,Services - Consulting,42,361.53,Line item 1 for Synthetic_PO_15
+a0Hf39684f94efe48a,INV-SYN-93238,2,9279.9,Approved,Materials - Hardware,69,134.49,Line item 2 for Synthetic_PO_15
+a0Hebb6f4a19ec8465,INV-SYN-93238,3,3591.93,Approved,Labor - Installation,4,897.98,Line item 3 for Synthetic_PO_15
+a0Hddd7955690424d4,INV-SYN-93238,4,11536.189999999997,Approved,Labor - Engineering,59,195.53,Line item 4 for Synthetic_PO_15
+a0He23c69139a8f44d,INV-SYN-13843,1,18323.97,Approved,Materials - Network Equipment,72,254.5,Line item 1 for Synthetic_PO_15
+a0H034f2551b0ae4e7,INV-SYN-13843,2,11188.41,Pending,Materials - Network Equipment,86,130.1,Line item 2 for Synthetic_PO_15
+a0He3eb4359ff3a404,INV-SYN-13843,3,2553.31,Review Required,Materials - Hardware,19,134.38,Line item 3 for Synthetic_PO_15
+a0H2652ae433c90403,INV-SYN-13843,4,2473.11,Pending,Labor - Engineering,47,52.62,Line item 4 for Synthetic_PO_15
+a0H81d963e216a34a4,INV-SYN-13843,5,6157.99,Pending,Services - Project Management,54,114.04,Line item 5 for Synthetic_PO_15
+a0Ha6d93acf7abb4d6,INV-SYN-13843,6,9269.669999999996,Pending,Services - Project Management,49,189.18,Line item 6 for Synthetic_PO_15
+a0H0422ba72827e4dc,INV-SYN-86284,1,14571.53,Approved,Materials - Network Equipment,100,145.72,Line item 1 for Synthetic_PO_15
+a0Habcc1dc78ef84b9,INV-SYN-86284,2,5874.18,Review Required,Labor - Engineering,99,59.34,Line item 2 for Synthetic_PO_15
+a0H6d5f8e9287184df,INV-SYN-86284,3,4257.96,Approved,Materials - Hardware,95,44.82,Line item 3 for Synthetic_PO_15
+a0H875b5236c206475,INV-SYN-86284,4,4603.61,Approved,Labor - Installation,86,53.53,Line item 4 for Synthetic_PO_15
+a0H3194484a3002484,INV-SYN-86284,5,1666.18,Review Required,Services - Consulting,43,38.75,Line item 5 for Synthetic_PO_15
+a0H9a2eb1c269a74a9,INV-SYN-86284,6,1849.99,Review Required,Services - Consulting,37,50.0,Line item 6 for Synthetic_PO_15
+a0Hd5610558424b48a,INV-SYN-86284,7,900.03,Approved,Materials - Network Equipment,2,450.01,Line item 7 for Synthetic_PO_15
+a0H91d85666b2484ac,INV-SYN-86284,8,3367.9900000000034,Pending,Services - Project Management,66,51.03,Line item 8 for Synthetic_PO_15
+a0H48cabe55acfa45d,INV-SYN-58902,1,25573.55,Pending,Materials - Fiber Cable,82,311.87,Line item 1 for Synthetic_PO_15
+a0H09a7fa42d7d149a,INV-SYN-58902,2,5246.32,Review Required,Materials - Network Equipment,79,66.41,Line item 2 for Synthetic_PO_15
+a0H3df3383cdee146a,INV-SYN-58902,3,37811.71,Pending,Services - Project Management,69,548.0,Line item 3 for Synthetic_PO_15
+a0H3fea7c8c22a4488,INV-SYN-17337,1,1655.33,Approved,Materials - Hardware,73,22.68,Line item 1 for Synthetic_PO_15
+a0H2886c14726164c1,INV-SYN-17337,2,1760.49,Approved,Materials - Hardware,44,40.01,Line item 2 for Synthetic_PO_15
+a0H1d9a186b655540b,INV-SYN-17337,3,1632.55,Review Required,Services - Consulting,7,233.22,Line item 3 for Synthetic_PO_15
+a0H5d9357c6c3b34c8,INV-SYN-17337,4,1234.36,Approved,Materials - Hardware,57,21.66,Line item 4 for Synthetic_PO_15
+a0Hbdec69cdab994d1,INV-SYN-17337,5,1939.7000000000005,Review Required,Services - Project Management,23,84.33,Line item 5 for Synthetic_PO_15
+a0H2a91020d31624bd,INV-SYN-49718,1,10248.91,Pending,Materials - Fiber Cable,76,134.85,Line item 1 for Synthetic_PO_15
+a0H6a85704965a243d,INV-SYN-49718,2,3302.41,Pending,Materials - Hardware,68,48.56,Line item 2 for Synthetic_PO_15
+a0H7c43bce00ff2480,INV-SYN-49718,3,6008.49,Pending,Services - Project Management,64,93.88,Line item 3 for Synthetic_PO_15
+a0H44077fcc2f7f4a5,INV-SYN-49718,4,6616.22,Review Required,Labor - Engineering,83,79.71,Line item 4 for Synthetic_PO_15
+a0He595817e9f9c463,INV-SYN-49718,5,2708.58,Approved,Materials - Network Equipment,18,150.48,Line item 5 for Synthetic_PO_15
+a0H5bc610d26c3d4e0,INV-SYN-49718,6,2269.31,Approved,Labor - Engineering,68,33.37,Line item 6 for Synthetic_PO_15
+a0H07f90333199b43e,INV-SYN-49718,7,1012.99,Pending,Services - Consulting,97,10.44,Line item 7 for Synthetic_PO_15
+a0Hba07bae7df2f4c7,INV-SYN-49718,8,6221.840000000002,Pending,Materials - Fiber Cable,17,365.99,Line item 8 for Synthetic_PO_15
+a0H7c916fca1968403,INV-SYN-52829,1,17840.81,Review Required,Services - Consulting,89,200.46,Line item 1 for Synthetic_PO_15
+a0H425b42b240894aa,INV-SYN-52829,2,10543.05,Pending,Materials - Network Equipment,19,554.9,Line item 2 for Synthetic_PO_15
+a0Hf2e2c495217f47d,INV-SYN-52829,3,17222.32,Approved,Materials - Fiber Cable,9,1913.59,Line item 3 for Synthetic_PO_15
+a0H7364d6fd260b4a3,INV-SYN-64264,1,20464.11,Approved,Services - Project Management,23,889.74,Line item 1 for Synthetic_PO_15
+a0H9cb42e196c8c426,INV-SYN-64264,2,18453.83,Approved,Materials - Network Equipment,30,615.13,Line item 2 for Synthetic_PO_15
+a0H77e6b81e0783491,INV-SYN-64264,3,4844.12,Review Required,Services - Consulting,11,440.37,Line item 3 for Synthetic_PO_15
+a0H5058d49102d546f,INV-SYN-64264,4,24315.479999999992,Approved,Materials - Network Equipment,73,333.09,Line item 4 for Synthetic_PO_15
+a0H142ace594c51407,INV-SYN-65810,1,7982.12,Pending,Services - Project Management,77,103.66,Line item 1 for Synthetic_PO_15
+a0Hc3f1aa46bb6140d,INV-SYN-65810,2,8083.37,Review Required,Materials - Hardware,92,87.86,Line item 2 for Synthetic_PO_15
+a0H8bd58b6db975499,INV-SYN-65810,3,8931.57,Review Required,Materials - Hardware,72,124.05,Line item 3 for Synthetic_PO_15
+a0Hc3d289b18e7e434,INV-SYN-65810,4,6087.59,Review Required,Services - Consulting,29,209.92,Line item 4 for Synthetic_PO_15
+a0He2f0a65581ed4f6,INV-SYN-65810,5,43082.93000000001,Approved,Services - Project Management,13,3314.07,Line item 5 for Synthetic_PO_15

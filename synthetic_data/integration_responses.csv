@@ -1,0 +1,135 @@
+Intg_Resp_Id,Invoice_Id,Infinium_Request__c,Infinium_Response__c,Error_Message__c,Operation__c
+a0Icf6fd9babafb482,INV-SYN-13843,"{
+  ""vendor_id"": ""VEND-12345"",
+  ""vendor_name"": ""Synthetic Tech Partners 11"",
+  ""po_number"": ""Synthetic_PO_15"",
+  ""invoice_id"": ""INV-SYN-13843"",
+  ""amount"": 68042.21,
+  ""currency"": ""USD"",
+  ""invoice_date"": ""2025-11-18"",
+  ""operation"": ""CREATE""
+}","{
+  ""status"": ""success"",
+  ""code"": 200,
+  ""message"": ""Invoice processed successfully"",
+  ""infinium_invoice_number"": ""INF-354419"",
+  ""timestamp"": ""2025-11-18T09:32:00.073725"",
+  ""invoice_id"": ""INV-SYN-13843""
+}",,CREATE
+a0I8b99792e0e8647f,INV-SYN-86284,"{
+  ""vendor_id"": ""VEND-12345"",
+  ""vendor_name"": ""Synthetic Tech Partners 11"",
+  ""po_number"": ""Synthetic_PO_15"",
+  ""invoice_id"": ""INV-SYN-86284"",
+  ""amount"": 15547.9,
+  ""currency"": ""USD"",
+  ""invoice_date"": ""2025-11-18"",
+  ""operation"": ""CREATE""
+}","{
+  ""status"": ""success"",
+  ""code"": 200,
+  ""message"": ""Invoice processed successfully"",
+  ""infinium_invoice_number"": ""INF-788556"",
+  ""timestamp"": ""2025-11-18T09:32:00.074231"",
+  ""invoice_id"": ""INV-SYN-86284""
+}",,CREATE
+a0I4920be315c8f417,INV-SYN-58902,"{
+  ""vendor_id"": ""VEND-12345"",
+  ""vendor_name"": ""Synthetic Tech Partners 11"",
+  ""po_number"": ""Synthetic_PO_15"",
+  ""invoice_id"": ""INV-SYN-58902"",
+  ""amount"": 42243.23,
+  ""currency"": ""USD"",
+  ""invoice_date"": ""2025-11-18"",
+  ""operation"": ""CREATE""
+}","{
+  ""status"": ""success"",
+  ""code"": 200,
+  ""message"": ""Invoice processed successfully"",
+  ""infinium_invoice_number"": ""INF-653806"",
+  ""timestamp"": ""2025-11-18T09:32:00.074667"",
+  ""invoice_id"": ""INV-SYN-58902""
+}",,CREATE
+a0Ib4b787109cb5431,INV-SYN-17337,"{
+  ""vendor_id"": ""VEND-12345"",
+  ""vendor_name"": ""Synthetic Tech Partners 11"",
+  ""po_number"": ""Synthetic_PO_15"",
+  ""invoice_id"": ""INV-SYN-17337"",
+  ""amount"": 9040.36,
+  ""currency"": ""USD"",
+  ""invoice_date"": ""2025-11-18"",
+  ""operation"": ""CREATE""
+}","{
+  ""status"": ""success"",
+  ""code"": 200,
+  ""message"": ""Invoice processed successfully"",
+  ""infinium_invoice_number"": ""INF-604806"",
+  ""timestamp"": ""2025-11-18T09:32:00.075130"",
+  ""invoice_id"": ""INV-SYN-17337""
+}",,CREATE
+a0I60c6d97d1dfd45f,INV-SYN-49718,"{
+  ""vendor_id"": ""VEND-12345"",
+  ""vendor_name"": ""Synthetic Tech Partners 11"",
+  ""po_number"": ""Synthetic_PO_15"",
+  ""invoice_id"": ""INV-SYN-49718"",
+  ""amount"": 47061.34,
+  ""currency"": ""USD"",
+  ""invoice_date"": ""2025-11-18"",
+  ""operation"": ""UPDATE""
+}","{
+  ""status"": ""success"",
+  ""code"": 200,
+  ""message"": ""Invoice processed successfully"",
+  ""infinium_invoice_number"": ""INF-477211"",
+  ""timestamp"": ""2025-11-18T09:32:00.075668"",
+  ""invoice_id"": ""INV-SYN-49718""
+}",,UPDATE
+a0I70debafa89984db,INV-SYN-52829,"{
+  ""vendor_id"": ""VEND-12345"",
+  ""vendor_name"": ""Synthetic Tech Partners 11"",
+  ""po_number"": ""Synthetic_PO_15"",
+  ""invoice_id"": ""INV-SYN-52829"",
+  ""amount"": 23542.18,
+  ""currency"": ""USD"",
+  ""invoice_date"": ""2025-11-18"",
+  ""operation"": ""UPDATE""
+}","{
+  ""status"": ""success"",
+  ""code"": 200,
+  ""message"": ""Invoice processed successfully"",
+  ""infinium_invoice_number"": ""INF-961142"",
+  ""timestamp"": ""2025-11-18T09:32:00.076096"",
+  ""invoice_id"": ""INV-SYN-52829""
+}",,UPDATE
+a0I0d7bef7270524a0,INV-SYN-64264,"{
+  ""vendor_id"": ""VEND-12345"",
+  ""vendor_name"": ""Synthetic Tech Partners 11"",
+  ""po_number"": ""Synthetic_PO_15"",
+  ""invoice_id"": ""INV-SYN-64264"",
+  ""amount"": 27105.2,
+  ""currency"": ""USD"",
+  ""invoice_date"": ""2025-11-18"",
+  ""operation"": ""VALIDATE""
+}","{
+  ""status"": ""error"",
+  ""code"": 400,
+  ""message"": ""Vendor validation failed: Vendor ID not found in Infinium system"",
+  ""timestamp"": ""2025-11-18T09:32:00.076522"",
+  ""invoice_id"": ""INV-SYN-64264""
+}",Vendor validation failed: Vendor ID not found in Infinium system,VALIDATE
+a0Ibaf4bf3fc80a4fe,INV-SYN-65810,"{
+  ""vendor_id"": ""VEND-12345"",
+  ""vendor_name"": ""Synthetic Tech Partners 11"",
+  ""po_number"": ""Synthetic_PO_15"",
+  ""invoice_id"": ""INV-SYN-65810"",
+  ""amount"": 40000.3,
+  ""currency"": ""USD"",
+  ""invoice_date"": ""2025-11-18"",
+  ""operation"": ""VALIDATE""
+}","{
+  ""status"": ""error"",
+  ""code"": 422,
+  ""message"": ""Approval limit exceeded: Invoice amount requires director approval"",
+  ""timestamp"": ""2025-11-18T09:32:00.077107"",
+  ""invoice_id"": ""INV-SYN-65810""
+}",Approval limit exceeded: Invoice amount requires director approval,VALIDATE
