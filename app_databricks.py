@@ -494,97 +494,115 @@ def main():
                                 pattern_display['Invoice_Date__c']
                             ).dt.strftime('%Y-%m-%d')
                         
-                        # Create clickable invoice rows with drill-down
+                        # Display invoices as a table
                         st.markdown("---")
-                        st.markdown(f"**📋 Click on any invoice to see details:**")
+                        st.markdown(f"**📋 Invoices (Click a row to view details):**")
                         
-                        # Display each invoice as an expandable row
-                        for inv_idx, invoice_row in pattern_invoices.iterrows():
-                            invoice_id = invoice_row['Invoice_Id']
-                            invoice_name = invoice_row.get('Invoice_Name', invoice_id)
-                            vendor = invoice_row.get('Vendor__Name', 'N/A')
-                            amount = invoice_row.get('Total_Amount__c', 0)
-                            days_since_approval = invoice_row.get('Days_Since_Approval', 0)
+                        # Prepare display dataframe
+                        display_cols = ['Invoice_Name', 'Vendor__Name', 'Total_Amount__c', 
+                                       'Days_Since_Approval', 'Invoice_Date__c', 'State__c']
+                        available_cols = [col for col in display_cols if col in pattern_invoices.columns]
+                        
+                        table_display = pattern_invoices[available_cols + ['Invoice_Id']].copy()
+                        table_display = table_display.reset_index(drop=True)
+                        
+                        # Format columns for display
+                        if 'Invoice_Date__c' in table_display.columns:
+                            table_display['Invoice_Date__c'] = pd.to_datetime(
+                                table_display['Invoice_Date__c']
+                            ).dt.strftime('%Y-%m-%d')
+                        
+                        # Rename columns for display
+                        column_renames = {
+                            'Invoice_Name': 'Invoice',
+                            'Vendor__Name': 'Vendor',
+                            'Total_Amount__c': 'Amount ($)',
+                            'Days_Since_Approval': 'Days Since Approval',
+                            'Invoice_Date__c': 'Invoice Date',
+                            'State__c': 'State'
+                        }
+                        table_display = table_display.rename(columns=column_renames)
+                        
+                        # Display the table
+                        st.dataframe(
+                            table_display.drop('Invoice_Id', axis=1).style.format({
+                                'Amount ($)': '${:,.2f}',
+                                'Days Since Approval': '{:.0f}'
+                            }),
+                            use_container_width=True,
+                            hide_index=False
+                        )
+                        
+                        # Invoice selector for drill-down
+                        st.markdown("---")
+                        selected_invoice_name = st.selectbox(
+                            "🔎 Select an invoice to view line items and integration response:",
+                            options=['-- Select an Invoice --'] + table_display['Invoice'].tolist(),
+                            key=f"invoice_selector_{idx}"
+                        )
+                        
+                        if selected_invoice_name and selected_invoice_name != '-- Select an Invoice --':
+                            # Get the selected invoice data
+                            selected_idx = table_display[table_display['Invoice'] == selected_invoice_name].index[0]
+                            invoice_id = table_display.loc[selected_idx, 'Invoice_Id']
+                            invoice_row = pattern_invoices[pattern_invoices['Invoice_Id'] == invoice_id].iloc[0]
                             
-                            # Create expandable section for each invoice
-                            with st.expander(f"📄 {invoice_name} | {vendor} | ${amount:,.2f} | {days_since_approval:.0f} days since approval"):
-                                # Show basic invoice info
-                                col1, col2, col3 = st.columns(3)
-                                with col1:
-                                    st.markdown(f"**Invoice ID:** `{invoice_id}`")
-                                    if 'Invoice_Date__c' in invoice_row:
-                                        inv_date = pd.to_datetime(invoice_row['Invoice_Date__c']).strftime('%Y-%m-%d')
-                                        st.markdown(f"**Invoice Date:** {inv_date}")
-                                with col2:
-                                    st.markdown(f"**Vendor:** {vendor}")
-                                    if 'State__c' in invoice_row:
-                                        st.markdown(f"**State:** {invoice_row['State__c']}")
-                                with col3:
-                                    st.markdown(f"**Amount:** ${amount:,.2f}")
-                                    if 'Approval_Date__c' in invoice_row and pd.notna(invoice_row['Approval_Date__c']):
-                                        approval_date = pd.to_datetime(invoice_row['Approval_Date__c']).strftime('%Y-%m-%d')
-                                        st.markdown(f"**Approval Date:** {approval_date}")
-                                        st.markdown(f"**Days Since Approval:** {days_since_approval:.0f}")
-                                    else:
-                                        st.markdown(f"**Approval Date:** Not Available")
-                                
-                                st.markdown("---")
-                                
-                                # Drill-down 1: Invoice Line Details
-                                with st.expander("📋 **Invoice Line Items**", expanded=True):
-                                    if not invoice_lines_df.empty:
-                                        invoice_lines = invoice_lines_df[
-                                            invoice_lines_df['Invoice_Id'] == invoice_id
-                                        ]
+                            # Show invoice summary
+                            st.info(f"📄 **{selected_invoice_name}** | Amount: ${invoice_row.get('Total_Amount__c', 0):,.2f}")
+                            
+                            # Create two columns for drill-downs
+                            col1, col2 = st.columns(2)
+                            
+                            with col1:
+                                st.markdown("### 📋 Invoice Line Items")
+                                if not invoice_lines_df.empty:
+                                    invoice_lines = invoice_lines_df[
+                                        invoice_lines_df['Invoice_Id'] == invoice_id
+                                    ]
+                                    
+                                    if not invoice_lines.empty:
+                                        line_display_cols = ['Invoice_Line_Number__c', 'Invoice_Amount__c', 
+                                                             'Invoice_Status__c', 'Cost_Category_Name__c',
+                                                             'sitetracker__Quantity__c', 'sitetracker__Unit_Price__c']
+                                        available_line_cols = [col for col in line_display_cols if col in invoice_lines.columns]
                                         
-                                        if not invoice_lines.empty:
-                                            line_display_cols = ['Invoice_Line_Number__c', 'Invoice_Amount__c', 
-                                                                 'Invoice_Status__c', 'Cost_Category_Name__c',
-                                                                 'sitetracker__Quantity__c', 'sitetracker__Unit_Price__c']
-                                            available_line_cols = [col for col in line_display_cols if col in invoice_lines.columns]
-                                            
-                                            # Format and display
-                                            line_display = invoice_lines[available_line_cols].copy()
-                                            st.dataframe(
-                                                line_display,
-                                                use_container_width=True,
-                                                hide_index=True
-                                            )
-                                            
-                                            # Summary
-                                            total_lines = len(invoice_lines)
-                                            total_line_amount = invoice_lines['Invoice_Amount__c'].sum() if 'Invoice_Amount__c' in invoice_lines.columns else 0
-                                            st.caption(f"📊 Total: {total_lines} line items | ${total_line_amount:,.2f}")
-                                        else:
-                                            st.info("No line items found for this invoice")
-                                    else:
-                                        st.warning("Invoice lines data not loaded")
-                                
-                                # Drill-down 2: Integration Response Details
-                                with st.expander("🔗 **Integration Response Details**", expanded=True):
-                                    if not integration_responses.empty:
-                                        invoice_response = integration_responses[
-                                            integration_responses['Invoice_Id'] == invoice_id
-                                        ]
+                                        # Format and display
+                                        line_display = invoice_lines[available_line_cols].copy()
+                                        st.dataframe(
+                                            line_display,
+                                            use_container_width=True,
+                                            hide_index=True
+                                        )
                                         
-                                        if not invoice_response.empty:
-                                            # Get all response fields
-                                            operation = invoice_response['Operation__c'].iloc[0] if 'Operation__c' in invoice_response.columns else 'N/A'
-                                            error_msg = invoice_response['Error_Message__c'].iloc[0] if 'Error_Message__c' in invoice_response.columns else 'N/A'
-                                            infinium_request = invoice_response['Infinium_Request__c'].iloc[0] if 'Infinium_Request__c' in invoice_response.columns else 'N/A'
-                                            infinium_response = invoice_response['Infinium_Response__c'].iloc[0] if 'Infinium_Response__c' in invoice_response.columns else 'N/A'
-                                            
-                                            # Display operation and error
-                                            col1, col2 = st.columns(2)
-                                            with col1:
-                                                st.markdown(f"**Operation:** `{operation}`")
-                                            with col2:
-                                                st.markdown(f"**Error Message:** {error_msg}")
-                                            
-                                            st.markdown("---")
-                                            
-                                            # Display Infinium Request
-                                            st.markdown("**📤 Infinium Request:**")
+                                        # Summary
+                                        total_lines = len(invoice_lines)
+                                        total_line_amount = invoice_lines['Invoice_Amount__c'].sum() if 'Invoice_Amount__c' in invoice_lines.columns else 0
+                                        st.caption(f"📊 {total_lines} line items | Total: ${total_line_amount:,.2f}")
+                                    else:
+                                        st.info("No line items found")
+                                else:
+                                    st.warning("Invoice lines data not loaded")
+                            
+                            with col2:
+                                st.markdown("### 🔗 Integration Response")
+                                if not integration_responses.empty:
+                                    invoice_response = integration_responses[
+                                        integration_responses['Invoice_Id'] == invoice_id
+                                    ]
+                                    
+                                    if not invoice_response.empty:
+                                        # Get all response fields
+                                        operation = invoice_response['Operation__c'].iloc[0] if 'Operation__c' in invoice_response.columns else 'N/A'
+                                        error_msg = invoice_response['Error_Message__c'].iloc[0] if 'Error_Message__c' in invoice_response.columns else 'N/A'
+                                        infinium_request = invoice_response['Infinium_Request__c'].iloc[0] if 'Infinium_Request__c' in invoice_response.columns else 'N/A'
+                                        infinium_response = invoice_response['Infinium_Response__c'].iloc[0] if 'Infinium_Response__c' in invoice_response.columns else 'N/A'
+                                        
+                                        # Display operation and error
+                                        st.markdown(f"**Operation:** `{operation}`")
+                                        st.markdown(f"**Error:** {error_msg[:100]}...")
+                                        
+                                        # Expandable request/response
+                                        with st.expander("📤 Infinium Request"):
                                             try:
                                                 import json
                                                 request_json = json.loads(str(infinium_request))
@@ -594,12 +612,11 @@ def main():
                                                     "Raw Request",
                                                     value=str(infinium_request),
                                                     height=150,
-                                                    key=f"request_{idx}_{inv_idx}",
+                                                    key=f"request_{idx}",
                                                     label_visibility="collapsed"
                                                 )
-                                            
-                                            # Display Infinium Response
-                                            st.markdown("**📥 Infinium Response:**")
+                                        
+                                        with st.expander("📥 Infinium Response"):
                                             try:
                                                 import json
                                                 response_json = json.loads(str(infinium_response))
@@ -609,24 +626,13 @@ def main():
                                                     "Raw Response",
                                                     value=str(infinium_response),
                                                     height=150,
-                                                    key=f"response_{idx}_{inv_idx}",
+                                                    key=f"response_{idx}",
                                                     label_visibility="collapsed"
                                                 )
-                                        else:
-                                            st.warning("⚠️ No integration response found for this invoice")
-                                            st.info("This invoice may not have been processed through the integration system yet.")
                                     else:
-                                        st.warning("Integration responses data not loaded")
-                                
-                                # Download button for this specific invoice
-                                invoice_csv = invoice_row.to_frame().T.to_csv(index=False)
-                                st.download_button(
-                                    label="📥 Download Invoice Data",
-                                    data=invoice_csv,
-                                    file_name=f"invoice_{invoice_id}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
-                                    mime="text/csv",
-                                    key=f"download_inv_{idx}_{inv_idx}"
-                                )
+                                        st.warning("⚠️ No integration response found")
+                                else:
+                                    st.warning("Integration responses data not loaded")
                         
                         # Download button for this error pattern
                         csv_pattern = pattern_invoices.to_csv(index=False)
