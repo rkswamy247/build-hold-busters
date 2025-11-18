@@ -697,19 +697,20 @@ def main():
                             # Show invoice summary
                             st.info(f"📄 **{selected_invoice_name}** | Amount: ${invoice_row.get('Total_Amount__c', 0):,.2f}")
                             
-                            # Check if this is a PO amount error - flexible pattern matching
+                            # Check if this is a PO amount error
+                            # Specific pattern: "The invoice amount is greater than the amount available on the PO"
                             error_pattern_lower = error_pattern.lower()
                             is_po_amount_error = (
-                                "amount is greater than" in error_pattern_lower and "po" in error_pattern_lower
-                            ) or (
-                                "exceeds" in error_pattern_lower and "po" in error_pattern_lower
-                            ) or (
-                                "po amount" in error_pattern_lower
+                                "invoice amount is greater than" in error_pattern_lower and 
+                                "available on the po" in error_pattern_lower
                             )
                             
-                            # Debug info
+                            # Debug info - ALWAYS show for troubleshooting
+                            st.caption(f"🔍 Error Pattern Check: '{error_pattern[:100]}'...")
+                            st.caption(f"✅ PO Amount Error Detected: {is_po_amount_error}")
+                            
                             if is_po_amount_error:
-                                st.caption(f"🔍 Detected PO amount error - 'Send to Linus' tab enabled")
+                                st.success(f"📨 'Send to Linus' tab is enabled for this invoice!")
                             
                             # Create columns for drill-downs
                             if is_po_amount_error:
