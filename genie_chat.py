@@ -8,6 +8,7 @@ import json
 from datetime import datetime
 import time
 from pathlib import Path
+import re
 
 # Persistent feedback file
 FEEDBACK_FILE = Path(".genie_feedback_memory.json")
@@ -106,6 +107,29 @@ def get_feedback_context():
     return context
 
 
+def clean_response_text(response_text):
+    """Remove system context from Genie's response if it echoes it back"""
+    if not response_text:
+        return response_text
+    
+    # Pattern to match system context (case insensitive, with various delimiters)
+    patterns = [
+        r'\[SYSTEM CONTEXT.*?End of system context.*?\]',
+        r'📝 IMPORTANT:.*?previous corrections:.*?(?=\n\n|\Z)',
+        r'SYSTEM CONTEXT.*?End of system context',
+        r'\[.*?Do not display this section.*?\]'
+    ]
+    
+    cleaned = response_text
+    for pattern in patterns:
+        cleaned = re.sub(pattern, '', cleaned, flags=re.IGNORECASE | re.DOTALL)
+    
+    # Clean up multiple newlines
+    cleaned = re.sub(r'\n{3,}', '\n\n', cleaned)
+    
+    return cleaned.strip()
+
+
 def clear_feedback_memory():
     """Clear all saved feedback"""
     try:
@@ -171,10 +195,6 @@ def ask_genie(user_question, genie_space_id):
         max_attempts = 120  # 120 seconds for complex queries
         attempt = 0
         
-        # Show simple progress indicator
-        progress_placeholder = st.empty()
-        progress_placeholder.info("⏳ Genie is thinking...")
-        
         while attempt < max_attempts:
             try:
                 message = client.genie.get_message(
@@ -192,8 +212,6 @@ def ask_genie(user_question, genie_space_id):
             status_str = str(message.status).split('.')[-1]  # Extract "COMPLETED" from "MessageStatus.COMPLETED"
             
             if status_str == "COMPLETED":
-                progress_placeholder.empty()  # Clear progress message
-                
                 # Extract response content
                 response_text = ""
                 sql_query = None
@@ -213,23 +231,46 @@ def ask_genie(user_question, genie_space_id):
                 if hasattr(message, 'content') and message.content:
                     response_text = message.content
                 
+                # Store debug info in the return dict
+                debug_info = {
+                    "has_attachments": hasattr(message, 'attachments'),
+                    "num_attachments": len(message.attachments) if hasattr(message, 'attachments') and message.attachments else 0,
+                    "attachments_details": []
+                }
+                
+                if hasattr(message, 'attachments') and message.attachments:
+                    for i, attachment in enumerate(message.attachments):
+                        att_info = {
+                            "index": i,
+                            "type": str(type(attachment)),
+                            "has_query": hasattr(attachment, 'query'),
+                            "query_attrs": dir(attachment.query) if hasattr(attachment, 'query') and attachment.query else None,
+                            "attachment_attrs": dir(attachment)
+                        }
+                        if hasattr(attachment, 'query') and attachment.query:
+                            att_info.update({
+                                "has_query_query": hasattr(attachment.query, 'query'),
+                                "has_query_result": hasattr(attachment.query, 'result'),
+                                "query_result_value": str(attachment.query.result) if hasattr(attachment.query, 'result') else None
+                            })
+                        debug_info["attachments_details"].append(att_info)
+                
                 return {
                     "text": response_text or "Response received (no text content)",
                     "sql": sql_query,
                     "genie_result": query_result,
                     "conversation_id": st.session_state.genie_conversation_id,
-                    "message_id": st.session_state.genie_message_id
+                    "message_id": st.session_state.genie_message_id,
+                    "debug_info": debug_info
                 }, None
             
             elif status_str == "FAILED":
-                progress_placeholder.empty()
                 error_msg = "Genie query failed"
                 if hasattr(message, 'error') and message.error:
                     error_msg = f"Genie error: {message.error}"
                 return None, error_msg
             
             elif status_str in ["CANCELLED", "TIMEOUT"]:
-                progress_placeholder.empty()
                 return None, f"Genie request {status_str.lower()}"
             
             # Still processing, wait and retry
@@ -237,7 +278,6 @@ def ask_genie(user_question, genie_space_id):
             attempt += 1
         
         # Timeout reached
-        progress_placeholder.empty()
         return None, f"""⏱️ Timeout after {max_attempts} seconds.
 
 This can happen if:
