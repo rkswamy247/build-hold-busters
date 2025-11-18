@@ -646,7 +646,7 @@ def main():
                         st.markdown(f"**📋 Invoices (Click a row to view details):**")
                         
                         # Prepare display dataframe
-                        display_cols = ['Invoice_Name', 'Vendor__Name', 'Total_Amount__c', 
+                        display_cols = ['Invoice_Name', 'Vendor__Name', 'PO_Name', 'Total_Amount__c', 
                                        'Days_Since_Approval', 'Invoice_Date__c', 'State__c']
                         available_cols = [col for col in display_cols if col in pattern_invoices.columns]
                         
@@ -663,6 +663,7 @@ def main():
                         column_renames = {
                             'Invoice_Name': 'Invoice',
                             'Vendor__Name': 'Vendor',
+                            'PO_Name': 'PO Name',
                             'Total_Amount__c': 'Amount ($)',
                             'Days_Since_Approval': 'Days Since Approval',
                             'Invoice_Date__c': 'Invoice Date',
