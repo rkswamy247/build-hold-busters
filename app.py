@@ -671,7 +671,7 @@ def main():
                         }
                         table_display = table_display.rename(columns=column_renames)
                         
-                        # Display the table
+                        # Display the table with clickable invoice names
                         st.dataframe(
                             table_display.drop('Invoice_Id', axis=1).style.format({
                                 'Amount ($)': '${:,.2f}',
@@ -681,15 +681,44 @@ def main():
                             hide_index=False
                         )
                         
-                        # Invoice selector for drill-down
+                        # Invoice selector for drill-down - now with clickable buttons
                         st.markdown("---")
-                        selected_invoice_name = st.selectbox(
-                            "🔎 Select an invoice to view line items and integration response:",
-                            options=['-- Select an Invoice --'] + table_display['Invoice'].tolist(),
-                            key=f"invoice_selector_{idx}"
-                        )
+                        st.markdown("**🔎 Click an invoice to view line items and integration response:**")
                         
-                        if selected_invoice_name and selected_invoice_name != '-- Select an Invoice --':
+                        # Create clickable invoice buttons in a grid layout
+                        cols_per_row = 3
+                        invoice_names = table_display['Invoice'].tolist()
+                        
+                        # Initialize session state for selected invoice if not exists
+                        session_key = f"selected_invoice_{idx}"
+                        if session_key not in st.session_state:
+                            st.session_state[session_key] = None
+                        
+                        # Display invoice buttons in rows
+                        for i in range(0, len(invoice_names), cols_per_row):
+                            cols = st.columns(cols_per_row)
+                            for j, col in enumerate(cols):
+                                if i + j < len(invoice_names):
+                                    invoice_name = invoice_names[i + j]
+                                    # Get amount for display
+                                    invoice_idx = table_display[table_display['Invoice'] == invoice_name].index[0]
+                                    amount = table_display.loc[invoice_idx, 'Amount ($)']
+                                    
+                                    with col:
+                                        # Create button that looks like a link
+                                        button_label = f"📄 {invoice_name[:30]}{'...' if len(invoice_name) > 30 else ''}\n💰 ${amount:,.0f}"
+                                        if st.button(
+                                            button_label,
+                                            key=f"invoice_btn_{idx}_{i+j}",
+                                            use_container_width=True,
+                                            type="primary" if st.session_state[session_key] == invoice_name else "secondary"
+                                        ):
+                                            st.session_state[session_key] = invoice_name
+                                            st.rerun()
+                        
+                        selected_invoice_name = st.session_state[session_key]
+                        
+                        if selected_invoice_name:
                             # Get the selected invoice data
                             selected_idx = table_display[table_display['Invoice'] == selected_invoice_name].index[0]
                             invoice_id = table_display.loc[selected_idx, 'Invoice_Id']
