@@ -1,0 +1,29 @@
+# Databricks App Configuration
+# This file configures how your Streamlit app runs in Databricks
+
+name: hold-busters-dashboard
+display_name: "Hold Busters - Invoice Analysis Dashboard"
+description: "Interactive dashboard for analyzing invoice holds and approvals with real-time data from Databricks"
+
+# Compute configuration
+compute:
+  size: small  # Options: small, medium, large (start with small, scale as needed)
+  
+# SQL Warehouse connection
+sql_warehouse:
+  id: "b1bcf72a9e8b65b8"  # Your SQL Warehouse ID
+
+# Environment variables (automatically set in Databricks Apps)
+env:
+  DATABRICKS_SERVER_HOSTNAME: "dbc-4a93b454-f17b.cloud.databricks.com"
+  DATABRICKS_HTTP_PATH: "/sql/1.0/warehouses/b1bcf72a9e8b65b8"
+  
+# App entry point
+entrypoint: "streamlit run app_databricks.py --server.port 8501 --server.address 0.0.0.0"
+
+# Python version
+python_version: "3.10"
+
+# Dependencies (will read from requirements.txt)
+# requirements_file: "requirements.txt"
+

@@ -1,0 +1,71 @@
+﻿PO_Id,PO_Name,Infinium_External_ID__c,PO_Description__c,Blanket_Release__c,Company__c,Date_Issued__c,Expiration_Date__c,LastModifiedDate,PO_Invoice_Status__c,PO_Receipt_Status__c,PO_Status__c,Vendor__Name
+PO000001,Synthetic_PO_24,EXTID000001,Global Synthetic Industries 4 - Equipment and Materials Supply - Deployment,24,1,2025-01-09 00:00:00,2025-12-31 00:00:00,2025-10-02 14:54:01,1,1,3,Global Synthetic Industries 4
+PO000002,SYN_PO_17,EXTID000002,Global Synthetic Industries 4 - Fiber Optic Installation Project - Region West,315,1,2025-01-09 00:00:00,2025-12-31 00:00:00,2025-10-02 14:54:01,1,1,3,Global Synthetic Industries 4
+PO000003,SYN_PO_29,EXTID000003,ABC Synthetic Corp 13 - Construction Services Agreement - Upgrade,103,1,2025-01-09 00:00:00,2025-12-31 00:00:00,2025-10-02 14:54:23,1,1,3,ABC Synthetic Corp 13
+PO000004,SYN_PO_50,EXTID000004,Global Synthetic Industries 4 - Professional Services Engagement - Q3 2025,,811,,2025-12-31 00:00:00,2025-06-07 16:17:40,,,1,Global Synthetic Industries 4
+PO000005,Synthetic_PO_66,EXTID000005,Synthetic Tech Partners 35 - Telecommunications Maintenance Contract - Q2 2025,131,86,2025-01-09 00:00:00,2025-12-31 00:00:00,2025-07-01 13:49:55,1,1,3,Synthetic Tech Partners 35
+PO000006,Synthetic_PO_21,EXTID000006,Synthetic Tech Partners 5 - Fiber Optic Installation Project - Phase 2,441,1,2025-01-09 00:00:00,2025-12-31 00:00:00,2025-10-02 14:54:23,1,1,3,Synthetic Tech Partners 5
+PO000007,PO_Synthetic_61,EXTID000007,Synthetic Solutions Group 33 - Site Development and Build Out - Q2 2025,41,441,2025-01-23 00:00:00,2025-12-31 00:00:00,2025-08-25 14:18:11,1,1,3,Synthetic Solutions Group 33
+PO000008,PO_Synthetic_31,EXTID000008,Synthetic Solutions Group 21 - Professional Services Engagement - Expansion,0,151,2025-01-29 00:00:00,2025-12-31 00:00:00,2025-07-02 16:11:43,1,1,1,Synthetic Solutions Group 21
+PO000009,SYN_PO_38,EXTID000009,ABC Synthetic Corp 25 - Site Development and Build Out - Region East,273,151,2025-01-30 00:00:00,2025-12-31 00:00:00,2025-07-02 13:42:11,1,1,3,ABC Synthetic Corp 25
+PO000010,Synthetic_PO_27,EXTID000010,Synthetic Vendor Inc 12 - Network Infrastructure Services - Phase 1,0,37,2025-01-28 00:00:00,2025-12-31 00:00:00,2025-07-02 16:11:24,1,1,1,Synthetic Vendor Inc 12
+PO000011,Synthetic_PO_6,EXTID000011,Global Synthetic Industries 4 - Network Infrastructure Services - Q1 2025,443,1,2025-01-31 00:00:00,2025-12-31 00:00:00,2025-08-19 17:34:00,1,1,3,Global Synthetic Industries 4
+PO000012,SYN_PO_59,EXTID000012,Synthetic Vendor Inc 24 - Equipment and Materials Supply - Deployment,0,441,2025-01-31 00:00:00,2025-12-31 00:00:00,2025-07-07 19:24:33,1,1,1,Synthetic Vendor Inc 24
+PO000013,Synthetic_PO_48,EXTID000013,ABC Synthetic Corp 1 - Telecommunications Maintenance Contract - Maintenance,26,1,2025-02-03 00:00:00,2025-12-31 00:00:00,2025-10-02 15:00:06,1,1,3,ABC Synthetic Corp 1
+PO000014,SYN_PO_20,EXTID000014,Synthetic Solutions Group 15 - Telecommunications Maintenance Contract - Site C,0,1,2025-02-04 00:00:00,2025-12-31 00:00:00,2025-07-02 16:11:05,1,1,1,Synthetic Solutions Group 15
+PO000015,PO_Synthetic_49,EXTID000015,Synthetic Vendor Inc 30 - Site Development and Build Out - Phase 2,0,441,2025-02-04 00:00:00,2025-12-31 00:00:00,2025-07-07 19:54:56,1,1,1,Synthetic Vendor Inc 30
+PO000016,SYN_PO_26,EXTID000016,ABC Synthetic Corp 19 - Equipment and Materials Supply - Phase 1,704,811,2025-02-05 00:00:00,2025-12-31 00:00:00,2025-09-22 21:18:04,1,1,3,ABC Synthetic Corp 19
+PO000017,PO_Synthetic_55,EXTID000017,Global Synthetic Industries 16 - Construction Services Agreement - Installation,70,811,2025-02-06 00:00:00,2025-12-31 00:00:00,2025-08-04 19:44:24,1,1,3,Global Synthetic Industries 16
+PO000018,Synthetic_PO_57,EXTID000018,XYZ Services LLC 2 - Construction Services Agreement - Expansion,290,1,2025-01-24 00:00:00,2025-12-31 00:00:00,2025-10-02 14:57:54,1,1,3,XYZ Services LLC 2
+PO000019,SYN_PO_47,EXTID000019,Synthetic Vendor Inc 12 - Construction Services Agreement - Region North,157,1,2025-01-29 00:00:00,2025-12-31 00:00:00,2025-10-02 14:59:47,1,1,3,Synthetic Vendor Inc 12
+PO000020,PO_Synthetic_34,EXTID000020,Global Synthetic Industries 22 - Construction Services Agreement - Expansion,,151,,2025-12-31 00:00:00,2025-07-02 16:11:43,,,1,Global Synthetic Industries 22
+PO000021,Synthetic_PO_39,EXTID000021,Synthetic Solutions Group 15 - Site Development and Build Out - Installation,,1,,2025-12-31 00:00:00,2025-07-02 16:09:53,,,1,Synthetic Solutions Group 15
+PO000022,Synthetic_PO_42,EXTID000022,XYZ Services LLC 26 - Fiber Optic Installation Project - Region East,419,151,2025-01-21 00:00:00,2025-12-31 00:00:00,2025-07-02 14:09:33,1,1,3,XYZ Services LLC 26
+PO000023,Synthetic_PO_15,EXTID000023,Synthetic Tech Partners 11 - Fiber Optic Installation Project - Site A,215,171,2025-01-28 00:00:00,2025-12-31 00:00:00,2025-09-12 16:54:48,1,1,3,Synthetic Tech Partners 11
+PO000024,Synthetic_PO_33,EXTID000024,Synthetic Solutions Group 15 - Network Infrastructure Services - Q1 2025,,1,,2025-12-31 00:00:00,2025-07-02 16:09:53,,,1,Synthetic Solutions Group 15
+PO000025,Synthetic_PO_45,EXTID000025,Global Synthetic Industries 28 - Fiber Optic Installation Project - Deployment,366,151,2025-01-24 00:00:00,2025-12-31 00:00:00,2025-07-02 17:57:24,1,1,3,Global Synthetic Industries 28
+PO000026,Synthetic_PO_51,EXTID000026,Global Synthetic Industries 4 - Equipment and Materials Supply - Upgrade,,1,,2025-12-31 00:00:00,2025-07-02 16:10:14,,,1,Global Synthetic Industries 4
+PO000027,PO_Synthetic_37,EXTID000027,Synthetic Vendor Inc 24 - Network Infrastructure Services - Maintenance,,441,,2025-12-31 00:00:00,2025-07-07 19:24:33,,,1,Synthetic Vendor Inc 24
+PO000028,SYN_PO_32,EXTID000028,Global Synthetic Industries 4 - Fiber Optic Installation Project - Phase 3,186,1,2025-01-24 00:00:00,2025-12-31 00:00:00,2025-10-02 14:57:33,1,1,3,Global Synthetic Industries 4
+PO000029,SYN_PO_65,EXTID000029,ABC Synthetic Corp 1 - Fiber Optic Installation Project - Q4 2025,33,1,2025-01-30 00:00:00,2025-12-31 00:00:00,2025-10-02 14:59:47,1,1,3,ABC Synthetic Corp 1
+PO000030,Synthetic_PO_9,EXTID000030,Synthetic Vendor Inc 6 - Professional Services Engagement - Region East,,141,,2025-12-31 00:00:00,2025-07-02 16:11:43,,,1,Synthetic Vendor Inc 6
+PO000031,SYN_PO_23,EXTID000031,Synthetic Tech Partners 17 - Fiber Optic Installation Project - Region West,,171,,2025-12-31 00:00:00,2025-07-02 16:12:04,,,1,Synthetic Tech Partners 17
+PO000032,Synthetic_PO_36,EXTID000032,Synthetic Tech Partners 23 - Telecommunications Maintenance Contract - Site B,,811,,2025-12-31 00:00:00,2025-06-07 16:17:39,,,1,Synthetic Tech Partners 23
+PO000033,PO_Synthetic_10,EXTID000033,ABC Synthetic Corp 7 - Fiber Optic Installation Project - Site B,262,811,2025-01-23 00:00:00,2025-12-31 00:00:00,2025-06-18 17:09:44,1,1,3,ABC Synthetic Corp 7
+PO000034,PO_Synthetic_67,EXTID000034,Synthetic Vendor Inc 36 - Site Development and Build Out - Upgrade,120,1,2025-01-24 00:00:00,2025-12-31 00:00:00,2025-10-02 14:57:54,1,1,3,Synthetic Vendor Inc 36
+PO000035,PO_Synthetic_25,EXTID000035,Synthetic Vendor Inc 18 - Site Development and Build Out - Site C,11,1,2025-01-24 00:00:00,2025-12-31 00:00:00,2025-10-02 14:57:54,1,1,3,Synthetic Vendor Inc 18
+PO000036,Synthetic_PO_69,EXTID000036,Synthetic Solutions Group 3 - Network Infrastructure Services - Installation,,37,,2025-12-31 00:00:00,2025-07-02 16:11:24,,,1,Synthetic Solutions Group 3
+PO000037,PO_Synthetic_64,EXTID000037,Global Synthetic Industries 34 - Professional Services Engagement - Site C,155,441,2025-01-28 00:00:00,2025-12-31 00:00:00,2025-07-02 17:35:09,1,1,3,Global Synthetic Industries 34
+PO000038,PO_Synthetic_22,EXTID000038,Global Synthetic Industries 16 - Network Infrastructure Services - Deployment,156,161,2025-01-30 00:00:00,2025-12-31 00:00:00,2025-08-27 20:30:50,1,1,3,Global Synthetic Industries 16
+PO000039,PO_Synthetic_16,EXTID000039,Synthetic Vendor Inc 12 - Telecommunications Maintenance Contract - Installation,,521,,2025-12-31 00:00:00,2025-06-07 16:17:44,,,1,Synthetic Vendor Inc 12
+PO000040,SYN_PO_35,EXTID000040,ABC Synthetic Corp 1 - Site Development and Build Out - Region North,,1,,2025-12-31 00:00:00,2025-06-07 16:17:44,,,1,ABC Synthetic Corp 1
+PO000041,PO_Synthetic_28,EXTID000041,ABC Synthetic Corp 19 - Professional Services Engagement - Q3 2025,,811,,2025-12-31 00:00:00,2025-07-03 17:40:33,,,1,ABC Synthetic Corp 19
+PO000042,SYN_PO_41,EXTID000042,Synthetic Tech Partners 17 - Network Infrastructure Services - Site A,81,1,2025-01-24 00:00:00,2025-12-31 00:00:00,2025-10-02 14:57:33,1,1,3,Synthetic Tech Partners 17
+PO000043,PO_Synthetic_46,EXTID000043,Synthetic Tech Partners 29 - Telecommunications Maintenance Contract - Deployment,0,37,2025-04-10 00:00:00,2025-12-31 00:00:00,2025-08-18 19:13:13,1,1,3,Synthetic Tech Partners 29
+PO000044,Synthetic_PO_12,EXTID000044,Synthetic Solutions Group 9 - Telecommunications Maintenance Contract - Region West,15,301,2025-06-10 00:00:00,2025-12-31 00:00:00,2025-09-23 18:03:38,1,1,3,Synthetic Solutions Group 9
+PO000045,Synthetic_PO_3,EXTID000045,ABC Synthetic Corp 1 - Equipment and Materials Supply - Phase 2,0,1,2025-06-12 00:00:00,2025-12-31 00:00:00,2025-06-12 15:52:40,1,1,3,ABC Synthetic Corp 1
+PO000046,PO_Synthetic_40,EXTID000046,ABC Synthetic Corp 1 - Site Development and Build Out - Site C,0,1,2025-06-18 00:00:00,2025-12-31 00:00:00,2025-06-18 17:09:30,1,1,3,ABC Synthetic Corp 1
+PO000047,SYN_PO_11,EXTID000047,XYZ Services LLC 8 - Professional Services Engagement - Q3 2025,0,151,2025-07-03 00:00:00,2025-12-31 00:00:00,2025-07-03 18:37:05,1,1,3,XYZ Services LLC 8
+PO000048,PO_Synthetic_19,EXTID000048,XYZ Services LLC 14 - Telecommunications Maintenance Contract - Upgrade,7,151,2025-07-10 00:00:00,2025-12-31 00:00:00,2025-09-23 17:46:28,1,1,3,XYZ Services LLC 14
+PO000049,SYN_PO_68,EXTID000049,ABC Synthetic Corp 37 - Construction Services Agreement - Site C,0,1,2025-07-14 00:00:00,2025-12-31 00:00:00,2025-07-14 14:56:40,1,1,3,ABC Synthetic Corp 37
+PO000050,PO_Synthetic_70,EXTID000050,XYZ Services LLC 38 - Equipment and Materials Supply - Region South,36,12,2025-07-16 00:00:00,2025-12-31 00:00:00,2025-09-23 17:45:45,1,1,3,XYZ Services LLC 38
+PO000051,PO_Synthetic_43,EXTID000051,Synthetic Tech Partners 5 - Professional Services Engagement - Installation,0,1,2025-08-04 00:00:00,2025-12-31 00:00:00,2025-08-04 13:15:15,1,1,3,Synthetic Tech Partners 5
+PO000052,SYN_PO_5,EXTID000052,Synthetic Solutions Group 3 - Construction Services Agreement - Site B,0,161,2025-08-15 00:00:00,2025-12-31 00:00:00,2025-08-15 18:26:08,1,1,3,Synthetic Solutions Group 3
+PO000053,Synthetic_PO_60,EXTID000053,XYZ Services LLC 32 - Equipment and Materials Supply - Expansion,0,1,2025-09-04 00:00:00,2025-12-31 00:00:00,2025-09-04 15:12:10,1,1,3,XYZ Services LLC 32
+PO000054,SYN_PO_8,EXTID000054,ABC Synthetic Corp 1 - Fiber Optic Installation Project - Buildout,0,1,2025-09-16 00:00:00,2025-12-31 00:00:00,2025-09-16 14:22:00,1,1,3,ABC Synthetic Corp 1
+PO000055,PO_Synthetic_4,EXTID000055,ABC Synthetic Corp 1 - Professional Services Engagement - Phase 3,0,301,2025-09-16 00:00:00,2025-12-31 00:00:00,2025-09-16 14:22:04,1,1,3,ABC Synthetic Corp 1
+PO000056,Synthetic_PO_30,EXTID000056,XYZ Services LLC 20 - Fiber Optic Installation Project - Phase 2,0,1,2025-09-25 00:00:00,2025-12-31 00:00:00,2025-09-25 13:15:17,1,1,3,XYZ Services LLC 20
+PO000057,PO_Synthetic_13,,Synthetic Vendor Inc 6 - Construction Services Agreement - Region South,,1,,2025-12-31 00:00:00,2025-09-26 15:00:27,,,,Synthetic Vendor Inc 6
+PO000058,Synthetic_PO_18,EXTID000057,ABC Synthetic Corp 13 - Network Infrastructure Services - Region South,0,171,2025-10-02 00:00:00,2025-12-31 00:00:00,2025-10-02 18:45:36,1,1,3,ABC Synthetic Corp 13
+PO000059,PO_Synthetic_7,EXTID000058,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,0,171,2025-10-03 00:00:00,2025-12-31 00:00:00,2025-10-03 14:15:08,1,1,3,Synthetic Tech Partners 5
+PO000060,Synthetic_PO_63,EXTID000059,Synthetic Vendor Inc 12 - Telecommunications Maintenance Contract - Q3 2025,0,171,2025-10-08 00:00:00,2025-12-31 00:00:00,2025-10-08 16:15:03,1,1,3,Synthetic Vendor Inc 12
+PO000061,PO_Synthetic_52,EXTID000060,Global Synthetic Industries 4 - Professional Services Engagement - Expansion,0,1,2025-10-09 00:00:00,2025-12-31 00:00:00,2025-10-09 16:45:13,1,1,3,Global Synthetic Industries 4
+PO000062,PO_Synthetic_1,EXTID000061,ABC Synthetic Corp 1 - Network Infrastructure Services - Region West,0,1,2025-10-10 00:00:00,2025-12-31 00:00:00,2025-10-10 16:45:18,1,1,3,ABC Synthetic Corp 1
+PO000063,SYN_PO_53,EXTID000062,Global Synthetic Industries 4 - Network Infrastructure Services - Phase 3,0,1,2025-10-23 00:00:00,2025-12-31 00:00:00,2025-10-23 19:15:05,1,1,3,Global Synthetic Industries 4
+PO000064,PO_Synthetic_58,EXTID000063,ABC Synthetic Corp 31 - Telecommunications Maintenance Contract - Upgrade,0,1,2025-10-23 00:00:00,2025-12-31 00:00:00,2025-10-23 19:15:06,1,1,3,ABC Synthetic Corp 31
+PO000065,SYN_PO_2,EXTID000064,XYZ Services LLC 2 - Telecommunications Maintenance Contract - Buildout,0,1,2025-10-27 00:00:00,2025-12-31 00:00:00,2025-10-27 13:15:03,1,1,3,XYZ Services LLC 2
+PO000066,SYN_PO_14,EXTID000065,Global Synthetic Industries 10 - Equipment and Materials Supply - Q2 2025,0,1,2025-10-27 00:00:00,2025-12-31 00:00:00,2025-10-27 13:15:08,1,1,3,Global Synthetic Industries 10
+PO000067,SYN_PO_56,EXTID000066,ABC Synthetic Corp 1 - Professional Services Engagement - Phase 3,0,1,2025-10-29 00:00:00,2025-12-31 00:00:00,2025-10-29 19:15:06,1,1,3,ABC Synthetic Corp 1
+PO000068,SYN_PO_62,EXTID000067,Synthetic Solutions Group 3 - Telecommunications Maintenance Contract - Installation,0,1,2025-10-29 00:00:00,2025-12-31 00:00:00,2025-10-29 20:15:03,1,1,3,Synthetic Solutions Group 3
+PO000069,SYN_PO_44,EXTID000068,Synthetic Solutions Group 27 - Fiber Optic Installation Project - Phase 2,0,1,2025-10-31 00:00:00,2025-12-31 00:00:00,2025-11-03 13:59:14,1,1,3,Synthetic Solutions Group 27
+PO000070,Synthetic_PO_54,EXTID000069,Global Synthetic Industries 4 - Site Development and Build Out - Q1 2025,0,1,2025-11-06 00:00:00,2025-12-31 00:00:00,2025-11-06 14:15:12,1,1,3,Global Synthetic Industries 4

@@ -1,0 +1,2460 @@
+﻿Invoice_Id,PO_Description__c,Invoice_Name,Vendor__Name,Contract__Name,Invoice_Date__c,Approval_Date__c,Due_Date_Formula__c,Days_Pending_Approval__c,Infinium_Release_Number__c,Released_On__c,PO_Name,ProjectInvoice__c,Integration_Error_Message__c,Integration_Status__c,LastModifiedDate,Payment_Terms__c,Reason__c,sitetracker__Status__c,State__c,Original_Total_Amount__c,Total_Amount__c,Total_Invoice_Amount__c
+INV000001,ABC Synthetic Corp 1 - Network Infrastructure Services - Region West,SYNTHETIC-INV-000001,ABC Synthetic Corp 1,BVP-02561,2025-09-17 00:00:00,2025-10-24 00:00:00,2025-11-16 00:00:00,56,,,PO_Synthetic_1,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""5617198"",
+  ""vendorInvoiceNumber"": ""SYNTHETIC-INV-000001"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 01:50:33,60,BLANK,Hold,FL,1965.5,1965.5,1965.5
+INV000002,XYZ Services LLC 2 - Telecommunications Maintenance Contract - Buildout,SYN-INVOICE-000002,XYZ Services LLC 2,BVP-02530,2025-10-23 00:00:00,2025-10-27 00:00:00,2025-12-07 00:00:00,20,,,SYN_PO_2,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 174.000.2232.601.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 174.000.2411.101.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 174.000.2411.101.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 6,
+    ""message"": ""GL account 174.000.2411.101.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 7,
+    ""message"": ""GL account 174.000.2411.101.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 8,
+    ""message"": ""GL account 174.000.2411.101.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 10,
+    ""message"": ""GL account 171.000.2411.101.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 11,
+    ""message"": ""GL account 174.000.2411.101.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 12,
+    ""message"": ""GL account 174.000.2411.101.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 13,
+    ""message"": ""GL account 174.000.2411.101.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 14,
+    ""message"": ""GL account 174.000.2411.101.000.344 is not valid. Project Number Not Valid""
+  }
+]",Fail,2025-11-12 07:10:35,45,CAP MGMT,Hold,TX,432,432,432
+INV000003,ABC Synthetic Corp 1 - Equipment and Materials Supply - Phase 2,INV-SYN-000003,ABC Synthetic Corp 1,BVP-02561,2025-11-03 00:00:00,2025-11-05 00:00:00,2026-01-02 00:00:00,9,,,Synthetic_PO_3,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 6,
+    ""message"": ""GL account 164.000.2423.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 7,
+    ""message"": ""GL account 164.000.2423.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-11 08:44:48,60,,Hold,FL,1076.25,1076.25,1076.25
+INV000004,ABC Synthetic Corp 1 - Professional Services Engagement - Phase 3,SYNTHETIC-INV-000004,ABC Synthetic Corp 1,BVP-00900,2025-09-11 00:00:00,2025-09-23 00:00:00,2025-11-10 00:00:00,62,,,PO_Synthetic_4,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.000.2411.101.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 03:05:43,60,,Hold,CT,760,760,760
+INV000005,Synthetic Solutions Group 3 - Construction Services Agreement - Site B,SYN-INVOICE-000005,Synthetic Solutions Group 3,BVP-00460,2025-10-17 00:00:00,2025-10-31 00:00:00,2025-11-16 00:00:00,26,,,SYN_PO_5,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.318.6421.000.233.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 441.318.6421.000.233.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 06:04:22,30,,Hold,CT,648.75,648.75,648.75
+INV000006,Global Synthetic Industries 4 - Network Infrastructure Services - Q1 2025,INV-SYN-000006,Global Synthetic Industries 4,BVP-01002,2025-10-06 00:00:00,2025-11-10 00:00:00,2025-12-05 00:00:00,37,984,2025-11-11 00:00:00,Synthetic_PO_6,TRUE,"Detail from service: A vendor invoice number of INV-SYN-000006 is already queued for release. and 
+ Validation Message: {
+  ""vendorId"": ""4206967"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000006"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 13:44:31,60,ACCT,Hold,TX,1536,1536,1536
+INV000007,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,SYNTHETIC-INV-000007,Synthetic Tech Partners 5,BVP-02536,2025-10-22 00:00:00,2025-10-24 00:00:00,2025-12-21 00:00:00,21,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""SYNTHETIC-INV-000007"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 06:44:45,60,BLANK,Hold,CA,3044.4,3044.4,3044.4
+INV000008,ABC Synthetic Corp 1 - Fiber Optic Installation Project - Buildout,SYN-INVOICE-000008,ABC Synthetic Corp 1,BVP-02561,2025-09-02 00:00:00,2025-10-09 00:00:00,2025-11-01 00:00:00,71,,,SYN_PO_8,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 161.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 6,
+    ""message"": ""GL account 161.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 02:39:18,60,,Hold,FL,1989.7,1989.7,1989.7
+INV000009,Synthetic Vendor Inc 6 - Professional Services Engagement - Region East,INV-SYN-000009,Synthetic Vendor Inc 6,BVP-00433,2025-09-29 00:00:00,2025-10-08 00:00:00,2025-11-13 00:00:00,44,,,Synthetic_PO_9,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 151.000.2421.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 151.000.2421.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 151.000.2421.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 151.000.2421.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 151.000.2421.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 6,
+    ""message"": ""GL account 151.000.2421.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 7,
+    ""message"": ""GL account 151.000.2421.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 04:27:16,45,,Hold,CA,11748.75,11748.75,11748.75
+INV000010,ABC Synthetic Corp 1 - Network Infrastructure Services - Region West,SYNTHETIC-INV-000010,ABC Synthetic Corp 1,BVP-02561,2025-10-16 00:00:00,2025-10-21 00:00:00,2025-12-15 00:00:00,27,82,2025-10-21 00:00:00,PO_Synthetic_1,TRUE,"Detail from service: Failed Validation and 
+ Validation Message: {
+  
+} and 
+ Validation Message: {
+  ""lines"": [
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    }
+  ]
+}",FAIL,2025-10-22 12:36:55,60,ACCT,Hold,FL,2820,2820,2820
+INV000011,ABC Synthetic Corp 7 - Fiber Optic Installation Project - Site B,SYN-INVOICE-000011,ABC Synthetic Corp 7,BVP-02803,2025-09-10 00:00:00,2025-10-15 00:00:00,2025-11-09 00:00:00,63,,,PO_Synthetic_10,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 944.708.6421.000.253.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 944.708.6421.000.253.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 944.708.6421.000.253.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 944.708.6421.000.253.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 944.708.6421.000.253.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 6,
+    ""message"": ""GL account 944.708.6421.000.253.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 7,
+    ""message"": ""GL account 944.708.6421.000.253.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 03:00:31,60,,Hold,IN,1831.25,1831.25,1831.25
+INV000012,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,INV-SYN-000012,Synthetic Tech Partners 5,BVP-02536,2025-11-03 00:00:00,2025-11-06 00:00:00,2026-01-02 00:00:00,9,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000012"",
+  ""status"": ""Error""
+}",Fail,2025-11-11 08:33:02,60,BLANK,Hold,CA,215.06,215.06,215.06
+INV000013,Global Synthetic Industries 4 - Network Infrastructure Services - Q1 2025,SYNTHETIC-INV-000013,Global Synthetic Industries 4,BVP-01002,2025-10-02 00:00:00,2025-11-07 00:00:00,2025-12-01 00:00:00,41,919,2025-11-07 00:00:00,Synthetic_PO_6,TRUE,"Detail from service: Failed Validation and 
+ Validation Message: {
+  
+} and 
+ Validation Message: {
+  ""lines"": {
+    ""4"": {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    }
+  }
+}",FAIL,2025-11-07 21:44:59,60,ACCT,Hold,TX,2304,2304,2304
+INV000014,XYZ Services LLC 8 - Professional Services Engagement - Q3 2025,SYN-INVOICE-000014,XYZ Services LLC 8,BVP-02853,2025-08-08 00:00:00,2025-09-09 00:00:00,2025-09-22 00:00:00,96,,,SYN_PO_11,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 151.000.2422.201.000.345 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 151.000.2422.201.000.345 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 151.000.2422.201.000.505 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 151.000.2422.201.000.505 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 151.000.2422.201.000.505 is not valid. Project Not Approved""
+  }
+]",Fail,2025-11-12 01:59:54,45,PNA,Hold,CA,1397.19,1397.19,1397.19
+INV000015,Synthetic Solutions Group 9 - Telecommunications Maintenance Contract - Region West,INV-SYN-000015,Synthetic Solutions Group 9,BVP-02877,2025-09-25 00:00:00,2025-10-10 00:00:00,2025-11-24 00:00:00,48,,,Synthetic_PO_12,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 005.231.6423.000.253.345 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 005.231.6423.000.253.345 is not valid. Project Not Approved""
+  }
+]",Fail,2025-11-12 04:04:04,60,PNA,Hold,TN,2154.32,2154.32,2154.32
+INV000016,Synthetic Vendor Inc 6 - Construction Services Agreement - Region South,SYNTHETIC-INV-000016,Synthetic Vendor Inc 6,BVP-00433,2025-10-27 00:00:00,2025-11-10 00:00:00,2025-12-11 00:00:00,16,,,PO_Synthetic_13,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 151.000.2422.201.000.505 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 151.000.2422.201.000.505 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 151.000.2422.201.000.505 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 07:36:45,45,,Hold,CA,26925.63,26925.63,26925.63
+INV000017,ABC Synthetic Corp 1 - Fiber Optic Installation Project - Buildout,SYN-INVOICE-000017,ABC Synthetic Corp 1,BVP-02561,2025-10-13 00:00:00,2025-10-20 00:00:00,2025-12-12 00:00:00,30,,,SYN_PO_8,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 29,
+    ""message"": ""GL account 161.348.6411.000.182.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 30,
+    ""message"": ""GL account 161.348.6411.000.182.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 31,
+    ""message"": ""GL account 161.348.6411.000.182.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 32,
+    ""message"": ""GL account 161.348.6411.000.182.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 05:03:22,60,,Hold,FL,2685,2685,2685
+INV000018,ABC Synthetic Corp 1 - Fiber Optic Installation Project - Buildout,INV-SYN-000018,ABC Synthetic Corp 1,BVP-02565,2025-10-02 00:00:00,2025-10-13 00:00:00,2025-12-01 00:00:00,41,,,SYN_PO_8,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 942.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 04:28:03,60,,Hold,OH,1800,1800,1800
+INV000019,Global Synthetic Industries 10 - Equipment and Materials Supply - Q2 2025,SYNTHETIC-INV-000019,Global Synthetic Industries 10,BVP-02544,2025-09-17 00:00:00,2025-09-26 00:00:00,2025-11-01 00:00:00,56,,,SYN_PO_14,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 152.000.2411.101.000.344 is not valid. Main/Sub Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 151.000.2411.101.000.344 is not valid. Main/Sub Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 8,
+    ""message"": ""GL account 151.338.6411.000.182.344 is not valid. Main/Sub Not Valid For This Project""
+  }
+]",Fail,2025-11-12 03:28:19,45,PNA,Hold,CA,1403.76,1403.76,1403.76
+INV000020,Synthetic Tech Partners 11 - Fiber Optic Installation Project - Site A,SYN-INVOICE-000020,Synthetic Tech Partners 11,BVP-01615,2025-10-06 00:00:00,2025-11-11 00:00:00,2025-11-20 00:00:00,37,,,Synthetic_PO_15,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""6220031"",
+  ""vendorInvoiceNumber"": ""SYN-INVOICE-000020"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 13:27:11,45,BLANK,Hold,TX,567863,567863,567863
+INV000021,Synthetic Vendor Inc 12 - Telecommunications Maintenance Contract - Installation,INV-SYN-000021,Synthetic Vendor Inc 12,BVP-00257,2025-08-28 00:00:00,2025-10-03 00:00:00,2026-01-25 00:00:00,76,,,PO_Synthetic_16,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 941.133.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 941.133.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 941.133.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 02:20:20,150,,Hold,WI,648,648,648
+INV000022,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,SYNTHETIC-INV-000022,Synthetic Tech Partners 5,BVP-02536,2025-10-29 00:00:00,2025-11-03 00:00:00,2025-12-28 00:00:00,14,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""SYNTHETIC-INV-000022"",
+  ""status"": ""Error""
+}",Fail,2025-11-11 08:22:22,60,BLANK,Hold,CA,2915,2915,2915
+INV000023,Global Synthetic Industries 4 - Fiber Optic Installation Project - Region West,SYN-INVOICE-000023,Global Synthetic Industries 4,BVP-01006,2025-08-28 00:00:00,2025-10-24 00:00:00,2025-10-27 00:00:00,76,,,SYN_PO_17,TRUE,"Detail from service: The total amount from the invoice lines does not match the Total Invoice Amount value. and 
+ Validation Message: {
+  ""vendorId"": ""4206967"",
+  ""vendorInvoiceNumber"": ""SYN-INVOICE-000023"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 02:18:22,60,ACCT,Hold,MI,45.99,45.99,45.99
+INV000024,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,INV-SYN-000024,Synthetic Tech Partners 5,BVP-02536,2025-10-27 00:00:00,2025-11-03 00:00:00,2025-12-26 00:00:00,16,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000024"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 07:34:26,60,BLANK,Hold,CA,218.75,218.75,218.75
+INV000025,ABC Synthetic Corp 13 - Network Infrastructure Services - Region South,SYNTHETIC-INV-000025,ABC Synthetic Corp 13,BVP-01650,2025-10-01 00:00:00,2025-10-29 00:00:00,2025-11-30 00:00:00,42,,,Synthetic_PO_18,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 151.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 151.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 151.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 151.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 04:34:08,60,,Hold,CA,453.11,453.11,453.11
+INV000026,XYZ Services LLC 14 - Telecommunications Maintenance Contract - Upgrade,SYN-INVOICE-000026,XYZ Services LLC 14,BVP-02928,2025-09-10 00:00:00,2025-10-14 00:00:00,2025-11-09 00:00:00,63,,,PO_Synthetic_19,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 151.338.6421.000.253.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 151.338.6421.000.253.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 151.338.6421.000.253.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 151.338.6421.000.253.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 03:00:26,60,,Hold,CA,2089.6,2089.6,2089.6
+INV000027,Synthetic Solutions Group 15 - Telecommunications Maintenance Contract - Site C,INV-SYN-000027,Synthetic Solutions Group 15,BVP-02559,2025-08-21 00:00:00,2025-10-01 00:00:00,2025-10-05 00:00:00,83,,,SYN_PO_20,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 8,
+    ""message"": ""GL account 174.000.2421.201.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 9,
+    ""message"": ""GL account 174.000.2421.201.000.344 is not valid. Project Number Not Valid""
+  }
+]",Fail,2025-11-12 02:02:54,45,CAP MGMT,Hold,TX,52175,52175,52175
+INV000028,ABC Synthetic Corp 1 - Network Infrastructure Services - Region West,SYNTHETIC-INV-000028,ABC Synthetic Corp 1,BVP-02561,2025-10-23 00:00:00,2025-10-27 00:00:00,2025-12-22 00:00:00,20,,,PO_Synthetic_1,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""5617198"",
+  ""vendorInvoiceNumber"": ""SYNTHETIC-INV-000028"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 06:56:49,60,BLANK,Hold,FL,3360,3360,3360
+INV000029,Synthetic Tech Partners 5 - Fiber Optic Installation Project - Phase 2,SYN-INVOICE-000029,Synthetic Tech Partners 5,BVP-02536,2025-09-02 00:00:00,2025-10-02 00:00:00,2025-11-01 00:00:00,71,,,Synthetic_PO_21,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 151.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 151.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 02:37:37,60,,Hold,CA,295.15,295.15,295.15
+INV000030,Synthetic Tech Partners 5 - Fiber Optic Installation Project - Phase 2,INV-SYN-000030,Synthetic Tech Partners 5,BVP-02536,2025-09-10 00:00:00,2025-10-14 00:00:00,2025-11-09 00:00:00,63,,,Synthetic_PO_21,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 151.000.2422.201.000.344 is not valid. Main/Sub Not Valid For This Project""
+  }
+]",Fail,2025-11-12 03:03:59,60,,Hold,CA,87.5,87.5,87.5
+INV000031,Global Synthetic Industries 16 - Network Infrastructure Services - Deployment,SYNTHETIC-INV-000031,Global Synthetic Industries 16,BVP-02715,2025-08-12 00:00:00,2025-10-20 00:00:00,2025-10-11 00:00:00,92,,,PO_Synthetic_22,FALSE,"Detail from service: A vendor invoice number of SYNTHETIC-INV-000031 is already queued for release. and 
+ Validation Message: {
+  ""vendorId"": ""8767812"",
+  ""vendorInvoiceNumber"": ""SYNTHETIC-INV-000031"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 02:03:27,60,ACCT,Hold,FL,14970.15,14970.15,14970.15
+INV000032,Synthetic Tech Partners 17 - Fiber Optic Installation Project - Region West,SYN-INVOICE-000032,Synthetic Tech Partners 17,"Synthetic Tech Partners 17-Quote Work -TX, IN, OH, WI, AZ, AL",2025-03-21 00:00:00,2025-10-15 00:00:00,2025-05-20 00:00:00,236,,,SYN_PO_23,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 174.000.2212.001.000.345 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 174.000.3212.004.000.345 is not valid. Project Number Not Valid""
+  }
+]",Fail,2025-11-12 18:14:31,60,CAP MGMT,Hold,TX,1,11900,11900
+INV000033,Global Synthetic Industries 4 - Equipment and Materials Supply - Deployment,INV-SYN-000033,Global Synthetic Industries 4,BVP-01007,2025-08-28 00:00:00,2025-10-27 00:00:00,2025-10-27 00:00:00,76,,,Synthetic_PO_24,TRUE,"Detail from service: The total amount from the invoice lines does not match the Total Invoice Amount value. and 
+ Validation Message: {
+  ""vendorId"": ""4206967"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000033"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 02:20:26,60,ACCT,Hold,OH,22.97,22.97,22.97
+INV000034,ABC Synthetic Corp 1 - Fiber Optic Installation Project - Buildout,SYNTHETIC-INV-000034,ABC Synthetic Corp 1,BVP-02561,2025-09-02 00:00:00,2025-09-19 00:00:00,2025-11-01 00:00:00,71,,,SYN_PO_8,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 164.000.3423.104.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 164.000.3423.104.000.344 is not valid. Project Number Not Valid""
+  }
+]",Fail,2025-11-12 02:37:31,60,CAP MGMT,Hold,FL,1416.8,1416.8,1416.8
+INV000035,Synthetic Vendor Inc 6 - Professional Services Engagement - Region East,SYN-INVOICE-000035,Synthetic Vendor Inc 6,BVP-00433,2025-09-30 00:00:00,2025-10-08 00:00:00,2025-11-14 00:00:00,43,,,Synthetic_PO_9,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 151.000.2421.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 151.000.2421.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 151.000.2421.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 151.000.2421.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 04:33:43,45,,Hold,CA,1922.76,1922.76,1922.76
+INV000036,ABC Synthetic Corp 13 - Network Infrastructure Services - Region South,INV-SYN-000036,ABC Synthetic Corp 13,BVP-00925,2025-10-06 00:00:00,2025-10-29 00:00:00,2025-11-20 00:00:00,37,,,Synthetic_PO_18,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 151.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 151.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 151.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 151.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 151.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 04:54:34,45,,Hold,CA,962.5,962.5,962.5
+INV000037,Synthetic Vendor Inc 18 - Site Development and Build Out - Site C,SYNTHETIC-INV-000037,Synthetic Vendor Inc 18,BVP-02933,2025-07-21 00:00:00,2025-08-28 00:00:00,2025-09-04 00:00:00,114,36,2025-10-09 00:00:00,PO_Synthetic_25,TRUE,"Detail from service: A vendor invoice number of SYNTHETIC-INV-000037 is already queued for release. and 
+ Validation Message: {
+  ""vendorId"": ""5347917"",
+  ""vendorInvoiceNumber"": ""SYNTHETIC-INV-000037"",
+  ""status"": ""Error""
+}",Fail,2025-11-04 20:31:48,45,ACCT,Hold,PA,4641,4641,4641
+INV000038,XYZ Services LLC 2 - Telecommunications Maintenance Contract - Buildout,SYN-INVOICE-000038,XYZ Services LLC 2,BVP-02530,2025-10-28 00:00:00,2025-10-30 00:00:00,2025-12-12 00:00:00,15,,,SYN_PO_2,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 174.000.2411.101.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 9,
+    ""message"": ""GL account 174.000.2423.201.000.344 is not valid. Project Number Not Valid""
+  }
+]",Fail,2025-11-12 07:01:39,45,CAP MGMT,Hold,TX,259.2,259.2,259.2
+INV000039,ABC Synthetic Corp 19 - Equipment and Materials Supply - Phase 1,INV-SYN-000039,ABC Synthetic Corp 19,BVP-02777,2025-10-07 00:00:00,2025-11-06 00:00:00,2025-12-06 00:00:00,36,,,SYN_PO_26,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 943.130.6421.000.000.345 is not valid. 1""
+  }
+]",Fail,2025-11-12 05:07:30,60,,Hold,MI,455,455,455
+INV000040,ABC Synthetic Corp 7 - Fiber Optic Installation Project - Site B,SYNTHETIC-INV-000040,ABC Synthetic Corp 7,BVP-02803,2025-09-10 00:00:00,2025-10-15 00:00:00,2025-11-09 00:00:00,63,,,PO_Synthetic_10,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 944.000.2421.101.000.345 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 944.000.2421.101.000.345 is not valid. Project Number Not Valid""
+  }
+]",Fail,2025-11-12 03:05:02,60,,Hold,IN,825.5,825.5,825.5
+INV000041,Synthetic Vendor Inc 12 - Network Infrastructure Services - Phase 1,SYN-INVOICE-000041,Synthetic Vendor Inc 12,BVP-01643,2025-08-23 00:00:00,2025-09-19 00:00:00,2026-01-20 00:00:00,81,,,Synthetic_PO_27,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 041.168.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 041.168.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 041.168.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 041.168.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 02:13:08,150,,Hold,IL,1362.08,1362.08,1362.08
+INV000042,ABC Synthetic Corp 1 - Network Infrastructure Services - Region West,INV-SYN-000042,ABC Synthetic Corp 1,BVP-00884,2025-10-21 00:00:00,2025-10-27 00:00:00,2025-12-20 00:00:00,22,,,PO_Synthetic_1,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""5617198"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000042"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 06:42:20,60,BLANK,Hold,FL,578.88,578.88,578.88
+INV000043,Synthetic Solutions Group 9 - Telecommunications Maintenance Contract - Region West,SYNTHETIC-INV-000043,Synthetic Solutions Group 9,BVP-02877,2025-09-15 00:00:00,2025-09-17 00:00:00,2025-11-14 00:00:00,58,,,Synthetic_PO_12,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 005.000.2421.401.000.345 is not valid. Project Not Approved""
+  }
+]",Fail,2025-11-12 03:19:27,60,PNA,Hold,TN,485,485,485
+INV000044,ABC Synthetic Corp 19 - Professional Services Engagement - Q3 2025,SYN-INVOICE-000044,ABC Synthetic Corp 19,BVP-02777,2025-11-05 00:00:00,2025-11-06 00:00:00,2026-01-04 00:00:00,7,,,PO_Synthetic_28,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 943.130.6421.000..345 is not valid. 1""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 943.130.6421.000..345 is not valid. 1""
+  }
+]",Fail,2025-11-11 08:56:56,60,,Hold,MI,829.56,829.56,829.56
+INV000045,ABC Synthetic Corp 13 - Construction Services Agreement - Upgrade,INV-SYN-000045,ABC Synthetic Corp 13,ABC Synthetic Corp 13 - SOW 16 FTTH CO-04 - CA,2025-10-01 00:00:00,2025-10-29 00:00:00,2025-11-15 00:00:00,42,,,SYN_PO_29,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 012.000.2423.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 04:37:15,45,,Hold,CA,12549.15,12549.15,12549.15
+INV000046,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,SYNTHETIC-INV-000046,Synthetic Tech Partners 5,BVP-02536,2025-10-29 00:00:00,2025-10-30 00:00:00,2025-12-28 00:00:00,14,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""SYNTHETIC-INV-000046"",
+  ""status"": ""Error""
+}",Fail,2025-11-11 08:15:57,60,BLANK,Hold,CA,3044.4,3044.4,3044.4
+INV000047,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,SYN-INVOICE-000047,Synthetic Tech Partners 5,BVP-02536,2025-11-05 00:00:00,2025-11-06 00:00:00,2026-01-04 00:00:00,7,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""SYN-INVOICE-000047"",
+  ""status"": ""Error""
+}",Fail,2025-11-11 09:00:39,60,BLANK,Hold,CA,268.85,268.85,268.85
+INV000048,XYZ Services LLC 20 - Fiber Optic Installation Project - Phase 2,INV-SYN-000048,XYZ Services LLC 20,BVP-02897,2025-10-30 00:00:00,2025-11-03 00:00:00,2025-12-29 00:00:00,13,,,Synthetic_PO_30,FALSE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 161.348.6423.000.000.345 is not valid. 1""
+  }
+]",Fail,2025-11-11 08:28:58,60,,Hold,FL,241.92,241.92,241.92
+INV000049,ABC Synthetic Corp 19 - Equipment and Materials Supply - Phase 1,SYNTHETIC-INV-000049,ABC Synthetic Corp 19,BVP-02777,2025-09-26 00:00:00,2025-10-28 00:00:00,2025-11-25 00:00:00,47,,,SYN_PO_26,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 943.000.2421.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 943.000.2421.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 943.000.2421.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 04:16:56,60,,Hold,MI,5830.33,5830.33,5830.33
+INV000050,Synthetic Solutions Group 3 - Construction Services Agreement - Site B,SYN-INVOICE-000050,Synthetic Solutions Group 3,BVP-00460,2025-11-02 00:00:00,2025-11-05 00:00:00,2025-12-02 00:00:00,10,,,SYN_PO_5,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.318.6421.000.253.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-11 08:39:21,30,,Hold,CT,1755,1755,1755
+INV000051,Synthetic Solutions Group 21 - Professional Services Engagement - Expansion,INV-SYN-000051,Synthetic Solutions Group 21,BVP-01717,2025-09-04 00:00:00,2025-10-07 00:00:00,2025-10-19 00:00:00,69,,,PO_Synthetic_31,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 152.000.3411.004.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 152.000.3411.004.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 02:46:28,45,,Hold,CA,1305,1305,1305
+INV000052,ABC Synthetic Corp 13 - Construction Services Agreement - Upgrade,SYNTHETIC-INV-000052,ABC Synthetic Corp 13,ABC Synthetic Corp 13 - SOW 16 FTTH CO-04 - CA,2025-10-01 00:00:00,2025-10-29 00:00:00,2025-11-15 00:00:00,42,,,SYN_PO_29,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 012.000.2423.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 012.000.2423.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 04:35:41,45,,Hold,CA,88185.21,88185.21,88185.21
+INV000053,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,SYN-INVOICE-000053,Synthetic Tech Partners 5,BVP-02536,2025-10-24 00:00:00,2025-10-27 00:00:00,2025-12-23 00:00:00,19,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""SYN-INVOICE-000053"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 07:15:02,60,BLANK,Hold,CA,306.04,306.04,306.04
+INV000054,Global Synthetic Industries 4 - Fiber Optic Installation Project - Phase 3,INV-SYN-000054,Global Synthetic Industries 4,BVP-02554,2025-08-12 00:00:00,2025-10-20 00:00:00,2025-10-11 00:00:00,92,,,SYN_PO_32,TRUE,"Detail from service: A vendor invoice number of INV-SYN-000054 is already queued for release. and 
+ Validation Message: {
+  ""vendorId"": ""4206967"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000054"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 02:04:04,60,ACCT,Hold,MN,19.75,19.75,19.75
+INV000055,Synthetic Tech Partners 17 - Fiber Optic Installation Project - Region West,SYNTHETIC-INV-000055,Synthetic Tech Partners 17,"Synthetic Tech Partners 17-Quote Work -TX, IN, OH, WI, AZ, AL",2025-11-06 00:00:00,2025-11-10 00:00:00,2026-01-05 00:00:00,6,,,SYN_PO_23,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 171.000.3232.404.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-11 09:05:57,60,,Hold,TX,1600,1600,1600
+INV000056,Synthetic Vendor Inc 12 - Network Infrastructure Services - Phase 1,SYN-INVOICE-000056,Synthetic Vendor Inc 12,BVP-01643,2025-08-26 00:00:00,2025-09-24 00:00:00,2026-01-23 00:00:00,78,,,Synthetic_PO_27,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 551.168.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 551.168.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 551.168.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 551.168.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 02:13:42,150,,Hold,IL,908.05,908.05,908.05
+INV000057,Synthetic Solutions Group 15 - Network Infrastructure Services - Q1 2025,INV-SYN-000057,Synthetic Solutions Group 15,BVP-02559,2025-10-24 00:00:00,2025-11-12 00:00:00,2025-12-08 00:00:00,2,,,Synthetic_PO_33,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 974.000.2423.101.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 19:12:31,45,,Hold,NC,45,45,45
+INV000058,Synthetic Solutions Group 3 - Construction Services Agreement - Site B,SYNTHETIC-INV-000058,Synthetic Solutions Group 3,BVP-00460,2025-10-31 00:00:00,2025-11-05 00:00:00,2025-11-30 00:00:00,12,,,SYN_PO_5,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.000.2232.601.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-11 08:36:32,30,,Hold,CT,540,540,540
+INV000059,Synthetic Solutions Group 3 - Construction Services Agreement - Site B,SYN-INVOICE-000059,Synthetic Solutions Group 3,BVP-00460,2025-10-21 00:00:00,2025-10-31 00:00:00,2025-11-20 00:00:00,22,,,SYN_PO_5,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.000.2421.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 06:28:39,30,,Hold,CT,1282.5,1282.5,1282.5
+INV000060,XYZ Services LLC 20 - Fiber Optic Installation Project - Phase 2,INV-SYN-000060,XYZ Services LLC 20,BVP-02897,2025-10-06 00:00:00,2025-10-09 00:00:00,2025-12-05 00:00:00,37,,,Synthetic_PO_30,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 161.348.6423.000.253.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 161.348.6423.000.253.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 161.348.6423.000.253.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 161.348.6423.000.253.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 04:58:16,60,,Hold,FL,984.57,984.57,984.57
+INV000061,Global Synthetic Industries 22 - Construction Services Agreement - Expansion,SYNTHETIC-INV-000061,Global Synthetic Industries 22,BVP-02855,2025-10-15 00:00:00,2025-11-04 00:00:00,2025-11-29 00:00:00,28,,,PO_Synthetic_34,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 151.000.2422.201.000.345 is not valid. 1""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 151.000.2422.201.000.345 is not valid. 1""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 151.000.2422.201.000.345 is not valid. 1""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 151.000.2422.201.000.345 is not valid. 1""
+  },
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 151.000.2422.201.000.505 is not valid. 1""
+  },
+  {
+    ""lineNumber"": 6,
+    ""message"": ""GL account 151.000.2422.201.000.505 is not valid. 1""
+  },
+  {
+    ""lineNumber"": 7,
+    ""message"": ""GL account 151.000.2422.201.000.505 is not valid. 1""
+  }
+]",Fail,2025-11-12 05:40:42,45,,Hold,CA,9133.26,9133.26,9133.26
+INV000062,ABC Synthetic Corp 1 - Site Development and Build Out - Region North,SYN-INVOICE-000062,ABC Synthetic Corp 1,BVP-02561,2025-10-30 00:00:00,2025-11-05 00:00:00,2025-12-29 00:00:00,13,,,SYN_PO_35,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 005.000.2411.101.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 005.000.2411.101.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-11 08:22:44,60,,Hold,TN,840,840,840
+INV000063,Synthetic Tech Partners 23 - Telecommunications Maintenance Contract - Site B,INV-SYN-000063,Synthetic Tech Partners 23,BVP-02723,2025-08-28 00:00:00,2025-10-01 00:00:00,2025-10-12 00:00:00,76,,,Synthetic_PO_36,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 944.000.2421.201.000.345 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 944.000.2421.201.000.345 is not valid. Project Not Approved""
+  }
+]",Fail,2025-11-12 17:02:48,45,PNA,Hold,IN,877.02,877.02,877.02
+INV000064,ABC Synthetic Corp 1 - Network Infrastructure Services - Region West,SYNTHETIC-INV-000064,ABC Synthetic Corp 1,BVP-02561,2025-10-24 00:00:00,2025-10-27 00:00:00,2025-12-23 00:00:00,19,,,PO_Synthetic_1,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""5617198"",
+  ""vendorInvoiceNumber"": ""SYNTHETIC-INV-000064"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 07:13:30,60,BLANK,Hold,FL,16.8,16.8,16.8
+INV000065,ABC Synthetic Corp 1 - Fiber Optic Installation Project - Buildout,SYN-INVOICE-000065,ABC Synthetic Corp 1,BVP-02561,2025-08-11 00:00:00,2025-09-12 00:00:00,2025-10-10 00:00:00,93,,,SYN_PO_8,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 164.000.3423.104.000.344 is not valid. Project Number Not Valid""
+  }
+]",Fail,2025-11-12 02:02:45,60,CAP MGMT,Hold,FL,560,560,560
+INV000066,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,INV-SYN-000066,Synthetic Tech Partners 5,BVP-02536,2025-10-23 00:00:00,2025-11-06 00:00:00,2025-12-22 00:00:00,20,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000066"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 07:00:50,60,BLANK,Hold,CA,306.04,306.04,306.04
+INV000067,XYZ Services LLC 8 - Professional Services Engagement - Q3 2025,SYNTHETIC-INV-000067,XYZ Services LLC 8,BVP-00423,2025-07-24 00:00:00,2025-09-03 00:00:00,2025-09-07 00:00:00,111,,,SYN_PO_11,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 151.000.2421.201.000.345 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 151.000.2421.201.000.345 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 151.000.2421.201.000.345 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 151.000.2421.201.000.345 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 151.000.2421.201.000.345 is not valid. Project Not Approved""
+  }
+]",Fail,2025-11-12 01:50:06,45,PNA,Hold,CA,3793.26,3793.26,3793.26
+INV000068,ABC Synthetic Corp 1 - Network Infrastructure Services - Region West,SYN-INVOICE-000068,ABC Synthetic Corp 1,BVP-02561,2025-09-30 00:00:00,2025-10-27 00:00:00,2025-11-29 00:00:00,43,,,PO_Synthetic_1,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""5617198"",
+  ""vendorInvoiceNumber"": ""SYN-INVOICE-000068"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 01:56:12,60,BLANK,Hold,FL,3025,3025,3025
+INV000069,Synthetic Vendor Inc 24 - Network Infrastructure Services - Maintenance,INV-SYN-000069,Synthetic Vendor Inc 24,BVP-01636,2025-09-26 00:00:00,2025-10-30 00:00:00,2025-11-10 00:00:00,47,,,PO_Synthetic_37,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.000.3411.504.000.345 is not valid. Project Closed""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 441.318.6421.000.253.345 is not valid. Project Closed""
+  },
+  {
+    ""lineNumber"": 9,
+    ""message"": ""GL account 441.000.3411.504.000.345 is not valid. Project Closed""
+  },
+  {
+    ""lineNumber"": 10,
+    ""message"": ""GL account 441.000.3411.504.000.345 is not valid. Project Closed""
+  },
+  {
+    ""lineNumber"": 11,
+    ""message"": ""GL account 441.000.3411.504.000.345 is not valid. Project Closed""
+  },
+  {
+    ""lineNumber"": 14,
+    ""message"": ""GL account 441.318.6421.000.253.345 is not valid. Project Closed""
+  }
+]",Fail,2025-11-12 04:18:48,45,,Hold,CT,19537.82,19537.82,19537.82
+INV000070,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,SYNTHETIC-INV-000070,Synthetic Tech Partners 5,BVP-02536,2025-10-09 00:00:00,2025-10-17 00:00:00,2025-12-08 00:00:00,34,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""SYNTHETIC-INV-000070"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 05:18:33,60,BLANK,Hold,CA,306.04,306.04,306.04
+INV000071,ABC Synthetic Corp 25 - Site Development and Build Out - Region East,SYN-INVOICE-000071,ABC Synthetic Corp 25,BVP-01352,2025-08-07 00:00:00,2025-08-29 00:00:00,2025-10-06 00:00:00,97,,,SYN_PO_38,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 151.338.6422.000.253.345 is not valid. Project Not Approved""
+  }
+]",Fail,2025-11-12 01:59:27,60,PNA,Hold,CA,119.03,119.03,119.03
+INV000072,Synthetic Solutions Group 15 - Site Development and Build Out - Installation,INV-SYN-000072,Synthetic Solutions Group 15,BVP-02559,2025-10-24 00:00:00,2025-11-12 00:00:00,2025-12-08 00:00:00,2,,,Synthetic_PO_39,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 971.000.2423.101.000.424 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 19:10:30,45,,Hold,SC,5635,5635,5635
+INV000073,ABC Synthetic Corp 1 - Site Development and Build Out - Site C,SYNTHETIC-INV-000073,ABC Synthetic Corp 1,BVP-02565,2025-07-31 00:00:00,2025-09-30 00:00:00,2025-09-29 00:00:00,104,622,2025-09-30 00:00:00,PO_Synthetic_40,TRUE,"Detail from service: Failed Validation and 
+ Validation Message: {
+  
+} and 
+ Validation Message: {
+  ""lines"": [
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    }
+  ]
+}",FAIL,2025-11-05 08:41:12,60,ACCT,Hold,WV,378.91,378.91,378.91
+INV000074,Synthetic Solutions Group 3 - Construction Services Agreement - Site B,SYN-INVOICE-000074,Synthetic Solutions Group 3,BVP-00460,2025-10-29 00:00:00,2025-11-04 00:00:00,2025-11-28 00:00:00,14,,,SYN_PO_5,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.000.2423.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-11 08:20:42,30,,Hold,CT,720,720,720
+INV000075,Synthetic Solutions Group 3 - Construction Services Agreement - Site B,INV-SYN-000075,Synthetic Solutions Group 3,BVP-00460,2025-10-17 00:00:00,2025-10-31 00:00:00,2025-11-16 00:00:00,26,,,SYN_PO_5,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.000.3411.504.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 05:52:12,30,,Hold,CT,720,720,720
+INV000076,Global Synthetic Industries 4 - Network Infrastructure Services - Q1 2025,SYNTHETIC-INV-000076,Global Synthetic Industries 4,BVP-02554,2025-07-22 00:00:00,2025-09-17 00:00:00,2025-09-20 00:00:00,113,,,Synthetic_PO_6,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 174.000.2422.201.000.344 is not valid. Project Number Not Valid""
+  }
+]",Fail,2025-11-12 01:49:28,60,CAP MGMT,Hold,TX,671.5,671.5,671.5
+INV000077,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,SYN-INVOICE-000077,Synthetic Tech Partners 5,BVP-02536,2025-11-04 00:00:00,2025-11-12 00:00:00,2026-01-03 00:00:00,8,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""SYN-INVOICE-000077"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 14:01:35,60,,Hold,CA,1750,1750,1750
+INV000078,ABC Synthetic Corp 1 - Network Infrastructure Services - Region West,INV-SYN-000078,ABC Synthetic Corp 1,BVP-02561,2025-10-17 00:00:00,2025-10-27 00:00:00,2025-12-16 00:00:00,26,,,PO_Synthetic_1,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""5617198"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000078"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 05:55:49,60,BLANK,Hold,FL,2482.5,2482.5,2482.5
+INV000079,ABC Synthetic Corp 1 - Professional Services Engagement - Phase 3,SYNTHETIC-INV-000079,ABC Synthetic Corp 1,BVP-02564,2025-10-27 00:00:00,2025-10-29 00:00:00,2025-12-26 00:00:00,16,,,PO_Synthetic_4,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.000.2421.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 07:26:54,60,,Hold,CT,305.72,305.72,305.72
+INV000080,Synthetic Tech Partners 17 - Network Infrastructure Services - Site A,SYN-INVOICE-000080,Synthetic Tech Partners 17,"Synthetic Tech Partners 17-Quote Work -TX, IN, OH, WI, AZ, AL",2025-08-06 00:00:00,2025-09-05 00:00:00,2025-10-05 00:00:00,98,,,SYN_PO_41,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 164.348.6232.000.182.344 is not valid. Project Number Not Valid""
+  }
+]",Fail,2025-11-12 01:58:31,60,CAP MGMT,Hold,FL,1900,1900,1900
+INV000081,XYZ Services LLC 26 - Fiber Optic Installation Project - Region East,INV-SYN-000081,XYZ Services LLC 26,BVP-02883,2025-09-03 00:00:00,2025-10-13 00:00:00,2025-11-02 00:00:00,70,,,Synthetic_PO_42,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 151.338.6421.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 151.338.6421.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 151.338.6421.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 151.338.6421.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 151.338.6421.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 02:45:23,60,,Hold,CA,12870.28,12870.28,12870.28
+INV000082,Synthetic Tech Partners 17 - Fiber Optic Installation Project - Region West,SYNTHETIC-INV-000082,Synthetic Tech Partners 17,"Synthetic Tech Partners 17-Quote Work -TX, IN, OH, WI, AZ, AL",2025-10-01 00:00:00,2025-11-06 00:00:00,2025-11-30 00:00:00,42,,,SYN_PO_23,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 171.000.3362.004.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 04:39:33,60,,Hold,TX,1600,1600,1600
+INV000083,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,SYN-INVOICE-000083,Synthetic Tech Partners 5,BVP-02536,2025-11-03 00:00:00,2025-11-05 00:00:00,2026-01-02 00:00:00,9,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""SYN-INVOICE-000083"",
+  ""status"": ""Error""
+}",Fail,2025-11-11 08:44:38,60,BLANK,Hold,CA,541.9,541.9,541.9
+INV000084,Synthetic Tech Partners 5 - Fiber Optic Installation Project - Phase 2,INV-SYN-000084,Synthetic Tech Partners 5,BVP-02536,2025-09-09 00:00:00,2025-10-13 00:00:00,2025-11-08 00:00:00,64,,,Synthetic_PO_21,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 012.338.6421.000.182.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 012.338.6421.000.182.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 012.338.6421.000.182.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 02:57:59,60,,Hold,CA,2170,2170,2170
+INV000085,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,SYNTHETIC-INV-000085,Synthetic Tech Partners 5,BVP-02536,2025-10-29 00:00:00,2025-10-30 00:00:00,2025-12-28 00:00:00,14,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""SYNTHETIC-INV-000085"",
+  ""status"": ""Error""
+}",Fail,2025-11-11 08:20:26,60,BLANK,Hold,CA,2170,2170,2170
+INV000086,Synthetic Tech Partners 5 - Professional Services Engagement - Installation,SYN-INVOICE-000086,Synthetic Tech Partners 5,BVP-02536,2025-10-17 00:00:00,2025-11-03 00:00:00,2025-12-16 00:00:00,26,,,PO_Synthetic_43,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 151.000.2423.201.000.344 is not valid. Main/Sub Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 151.000.2423.201.000.344 is not valid. Main/Sub Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 151.000.2423.201.000.344 is not valid. Main/Sub Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 151.000.2423.201.000.344 is not valid. Main/Sub Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 151.000.2423.201.000.344 is not valid. Main/Sub Not Valid For This Project""
+  }
+]",Fail,2025-11-12 06:01:00,60,,Hold,CA,1222.48,1222.48,1222.48
+INV000087,Synthetic Solutions Group 27 - Fiber Optic Installation Project - Phase 2,INV-SYN-000087,Synthetic Solutions Group 27,BVP-02955,2025-09-26 00:00:00,2025-10-24 00:00:00,2025-11-25 00:00:00,47,,,SYN_PO_44,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 164.000.2423.401.000.345 is not valid. 1""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 164.000.2423.401.000.345 is not valid. 1""
+  }
+]",Fail,2025-11-12 04:17:45,60,,Hold,FL,1425.44,1425.44,1425.44
+INV000088,XYZ Services LLC 20 - Fiber Optic Installation Project - Phase 2,SYNTHETIC-INV-000088,XYZ Services LLC 20,BVP-02897,2025-09-29 00:00:00,2025-10-02 00:00:00,2025-11-28 00:00:00,44,,,Synthetic_PO_30,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 164.000.2423.401.000.345 is not valid. 1""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 164.000.2423.401.000.345 is not valid. 1""
+  }
+]",Fail,2025-11-12 04:26:39,60,,Hold,FL,720.07,720.07,720.07
+INV000089,ABC Synthetic Corp 1 - Network Infrastructure Services - Region West,SYN-INVOICE-000089,ABC Synthetic Corp 1,BVP-02561,2025-10-27 00:00:00,2025-11-05 00:00:00,2025-12-26 00:00:00,16,,2025-11-06 00:00:00,PO_Synthetic_1,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""5617198"",
+  ""vendorInvoiceNumber"": ""SYN-INVOICE-000089"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 07:36:05,60,BLANK,Hold,FL,140,140,140
+INV000090,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,INV-SYN-000090,Synthetic Tech Partners 5,BVP-02536,2025-11-05 00:00:00,2025-11-06 00:00:00,2026-01-04 00:00:00,7,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000090"",
+  ""status"": ""Error""
+}",Fail,2025-11-11 08:58:58,60,BLANK,Hold,CA,312.47,312.47,312.47
+INV000091,Synthetic Tech Partners 5 - Fiber Optic Installation Project - Phase 2,SYNTHETIC-INV-000091,Synthetic Tech Partners 5,BVP-02536,2025-09-09 00:00:00,2025-10-13 00:00:00,2025-11-08 00:00:00,64,,,Synthetic_PO_21,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 151.000.2423.301.000.344 is not valid. 1""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 151.000.2423.301.000.344 is not valid. 1""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 151.000.2423.301.000.344 is not valid. 1""
+  }
+]",Fail,2025-11-12 02:59:25,60,,Hold,CA,306.04,306.04,306.04
+INV000092,Synthetic Vendor Inc 12 - Telecommunications Maintenance Contract - Installation,SYN-INVOICE-000092,Synthetic Vendor Inc 12,BVP-00257,2025-09-17 00:00:00,2025-10-22 00:00:00,2026-02-14 00:00:00,56,,,PO_Synthetic_16,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 941.133.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 941.133.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 941.133.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 941.133.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 941.133.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 03:25:11,150,,Hold,WI,4011,4011,4011
+INV000093,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,INV-SYN-000093,Synthetic Tech Partners 5,BVP-02536,2025-09-24 00:00:00,2025-10-16 00:00:00,2025-11-23 00:00:00,49,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000093"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 03:49:02,60,BLANK,Hold,CA,948.45,948.45,948.45
+INV000094,Synthetic Tech Partners 5 - Fiber Optic Installation Project - Phase 2,SYNTHETIC-INV-000094,Synthetic Tech Partners 5,BVP-02536,2025-09-11 00:00:00,2025-10-14 00:00:00,2025-11-10 00:00:00,62,,,Synthetic_PO_21,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 151.338.6422.000.182.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 151.338.6422.000.182.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 151.338.6422.000.182.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 151.338.6422.000.182.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 151.000.3422.104.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 6,
+    ""message"": ""GL account 151.000.3422.204.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 7,
+    ""message"": ""GL account 151.000.3422.104.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 8,
+    ""message"": ""GL account 151.000.3422.104.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 9,
+    ""message"": ""GL account 151.000.3422.104.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 10,
+    ""message"": ""GL account 151.000.3422.104.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 03:10:55,60,,Hold,CA,368.48,368.48,368.48
+INV000095,XYZ Services LLC 20 - Fiber Optic Installation Project - Phase 2,SYN-INVOICE-000095,XYZ Services LLC 20,BVP-02897,2025-10-30 00:00:00,2025-11-05 00:00:00,2025-12-29 00:00:00,13,,,Synthetic_PO_30,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 161.348.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 161.348.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 161.348.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 161.348.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-11 08:23:31,60,,Hold,FL,539.3,539.3,539.3
+INV000096,Global Synthetic Industries 28 - Fiber Optic Installation Project - Deployment,INV-SYN-000096,Global Synthetic Industries 28,BVP-00384,2025-08-06 00:00:00,2025-09-08 00:00:00,2025-09-20 00:00:00,98,,,Synthetic_PO_45,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 151.000.2411.001.000.345 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 151.000.2411.001.000.345 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 151.000.2411.001.000.345 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 151.000.2411.001.000.345 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 151.000.2411.001.000.345 is not valid. Project Not Approved""
+  }
+]",Fail,2025-11-12 01:56:37,45,PNA,Hold,CA,3916,3916,3916
+INV000097,Synthetic Tech Partners 29 - Telecommunications Maintenance Contract - Deployment,SYNTHETIC-INV-000097,Synthetic Tech Partners 29,BVP-02831,2025-10-15 00:00:00,2025-10-31 00:00:00,2025-12-14 00:00:00,28,,,PO_Synthetic_46,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 501.121.6423.000.253.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 501.121.6423.000.253.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 501.121.6423.000.253.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 04:32:32,60,,Hold,IA,2248,2248,2248
+INV000098,ABC Synthetic Corp 1 - Fiber Optic Installation Project - Buildout,SYN-INVOICE-000098,ABC Synthetic Corp 1,BVP-02565,2025-10-11 00:00:00,2025-11-10 00:00:00,2025-12-10 00:00:00,32,,,SYN_PO_8,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 6,
+    ""message"": ""GL account 942.000.2421.201.000.344 is not valid. Project Closed""
+  }
+]",Fail,2025-11-12 04:40:04,60,,Hold,OH,1620,1620,1620
+INV000099,Synthetic Solutions Group 3 - Construction Services Agreement - Site B,INV-SYN-000099,Synthetic Solutions Group 3,BVP-00460,2025-10-20 00:00:00,2025-10-31 00:00:00,2025-11-19 00:00:00,23,,,SYN_PO_5,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.000.2411.502.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 06:19:09,30,,Hold,CT,911.25,911.25,911.25
+INV000100,Synthetic Vendor Inc 12 - Construction Services Agreement - Region North,SYNTHETIC-INV-000100,Synthetic Vendor Inc 12,BVP-00238,2025-11-01 00:00:00,2025-11-03 00:00:00,2026-03-31 00:00:00,11,,,SYN_PO_47,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 151.000.2422.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 151.000.2422.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 151.000.2422.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 151.000.2422.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 151.000.2422.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-11 08:38:37,150,,Hold,CA,149.47,149.47,149.47
+INV000101,ABC Synthetic Corp 1 - Site Development and Build Out - Site C,SYN-INVOICE-000101,ABC Synthetic Corp 1,BVP-02565,2025-07-29 00:00:00,2025-09-30 00:00:00,2025-09-27 00:00:00,106,526,2025-09-30 00:00:00,PO_Synthetic_40,TRUE,"Detail from service: Failed Validation and 
+ Validation Message: {
+  
+} and 
+ Validation Message: {
+  ""lines"": [
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    }
+  ]
+}",FAIL,2025-11-05 08:41:17,60,ACCT,Hold,WV,424.61,424.61,424.61
+INV000102,ABC Synthetic Corp 1 - Network Infrastructure Services - Region West,INV-SYN-000102,ABC Synthetic Corp 1,BVP-00884,2025-10-21 00:00:00,2025-10-27 00:00:00,2025-12-20 00:00:00,22,,,PO_Synthetic_1,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""5617198"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000102"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 06:42:45,60,BLANK,Hold,FL,725,725,725
+INV000103,Synthetic Solutions Group 3 - Construction Services Agreement - Site B,SYNTHETIC-INV-000103,Synthetic Solutions Group 3,BVP-00460,2025-10-21 00:00:00,2025-10-31 00:00:00,2025-11-20 00:00:00,22,,,SYN_PO_5,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.000.2421.201.000.345 is not valid. Project Closed""
+  }
+]",Fail,2025-11-12 06:28:27,30,,Hold,CT,540,540,540
+INV000104,Synthetic Solutions Group 9 - Telecommunications Maintenance Contract - Region West,SYN-INVOICE-000104,Synthetic Solutions Group 9,BVP-02877,2025-09-05 00:00:00,2025-10-14 00:00:00,2025-11-04 00:00:00,68,,,Synthetic_PO_12,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 005.000.2421.201.000.345 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 005.000.2421.201.000.345 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 005.000.2421.201.000.345 is not valid. Project Not Approved""
+  }
+]",Fail,2025-11-12 02:43:33,60,PNA,Hold,TN,1267.75,1267.75,1267.75
+INV000105,Synthetic Solutions Group 3 - Construction Services Agreement - Site B,INV-SYN-000105,Synthetic Solutions Group 3,BVP-00460,2025-11-06 00:00:00,2025-11-10 00:00:00,2025-12-06 00:00:00,6,,,SYN_PO_5,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.000.2422.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-11 09:05:41,30,,Hold,CT,540,540,540
+INV000106,ABC Synthetic Corp 1 - Site Development and Build Out - Region North,SYNTHETIC-INV-000106,ABC Synthetic Corp 1,BVP-02561,2025-10-02 00:00:00,2025-10-13 00:00:00,2025-12-01 00:00:00,41,,,SYN_PO_35,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 005.000.3421.104.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 04:46:39,60,,Hold,TN,75,75,75
+INV000107,ABC Synthetic Corp 1 - Fiber Optic Installation Project - Buildout,SYN-INVOICE-000107,ABC Synthetic Corp 1,BVP-02561,2025-08-12 00:00:00,2025-09-15 00:00:00,2025-10-11 00:00:00,92,578,2025-10-29 00:00:00,SYN_PO_8,TRUE,"Detail from service: Failed Validation and 
+ Validation Message: {
+  
+} and 
+ Validation Message: {
+  ""lines"": {
+    ""9"": {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    }
+  }
+}",FAIL,2025-11-06 14:09:54,60,ACCT,Hold,FL,2349.2,2349.2,2349.2
+INV000108,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,INV-SYN-000108,Synthetic Tech Partners 5,BVP-02536,2025-10-28 00:00:00,2025-10-29 00:00:00,2025-12-27 00:00:00,15,,,PO_Synthetic_7,FALSE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000108"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 07:40:07,60,BLANK,Hold,CA,148,148,148
+INV000109,Synthetic Solutions Group 3 - Construction Services Agreement - Site B,SYNTHETIC-INV-000109,Synthetic Solutions Group 3,BVP-00460,2025-10-21 00:00:00,2025-10-31 00:00:00,2025-11-20 00:00:00,22,,,SYN_PO_5,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.318.6421.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 06:29:48,30,,Hold,CT,776.25,776.25,776.25
+INV000110,ABC Synthetic Corp 1 - Fiber Optic Installation Project - Buildout,SYN-INVOICE-000110,ABC Synthetic Corp 1,BVP-02561,2025-08-11 00:00:00,2025-09-12 00:00:00,2025-10-10 00:00:00,93,,,SYN_PO_8,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 164.000.3423.104.000.344 is not valid. Project Number Not Valid""
+  }
+]",Fail,2025-11-12 02:01:49,60,CAP MGMT,Hold,FL,1277.5,1277.5,1277.5
+INV000111,XYZ Services LLC 8 - Professional Services Engagement - Q3 2025,INV-SYN-000111,XYZ Services LLC 8,BVP-02853,2025-09-25 00:00:00,2025-11-05 00:00:00,2025-11-09 00:00:00,48,,,SYN_PO_11,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 152.000.2421.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 152.000.2421.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 152.000.2421.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 152.000.2421.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 04:03:09,45,,Hold,CA,1986.6,1986.6,1986.6
+INV000112,XYZ Services LLC 8 - Professional Services Engagement - Q3 2025,SYNTHETIC-INV-000112,XYZ Services LLC 8,BVP-02853,2025-09-25 00:00:00,2025-11-05 00:00:00,2025-11-09 00:00:00,48,,,SYN_PO_11,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 152.000.2441.001.000.505 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 152.000.2441.001.000.505 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 6,
+    ""message"": ""GL account 152.000.2441.001.000.505 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 04:05:52,45,,Hold,CA,1994.55,2255.55,2255.55
+INV000113,XYZ Services LLC 8 - Professional Services Engagement - Q3 2025,SYN-INVOICE-000113,XYZ Services LLC 8,BVP-00423,2025-05-29 00:00:00,2025-08-19 00:00:00,2025-07-13 00:00:00,167,,,SYN_PO_11,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 152.000.2422.201.000.345 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 152.000.2422.201.000.345 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 152.000.2422.201.000.345 is not valid. Project Not Approved""
+  }
+]",Fail,2025-11-12 01:35:02,45,PNA,Hold,CA,1750.9,1750.9,1750.9
+INV000114,ABC Synthetic Corp 1 - Telecommunications Maintenance Contract - Maintenance,INV-SYN-000114,ABC Synthetic Corp 1,BVP-01551,2025-09-08 00:00:00,2025-11-05 00:00:00,2025-11-07 00:00:00,65,561,2025-11-05 00:00:00,Synthetic_PO_48,TRUE,"Detail from service: Failed Validation and 
+ Validation Message: {
+  
+} and 
+ Validation Message: {
+  ""lines"": {
+    ""3"": {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    },
+    ""4"": {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    }
+  }
+}",FAIL,2025-11-06 14:09:54,60,ACCT,Hold,NY,1118.26,1118.26,1118.26
+INV000115,Synthetic Vendor Inc 30 - Site Development and Build Out - Phase 2,SYNTHETIC-INV-000115,Synthetic Vendor Inc 30,BVP-01215,2025-07-09 00:00:00,2025-08-19 00:00:00,2025-08-23 00:00:00,126,,,PO_Synthetic_49,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.318.6441.000.253.345 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 441.318.6441.000.253.345 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 441.318.6441.000.253.345 is not valid. Project Not Approved""
+  }
+]",Fail,2025-11-12 01:46:15,45,PNA,Hold,CT,5045.88,5075.89,5075.89
+INV000116,Global Synthetic Industries 4 - Professional Services Engagement - Q3 2025,SYN-INVOICE-000116,Global Synthetic Industries 4,BVP-01006,2025-09-01 00:00:00,2025-11-04 00:00:00,2025-10-31 00:00:00,72,,,SYN_PO_50,TRUE,"Detail from service: The total amount from the invoice lines does not match the Total Invoice Amount value. and 
+ Validation Message: {
+  ""vendorId"": ""4206967"",
+  ""vendorInvoiceNumber"": ""SYN-INVOICE-000116"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 02:36:20,60,ACCT,Hold,IN,137.99,137.99,137.99
+INV000117,Global Synthetic Industries 4 - Equipment and Materials Supply - Upgrade,INV-SYN-000117,Global Synthetic Industries 4,BVP-01002,2025-10-22 00:00:00,2025-11-10 00:00:00,2025-12-21 00:00:00,21,670,2025-11-10 00:00:00,Synthetic_PO_51,TRUE,"Detail from service: Failed Validation and 
+ Validation Message: {
+  
+} and 
+ Validation Message: {
+  ""lines"": {
+    ""8"": {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    }
+  }
+}",FAIL,2025-11-10 15:52:25,60,ACCT,Hold,CA,2048,2048,2048
+INV000118,ABC Synthetic Corp 1 - Network Infrastructure Services - Region West,SYNTHETIC-INV-000118,ABC Synthetic Corp 1,BVP-02561,2025-10-23 00:00:00,2025-10-29 00:00:00,2025-12-22 00:00:00,20,,,PO_Synthetic_1,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""5617198"",
+  ""vendorInvoiceNumber"": ""SYNTHETIC-INV-000118"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 06:54:40,60,BLANK,Hold,FL,2002.3,2002.3,2002.3
+INV000119,XYZ Services LLC 2 - Telecommunications Maintenance Contract - Buildout,SYN-INVOICE-000119,XYZ Services LLC 2,BVP-02530,2025-10-28 00:00:00,2025-10-30 00:00:00,2025-12-12 00:00:00,15,,,SYN_PO_2,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 174.000.2411.101.000.344 is not valid. Project Number Not Valid""
+  }
+]",Fail,2025-11-12 05:34:25,45,CAP MGMT,Hold,TX,69.06,69.06,69.06
+INV000120,ABC Synthetic Corp 13 - Network Infrastructure Services - Region South,INV-SYN-000120,ABC Synthetic Corp 13,BVP-00925,2025-09-10 00:00:00,2025-10-29 00:00:00,2025-10-25 00:00:00,63,,,Synthetic_PO_18,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 012.000.2422.201.000.424 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 012.000.2422.201.000.424 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 02:43:06,45,,Hold,CA,419.42,419.42,419.42
+INV000121,Synthetic Solutions Group 3 - Construction Services Agreement - Site B,SYNTHETIC-INV-000121,Synthetic Solutions Group 3,BVP-00460,2025-11-04 00:00:00,2025-11-12 00:00:00,2025-12-04 00:00:00,8,,,SYN_PO_5,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.000.3411.504.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 17:29:19,30,,Hold,CT,540,540,540
+INV000122,Global Synthetic Industries 4 - Professional Services Engagement - Expansion,SYN-INVOICE-000122,Global Synthetic Industries 4,BVP-01006,2025-08-28 00:00:00,2025-10-24 00:00:00,2025-10-27 00:00:00,76,,,PO_Synthetic_52,TRUE,"Detail from service: The total amount from the invoice lines does not match the Total Invoice Amount value. and 
+ Validation Message: {
+  ""vendorId"": ""4206967"",
+  ""vendorInvoiceNumber"": ""SYN-INVOICE-000122"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 02:23:22,60,ACCT,Hold,MI,160.97,160.97,160.97
+INV000123,ABC Synthetic Corp 1 - Fiber Optic Installation Project - Buildout,INV-SYN-000123,ABC Synthetic Corp 1,BVP-02561,2025-09-29 00:00:00,2025-10-08 00:00:00,2025-11-28 00:00:00,44,,,SYN_PO_8,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 9,
+    ""message"": ""GL account 164.000.2423.401.000.344 is not valid. 1""
+  },
+  {
+    ""lineNumber"": 10,
+    ""message"": ""GL account 164.000.2423.401.000.344 is not valid. 1""
+  }
+]",Fail,2025-11-12 03:43:44,60,,Hold,FL,1416.8,1416.8,1416.8
+INV000124,ABC Synthetic Corp 1 - Network Infrastructure Services - Region West,SYNTHETIC-INV-000124,ABC Synthetic Corp 1,BVP-02561,2025-10-24 00:00:00,2025-10-28 00:00:00,2025-12-23 00:00:00,19,,,PO_Synthetic_1,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""5617198"",
+  ""vendorInvoiceNumber"": ""SYNTHETIC-INV-000124"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 07:21:22,60,BLANK,Hold,FL,3630,3630,3630
+INV000125,Global Synthetic Industries 4 - Network Infrastructure Services - Phase 3,SYN-INVOICE-000125,Global Synthetic Industries 4,BVP-01002,2025-10-09 00:00:00,2025-11-12 00:00:00,2025-12-08 00:00:00,34,399,2025-11-12 00:00:00,SYN_PO_53,TRUE,"Detail from service: Failed Validation and 
+ Validation Message: {
+  
+} and 
+ Validation Message: {
+  ""lines"": {
+    ""3"": {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    }
+  }
+}",FAIL,2025-11-12 14:42:27,60,ACCT,Hold,TX,2048,2048,2048
+INV000126,Global Synthetic Industries 4 - Site Development and Build Out - Q1 2025,INV-SYN-000126,Global Synthetic Industries 4,BVP-01006,2025-10-29 00:00:00,2025-11-10 00:00:00,2025-12-28 00:00:00,14,159,2025-11-11 00:00:00,Synthetic_PO_54,TRUE,"Detail from service: A vendor invoice number of INV-SYN-000126 is already queued for release. and 
+ Validation Message: {
+  ""vendorId"": ""4206967"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000126"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 13:44:28,60,ACCT,Hold,IN,307.46,307.46,307.46
+INV000127,ABC Synthetic Corp 19 - Professional Services Engagement - Q3 2025,SYNTHETIC-INV-000127,ABC Synthetic Corp 19,BVP-02777,2025-10-29 00:00:00,2025-11-06 00:00:00,2025-12-28 00:00:00,14,,,PO_Synthetic_28,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 943.130.6421.000..345 is not valid. 1""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 943.130.6421.000..345 is not valid. 1""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 943.130.6421.000..345 is not valid. 1""
+  }
+]",Fail,2025-11-11 08:17:46,60,,Hold,MI,983.55,983.55,983.55
+INV000128,Global Synthetic Industries 16 - Construction Services Agreement - Installation,SYN-INVOICE-000128,Global Synthetic Industries 16,BVP-02852,2025-10-16 00:00:00,2025-10-30 00:00:00,2025-12-15 00:00:00,27,,,PO_Synthetic_55,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 944.000.2422.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 05:50:50,60,,Hold,IN,102.5,102.5,102.5
+INV000129,ABC Synthetic Corp 1 - Network Infrastructure Services - Region West,INV-SYN-000129,ABC Synthetic Corp 1,BVP-02561,2025-10-17 00:00:00,2025-10-27 00:00:00,2025-12-16 00:00:00,26,,,PO_Synthetic_1,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""5617198"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000129"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 06:10:16,60,BLANK,Hold,FL,180,180,180
+INV000130,ABC Synthetic Corp 1 - Professional Services Engagement - Phase 3,SYNTHETIC-INV-000130,ABC Synthetic Corp 1,BVP-00900,2025-10-22 00:00:00,2025-11-04 00:00:00,2025-12-21 00:00:00,21,,,SYN_PO_56,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 441.000.2411.101.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 06:51:10,60,,Hold,CT,1420,1420,1420
+INV000131,ABC Synthetic Corp 1 - Equipment and Materials Supply - Phase 2,SYN-INVOICE-000131,ABC Synthetic Corp 1,BVP-02561,2025-11-06 00:00:00,2025-11-12 00:00:00,2026-01-05 00:00:00,6,,2025-11-12 00:00:00,Synthetic_PO_3,TRUE,The maximum number of releases (999) has been reached for this blanket purchase order.,Fail,2025-11-12 17:35:21,60,,Hold,FL,2685,2685,2685
+INV000132,XYZ Services LLC 2 - Construction Services Agreement - Expansion,INV-SYN-000132,XYZ Services LLC 2,BVP-01548,2025-09-11 00:00:00,2025-10-10 00:00:00,2025-10-26 00:00:00,62,,,Synthetic_PO_57,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 8,
+    ""message"": ""GL account 012.000.2411.001.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 9,
+    ""message"": ""GL account 151.000.2421.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 01:48:01,45,,Hold,CA,6090,6090,6090
+INV000133,Synthetic Solutions Group 3 - Construction Services Agreement - Site B,SYNTHETIC-INV-000133,Synthetic Solutions Group 3,BVP-00460,2025-10-31 00:00:00,2025-11-07 00:00:00,2025-11-30 00:00:00,12,,,SYN_PO_5,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.000.2421.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 06:12:19,30,,Hold,CT,877.5,877.5,877.5
+INV000134,XYZ Services LLC 8 - Professional Services Engagement - Q3 2025,SYN-INVOICE-000134,XYZ Services LLC 8,BVP-02853,2025-09-18 00:00:00,2025-10-22 00:00:00,2025-11-02 00:00:00,55,,,SYN_PO_11,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 151.000.2422.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 03:38:06,45,,Hold,CA,6062.41,6062.41,6062.41
+INV000135,Synthetic Vendor Inc 12 - Network Infrastructure Services - Phase 1,INV-SYN-000135,Synthetic Vendor Inc 12,BVP-01643,2025-09-30 00:00:00,2025-10-22 00:00:00,2026-02-27 00:00:00,43,,,Synthetic_PO_27,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 7,
+    ""message"": ""GL account 947.168.6421.000.231.345 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 8,
+    ""message"": ""GL account 947.168.6421.000.231.345 is not valid. Project Not Approved""
+  },
+  {
+    ""lineNumber"": 9,
+    ""message"": ""GL account 947.168.6421.000.231.505 is not valid. Project Not Approved""
+  }
+]",Fail,2025-11-12 04:27:56,150,PNA,Hold,IL,4268.09,4268.09,4268.09
+INV000136,ABC Synthetic Corp 1 - Fiber Optic Installation Project - Buildout,SYNTHETIC-INV-000136,ABC Synthetic Corp 1,BVP-02561,2025-09-29 00:00:00,2025-10-08 00:00:00,2025-11-28 00:00:00,44,,,SYN_PO_8,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 164.000.2423.201.000.344 is not valid. Project Number Not Valid""
+  }
+]",Fail,2025-11-12 03:20:34,60,CAP MGMT,Hold,FL,1440,1440,1440
+INV000137,XYZ Services LLC 20 - Fiber Optic Installation Project - Phase 2,SYN-INVOICE-000137,XYZ Services LLC 20,BVP-02897,2025-10-03 00:00:00,2025-10-09 00:00:00,2025-12-02 00:00:00,40,,,Synthetic_PO_30,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 164.000.2423.401.000.345 is not valid. 1""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 164.000.2423.401.000.345 is not valid. 1""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 164.000.2423.401.000.345 is not valid. 1""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 164.000.2423.401.000.345 is not valid. 1""
+  },
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 164.000.2423.401.000.345 is not valid. 1""
+  },
+  {
+    ""lineNumber"": 6,
+    ""message"": ""GL account 164.000.2423.401.000.345 is not valid. 1""
+  },
+  {
+    ""lineNumber"": 7,
+    ""message"": ""GL account 164.000.2423.401.000.345 is not valid. 1""
+  }
+]",Fail,2025-11-12 04:49:53,60,,Hold,FL,1275.6,1275.6,1275.6
+INV000138,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,INV-SYN-000138,Synthetic Tech Partners 5,BVP-02536,2025-10-22 00:00:00,2025-11-04 00:00:00,2025-12-21 00:00:00,21,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000138"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 06:53:32,60,BLANK,Hold,CA,2406.25,2406.25,2406.25
+INV000139,XYZ Services LLC 20 - Fiber Optic Installation Project - Phase 2,SYNTHETIC-INV-000139,XYZ Services LLC 20,BVP-02897,2025-10-22 00:00:00,2025-10-28 00:00:00,2025-12-21 00:00:00,21,,,Synthetic_PO_30,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 7,
+    ""message"": ""GL account 161.000.2423.201.000.505 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 8,
+    ""message"": ""GL account 161.000.2423.201.000.505 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 9,
+    ""message"": ""GL account 161.000.2423.201.000.505 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 06:50:37,60,,Hold,FL,6875.29,6875.29,6875.29
+INV000140,ABC Synthetic Corp 1 - Professional Services Engagement - Phase 3,SYN-INVOICE-000140,ABC Synthetic Corp 1,BVP-00900,2025-09-12 00:00:00,2025-09-23 00:00:00,2025-11-11 00:00:00,61,,,PO_Synthetic_4,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 7,
+    ""message"": ""GL account 441.000.2411.101.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 15,
+    ""message"": ""GL account 441.000.2411.101.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 03:10:15,60,,Hold,CT,1276.2,1276.2,1276.2
+INV000141,ABC Synthetic Corp 31 - Telecommunications Maintenance Contract - Upgrade,INV-SYN-000141,ABC Synthetic Corp 31,BVP-01720,2025-09-10 00:00:00,2025-10-14 00:00:00,2025-10-25 00:00:00,63,,,PO_Synthetic_58,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 152.000.2422.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 152.000.2422.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 152.000.2422.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 03:05:26,45,,Hold,CA,1486,1486,1486
+INV000142,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,SYNTHETIC-INV-000142,Synthetic Tech Partners 5,BVP-02536,2025-10-21 00:00:00,2025-10-30 00:00:00,2025-12-20 00:00:00,22,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""SYNTHETIC-INV-000142"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 06:31:11,60,BLANK,Hold,CA,9057.38,8751.13,8751.13
+INV000143,ABC Synthetic Corp 1 - Professional Services Engagement - Phase 3,SYN-INVOICE-000143,ABC Synthetic Corp 1,BVP-00900,2025-09-30 00:00:00,2025-10-07 00:00:00,2025-11-29 00:00:00,43,,,PO_Synthetic_4,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 441.000.2411.101.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 7,
+    ""message"": ""GL account 441.000.2411.101.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 11,
+    ""message"": ""GL account 441.000.2411.101.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 02:46:16,60,,Hold,CT,1520,1520,1520
+INV000144,ABC Synthetic Corp 1 - Network Infrastructure Services - Region West,INV-SYN-000144,ABC Synthetic Corp 1,BVP-02561,2025-10-24 00:00:00,2025-10-30 00:00:00,2025-12-23 00:00:00,19,,,PO_Synthetic_1,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""5617198"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000144"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 07:24:23,60,BLANK,Hold,FL,3034.7,3034.7,3034.7
+INV000145,Synthetic Vendor Inc 24 - Equipment and Materials Supply - Deployment,SYNTHETIC-INV-000145,Synthetic Vendor Inc 24,BVP-01636,2025-10-02 00:00:00,2025-10-30 00:00:00,2025-11-16 00:00:00,41,,,SYN_PO_59,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 441.318.6421.000.253.345 is not valid. Project Closed""
+  }
+]",Fail,2025-11-12 04:44:46,45,,Hold,CT,18636.16,18636.16,18636.16
+INV000146,XYZ Services LLC 32 - Equipment and Materials Supply - Expansion,SYN-INVOICE-000146,XYZ Services LLC 32,BVP-02540,2025-10-02 00:00:00,2025-11-04 00:00:00,2025-11-16 00:00:00,41,,,Synthetic_PO_60,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 164.000.2423.201.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 164.000.2423.201.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 164.000.2423.201.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 164.000.2423.201.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 164.000.2423.201.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 6,
+    ""message"": ""GL account 164.000.2423.201.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 7,
+    ""message"": ""GL account 164.000.2423.201.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 8,
+    ""message"": ""GL account 164.000.2423.201.000.344 is not valid. Project Number Not Valid""
+  }
+]",Fail,2025-11-12 04:18:36,45,CAP MGMT,Hold,FL,3191.36,3191.36,3191.36
+INV000147,Synthetic Solutions Group 33 - Site Development and Build Out - Q2 2025,INV-SYN-000147,Synthetic Solutions Group 33,BVP-00283,2025-09-26 00:00:00,2025-11-05 00:00:00,2025-11-10 00:00:00,47,,,PO_Synthetic_61,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.000.2421.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 04:13:12,45,,Hold,CT,2178,2178,2178
+INV000148,Synthetic Solutions Group 21 - Professional Services Engagement - Expansion,SYNTHETIC-INV-000148,Synthetic Solutions Group 21,BVP-01716,2025-09-09 00:00:00,2025-10-20 00:00:00,2025-10-24 00:00:00,64,,,PO_Synthetic_31,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 151.000.2411.001.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 151.000.2411.001.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 151.000.2411.001.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 02:57:48,45,,Hold,CA,711.5,3828.25,3828.25
+INV000149,XYZ Services LLC 2 - Telecommunications Maintenance Contract - Buildout,SYN-INVOICE-000149,XYZ Services LLC 2,BVP-02530,2025-10-22 00:00:00,2025-10-27 00:00:00,2025-12-06 00:00:00,21,,,SYN_PO_2,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 171.000.2423.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 06:53:39,45,,Hold,TX,221,221,221
+INV000150,Global Synthetic Industries 10 - Equipment and Materials Supply - Q2 2025,INV-SYN-000150,Global Synthetic Industries 10,BVP-02544,2025-08-25 00:00:00,2025-09-15 00:00:00,2025-10-09 00:00:00,79,22,2025-10-29 00:00:00,SYN_PO_14,TRUE,"Detail from service: Failed Validation and 
+ Validation Message: {
+  
+} and 
+ Validation Message: {
+  ""lines"": [
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    }
+  ]
+}",FAIL,2025-11-06 14:09:54,45,ACCT,Hold,CA,1788.85,1788.85,1788.85
+INV000151,Synthetic Vendor Inc 24 - Network Infrastructure Services - Maintenance,SYNTHETIC-INV-000151,Synthetic Vendor Inc 24,BVP-01636,2025-09-25 00:00:00,2025-10-30 00:00:00,2025-11-09 00:00:00,48,,,PO_Synthetic_37,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.318.6421.000.253.345 is not valid. Project Closed""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 441.318.6421.000.253.345 is not valid. Project Closed""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 441.318.6421.000.253.345 is not valid. Project Closed""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 441.318.6421.000.253.345 is not valid. Project Closed""
+  }
+]",Fail,2025-11-12 04:10:46,45,,Hold,CT,858,858,858
+INV000152,ABC Synthetic Corp 13 - Construction Services Agreement - Upgrade,SYN-INVOICE-000152,ABC Synthetic Corp 13,ABC Synthetic Corp 13 - SOW 16 FTTH CO-04 - CA,2025-10-01 00:00:00,2025-10-29 00:00:00,2025-11-15 00:00:00,42,,,SYN_PO_29,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 012.000.2423.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 04:37:38,45,,Hold,CA,13527.21,13527.21,13527.21
+INV000153,Synthetic Solutions Group 3 - Telecommunications Maintenance Contract - Installation,INV-SYN-000153,Synthetic Solutions Group 3,BVP-00463,2025-10-29 00:00:00,2025-11-04 00:00:00,2025-11-28 00:00:00,14,,,SYN_PO_62,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 904.000.2421.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 904.000.2421.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 904.000.2421.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-11 08:13:50,30,,Hold,WV,1120.96,1120.96,1120.96
+INV000154,Global Synthetic Industries 4 - Network Infrastructure Services - Phase 3,SYNTHETIC-INV-000154,Global Synthetic Industries 4,BVP-01006,2025-09-01 00:00:00,2025-11-04 00:00:00,2025-10-31 00:00:00,72,,,SYN_PO_53,TRUE,"Detail from service: The total amount from the invoice lines does not match the Total Invoice Amount value. and 
+ Validation Message: {
+  ""vendorId"": ""4206967"",
+  ""vendorInvoiceNumber"": ""SYNTHETIC-INV-000154"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 02:31:31,60,ACCT,Hold,WV,2438,2438,2438
+INV000155,Synthetic Vendor Inc 12 - Telecommunications Maintenance Contract - Q3 2025,SYN-INVOICE-000155,Synthetic Vendor Inc 12,BVP-01332,2025-09-03 00:00:00,2025-10-10 00:00:00,2026-01-31 00:00:00,70,,,Synthetic_PO_63,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 174.000.2421.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 174.000.2421.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 174.000.2421.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 174.000.2421.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 02:42:34,150,,Hold,TX,2683,2683,2683
+INV000156,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,INV-SYN-000156,Synthetic Tech Partners 5,BVP-02536,2025-10-02 00:00:00,2025-10-17 00:00:00,2025-12-01 00:00:00,41,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000156"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 04:42:56,60,BLANK,Hold,CA,2170,2170,2170
+INV000157,ABC Synthetic Corp 1 - Network Infrastructure Services - Region West,SYNTHETIC-INV-000157,ABC Synthetic Corp 1,BVP-02561,2025-10-28 00:00:00,2025-11-05 00:00:00,2025-12-27 00:00:00,15,,,PO_Synthetic_1,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""5617198"",
+  ""vendorInvoiceNumber"": ""SYNTHETIC-INV-000157"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 07:23:52,60,BLANK,Hold,FL,2685,2685,2685
+INV000158,Synthetic Solutions Group 3 - Construction Services Agreement - Site B,SYN-INVOICE-000158,Synthetic Solutions Group 3,BVP-00460,2025-10-17 00:00:00,2025-10-31 00:00:00,2025-11-16 00:00:00,26,,,SYN_PO_5,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.318.6421.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 05:51:46,30,,Hold,CT,720,720,720
+INV000159,Global Synthetic Industries 10 - Equipment and Materials Supply - Q2 2025,INV-SYN-000159,Global Synthetic Industries 10,BVP-02544,2025-09-12 00:00:00,2025-09-17 00:00:00,2025-10-27 00:00:00,61,,,SYN_PO_14,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 151.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 151.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 151.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 03:16:10,45,,Hold,CA,512.58,512.58,512.58
+INV000160,Synthetic Solutions Group 27 - Fiber Optic Installation Project - Phase 2,SYNTHETIC-INV-000160,Synthetic Solutions Group 27,BVP-02955,2025-09-04 00:00:00,2025-10-08 00:00:00,2025-11-03 00:00:00,69,,,SYN_PO_44,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 164.000.2423.201.000.345 is not valid. Project Number Not Valid""
+  }
+]",Fail,2025-11-12 02:36:57,60,CAP MGMT,Hold,FL,996,996,996
+INV000161,ABC Synthetic Corp 1 - Professional Services Engagement - Phase 3,SYN-INVOICE-000161,ABC Synthetic Corp 1,BVP-00900,2025-10-08 00:00:00,2025-11-04 00:00:00,2025-12-07 00:00:00,35,206,2025-11-05 00:00:00,SYN_PO_56,TRUE,"Detail from service: A vendor invoice number of SYN-INVOICE-000161 is already queued for release. and 
+ Validation Message: {
+  ""vendorId"": ""5617198"",
+  ""vendorInvoiceNumber"": ""SYN-INVOICE-000161"",
+  ""status"": ""Error""
+}",Fail,2025-11-06 14:09:54,60,ACCT,Hold,CT,1420,1420,1420
+INV000162,Global Synthetic Industries 4 - Equipment and Materials Supply - Upgrade,INV-SYN-000162,Global Synthetic Industries 4,BVP-01002,2025-10-03 00:00:00,2025-11-07 00:00:00,2025-12-02 00:00:00,40,656,2025-11-07 00:00:00,Synthetic_PO_51,TRUE,"Detail from service: Failed Validation and 
+ Validation Message: {
+  
+} and 
+ Validation Message: {
+  ""lines"": {
+    ""10"": {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    }
+  }
+}",FAIL,2025-11-07 21:44:59,60,ACCT,Hold,CA,2560,2560,2560
+INV000163,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,SYNTHETIC-INV-000163,Synthetic Tech Partners 5,BVP-02536,2025-10-20 00:00:00,2025-11-10 00:00:00,2025-12-19 00:00:00,23,,,PO_Synthetic_7,FALSE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""SYNTHETIC-INV-000163"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 13:27:39,60,BLANK,Hold,CA,190,190,190
+INV000164,ABC Synthetic Corp 13 - Network Infrastructure Services - Region South,SYN-INVOICE-000164,ABC Synthetic Corp 13,ABC Synthetic Corp 13 - SOW 16 FTTH CO-04 - CA,2025-10-02 00:00:00,2025-10-29 00:00:00,2025-11-16 00:00:00,41,,,Synthetic_PO_18,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 012.000.2423.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 012.000.2423.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 6,
+    ""message"": ""GL account 012.000.2423.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 04:42:49,45,,Hold,CA,7078.66,7078.66,7078.66
+INV000165,Synthetic Vendor Inc 24 - Network Infrastructure Services - Maintenance,INV-SYN-000165,Synthetic Vendor Inc 24,BVP-01636,2025-09-25 00:00:00,2025-10-30 00:00:00,2025-11-09 00:00:00,48,,,PO_Synthetic_37,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.318.6421.000.253.345 is not valid. Project Closed""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 441.000.3411.504.000.345 is not valid. Project Closed""
+  },
+  {
+    ""lineNumber"": 6,
+    ""message"": ""GL account 441.000.3411.504.000.345 is not valid. Project Closed""
+  },
+  {
+    ""lineNumber"": 7,
+    ""message"": ""GL account 441.000.3411.504.000.345 is not valid. Project Closed""
+  },
+  {
+    ""lineNumber"": 8,
+    ""message"": ""GL account 441.000.3411.504.000.345 is not valid. Project Closed""
+  },
+  {
+    ""lineNumber"": 9,
+    ""message"": ""GL account 441.000.3411.504.000.345 is not valid. Project Closed""
+  },
+  {
+    ""lineNumber"": 10,
+    ""message"": ""GL account 441.000.3411.504.000.345 is not valid. Project Closed""
+  },
+  {
+    ""lineNumber"": 11,
+    ""message"": ""GL account 441.000.3411.504.000.345 is not valid. Project Closed""
+  }
+]",Fail,2025-11-12 04:08:59,45,,Hold,CT,1928.5,1928.5,1928.5
+INV000166,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,SYNTHETIC-INV-000166,Synthetic Tech Partners 5,BVP-02536,2025-10-27 00:00:00,2025-10-29 00:00:00,2025-12-26 00:00:00,16,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""SYNTHETIC-INV-000166"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 07:33:46,60,BLANK,Hold,CA,773.95,773.95,773.95
+INV000167,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,SYN-INVOICE-000167,Synthetic Tech Partners 5,BVP-02536,2025-11-06 00:00:00,2025-11-10 00:00:00,2026-01-05 00:00:00,6,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""SYN-INVOICE-000167"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 13:28:54,60,BLANK,Hold,CA,474,474,474
+INV000168,Synthetic Vendor Inc 12 - Network Infrastructure Services - Phase 1,INV-SYN-000168,Synthetic Vendor Inc 12,BVP-01643,2025-09-17 00:00:00,2025-10-22 00:00:00,2026-02-14 00:00:00,56,,,Synthetic_PO_27,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 947.168.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 947.168.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 947.168.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 947.168.6423.000.231.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 03:29:26,150,,Hold,IL,908.05,908.05,908.05
+INV000169,ABC Synthetic Corp 1 - Network Infrastructure Services - Region West,SYNTHETIC-INV-000169,ABC Synthetic Corp 1,BVP-02561,2025-10-16 00:00:00,2025-10-29 00:00:00,2025-12-15 00:00:00,27,,,PO_Synthetic_1,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""5617198"",
+  ""vendorInvoiceNumber"": ""SYNTHETIC-INV-000169"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 05:49:39,60,BLANK,Hold,FL,1631.6,1631.6,1631.6
+INV000170,ABC Synthetic Corp 1 - Fiber Optic Installation Project - Buildout,SYN-INVOICE-000170,ABC Synthetic Corp 1,BVP-02561,2025-08-07 00:00:00,2025-09-08 00:00:00,2025-10-06 00:00:00,97,,,SYN_PO_8,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 164.000.3423.104.000.344 is not valid. Project Number Not Valid""
+  }
+]",Fail,2025-11-12 01:49:23,60,CAP MGMT,Hold,FL,140,140,140
+INV000171,Global Synthetic Industries 34 - Professional Services Engagement - Site C,INV-SYN-000171,Global Synthetic Industries 34,BVP-00929,2025-09-23 00:00:00,2025-11-05 00:00:00,2025-11-07 00:00:00,50,,,PO_Synthetic_64,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.318.6421.000.253.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 03:40:45,45,,Hold,CT,2178,2178,2178
+INV000172,ABC Synthetic Corp 13 - Network Infrastructure Services - Region South,SYNTHETIC-INV-000172,ABC Synthetic Corp 13,BVP-00925,2025-10-05 00:00:00,2025-10-29 00:00:00,2025-11-19 00:00:00,38,,,Synthetic_PO_18,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 012.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 012.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 012.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 6,
+    ""message"": ""GL account 012.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 7,
+    ""message"": ""GL account 012.000.2422.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 10,
+    ""message"": ""GL account 012.000.2421.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 16,
+    ""message"": ""GL account 012.000.2421.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 04:57:29,45,,Hold,CA,6081.25,6081.25,6081.25
+INV000173,ABC Synthetic Corp 1 - Fiber Optic Installation Project - Q4 2025,SYN-INVOICE-000173,ABC Synthetic Corp 1,BVP-02565,2025-09-16 00:00:00,2025-09-25 00:00:00,2025-11-15 00:00:00,57,,,SYN_PO_65,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 941.000.2232.601.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 03:19:55,60,,Hold,WI,2260,2260,2260
+INV000174,ABC Synthetic Corp 1 - Network Infrastructure Services - Region West,INV-SYN-000174,ABC Synthetic Corp 1,BVP-02561,2025-10-07 00:00:00,2025-10-24 00:00:00,2025-12-06 00:00:00,36,,,PO_Synthetic_1,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""5617198"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000174"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 05:10:26,60,BLANK,Hold,FL,2685,2685,2685
+INV000175,Synthetic Tech Partners 35 - Telecommunications Maintenance Contract - Q2 2025,SYNTHETIC-INV-000175,Synthetic Tech Partners 35,BVP-01389,2025-09-09 00:00:00,2025-11-10 00:00:00,2025-11-08 00:00:00,64,,,Synthetic_PO_66,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8658064"",
+  ""vendorInvoiceNumber"": ""SYNTHETIC-INV-000175"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 13:26:50,60,BLANK,Hold,PA,109374.56,109374.56,109374.56
+INV000176,XYZ Services LLC 2 - Construction Services Agreement - Expansion,SYN-INVOICE-000176,XYZ Services LLC 2,BVP-01548,2025-07-09 00:00:00,2025-09-15 00:00:00,2025-08-23 00:00:00,126,,,Synthetic_PO_57,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 151.000.2232.601.000.344 is not valid. Main/Sub Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 151.000.2232.601.000.344 is not valid. Main/Sub Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 151.000.2232.601.000.344 is not valid. Main/Sub Not Valid For This Project""
+  }
+]",Fail,2025-11-12 01:45:28,45,CAP MGMT,Hold,CA,1175,1175,1175
+INV000177,Synthetic Vendor Inc 36 - Site Development and Build Out - Upgrade,INV-SYN-000177,Synthetic Vendor Inc 36,BVP-02967,2025-10-02 00:00:00,2025-10-31 00:00:00,2025-10-02 00:00:00,41,,,PO_Synthetic_67,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 086.000.2411.001.000.345 is not valid. Project Not Approved""
+  }
+]",Fail,2025-11-12 04:49:48,0,PNA,Hold,PA,1540,1540,1540
+INV000178,Global Synthetic Industries 10 - Equipment and Materials Supply - Q2 2025,SYNTHETIC-INV-000178,Global Synthetic Industries 10,BVP-02544,2025-10-15 00:00:00,2025-10-27 00:00:00,2025-11-29 00:00:00,28,,,SYN_PO_14,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 14,
+    ""message"": ""GL account 151.338.6411.000.182.344 is not valid. Main/Sub Not Valid For This Project""
+  }
+]",Fail,2025-11-12 05:41:55,45,,Hold,CA,1362.88,1362.88,1362.88
+INV000179,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,SYN-INVOICE-000179,Synthetic Tech Partners 5,BVP-02536,2025-10-24 00:00:00,2025-11-03 00:00:00,2025-12-23 00:00:00,19,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""SYN-INVOICE-000179"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 07:15:54,60,BLANK,Hold,CA,742.16,742.16,742.16
+INV000180,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,INV-SYN-000180,Synthetic Tech Partners 5,BVP-02536,2025-10-17 00:00:00,2025-10-27 00:00:00,2025-12-16 00:00:00,26,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000180"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 06:01:53,60,BLANK,Hold,CA,1327.32,1327.32,1327.32
+INV000181,ABC Synthetic Corp 37 - Construction Services Agreement - Site C,SYNTHETIC-INV-000181,ABC Synthetic Corp 37,BVP-02898,2025-09-11 00:00:00,2025-10-21 00:00:00,2025-11-10 00:00:00,62,,,SYN_PO_68,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 7,
+    ""message"": ""GL account 151.000.2422.201.000.505 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 8,
+    ""message"": ""GL account 151.000.2422.201.000.505 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 9,
+    ""message"": ""GL account 151.000.2422.201.000.505 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 03:08:43,60,,Hold,CA,8627.35,8627.35,8627.35
+INV000182,Synthetic Tech Partners 35 - Telecommunications Maintenance Contract - Q2 2025,SYN-INVOICE-000182,Synthetic Tech Partners 35,BVP-01389,2025-09-26 00:00:00,2025-11-10 00:00:00,2025-11-25 00:00:00,47,,,Synthetic_PO_66,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8658064"",
+  ""vendorInvoiceNumber"": ""SYN-INVOICE-000182"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 13:26:48,60,BLANK,Hold,PA,191352.72,191352.72,191352.72
+INV000183,Synthetic Tech Partners 17 - Fiber Optic Installation Project - Region West,INV-SYN-000183,Synthetic Tech Partners 17,"Synthetic Tech Partners 17-Quote Work -TX, IN, OH, WI, AZ, AL",2025-09-11 00:00:00,2025-10-09 00:00:00,2025-11-10 00:00:00,62,,,SYN_PO_23,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 174.000.2232.601.000.345 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 174.000.2232.601.000.345 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 174.000.2232.601.000.345 is not valid. Project Number Not Valid""
+  }
+]",Fail,2025-11-12 03:09:48,60,CAP MGMT,Hold,TX,8840,8840,8840
+INV000184,ABC Synthetic Corp 1 - Professional Services Engagement - Phase 3,SYNTHETIC-INV-000184,ABC Synthetic Corp 1,BVP-00900,2025-08-20 00:00:00,2025-09-18 00:00:00,2025-10-19 00:00:00,84,,,PO_Synthetic_4,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 12,
+    ""message"": ""GL account 441.000.2411.101.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 02:07:32,60,,Hold,CT,1327.25,1327.25,1327.25
+INV000185,Synthetic Solutions Group 3 - Construction Services Agreement - Site B,SYN-INVOICE-000185,Synthetic Solutions Group 3,BVP-00460,2025-10-16 00:00:00,2025-10-31 00:00:00,2025-11-15 00:00:00,27,,,SYN_PO_5,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.000.2423.201.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 05:48:37,30,,Hold,CT,720,720,720
+INV000186,Global Synthetic Industries 4 - Equipment and Materials Supply - Deployment,INV-SYN-000186,Global Synthetic Industries 4,BVP-01006,2025-09-11 00:00:00,2025-10-22 00:00:00,2025-11-10 00:00:00,62,,,Synthetic_PO_24,TRUE,"Detail from service: The total amount from the invoice lines does not match the Total Invoice Amount value. and 
+ Validation Message: {
+  ""vendorId"": ""4206967"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000186"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 03:06:20,60,ACCT,Hold,OH,1940.5,1940.5,1940.5
+INV000187,ABC Synthetic Corp 1 - Professional Services Engagement - Phase 3,SYNTHETIC-INV-000187,ABC Synthetic Corp 1,BVP-00900,2025-10-17 00:00:00,2025-10-21 00:00:00,2025-12-16 00:00:00,26,,,PO_Synthetic_4,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 21,
+    ""message"": ""GL account 441.000.2421.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 03:09:29,60,,Hold,CT,1520,1520,1520
+INV000188,ABC Synthetic Corp 1 - Fiber Optic Installation Project - Buildout,SYN-INVOICE-000188,ABC Synthetic Corp 1,BVP-02565,2025-10-24 00:00:00,2025-10-28 00:00:00,2025-12-23 00:00:00,19,,,SYN_PO_8,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 10,
+    ""message"": ""GL account 942.111.6421.000.182.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 19,
+    ""message"": ""GL account 942.000.2411.001.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 36,
+    ""message"": ""GL account 942.000.2411.001.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 38,
+    ""message"": ""GL account 942.000.2411.001.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 54,
+    ""message"": ""GL account 942.000.2411.001.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 05:07:23,60,,Hold,OH,17592,17592,17592
+INV000189,Global Synthetic Industries 4 - Equipment and Materials Supply - Upgrade,INV-SYN-000189,Global Synthetic Industries 4,BVP-01002,2025-10-29 00:00:00,2025-11-10 00:00:00,2025-12-28 00:00:00,14,676,2025-11-10 00:00:00,Synthetic_PO_51,TRUE,"Detail from service: Failed Validation and 
+ Validation Message: {
+  
+} and 
+ Validation Message: {
+  ""lines"": [
+    {
+      ""invoiceLineNumber"": {
+        ""isEmpty"": ""Value is required and can't be empty""
+      }
+    }
+  ]
+}",FAIL,2025-11-10 15:52:25,60,ACCT,Hold,CA,2560,2560,2560
+INV000190,ABC Synthetic Corp 1 - Professional Services Engagement - Phase 3,SYNTHETIC-INV-000190,ABC Synthetic Corp 1,BVP-02564,2025-10-24 00:00:00,2025-10-28 00:00:00,2025-12-23 00:00:00,19,,,PO_Synthetic_4,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 441.000.2421.201.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 07:20:27,60,,Hold,CT,386.43,386.43,386.43
+INV000191,ABC Synthetic Corp 1 - Network Infrastructure Services - Region West,SYN-INVOICE-000191,ABC Synthetic Corp 1,BVP-02561,2025-11-03 00:00:00,2025-11-12 00:00:00,2026-01-02 00:00:00,9,,,PO_Synthetic_1,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""5617198"",
+  ""vendorInvoiceNumber"": ""SYN-INVOICE-000191"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 17:20:29,60,,Hold,FL,1935,1935,1935
+INV000192,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,INV-SYN-000192,Synthetic Tech Partners 5,BVP-02536,2025-10-02 00:00:00,2025-10-17 00:00:00,2025-12-01 00:00:00,41,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000192"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 04:48:04,60,BLANK,Hold,CA,105.67,105.67,105.67
+INV000193,XYZ Services LLC 2 - Telecommunications Maintenance Contract - Buildout,SYNTHETIC-INV-000193,XYZ Services LLC 2,BVP-02530,2025-10-24 00:00:00,2025-10-28 00:00:00,2025-12-08 00:00:00,19,,,SYN_PO_2,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 174.000.2411.001.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 174.000.2411.001.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 174.000.2411.001.000.344 is not valid. Project Number Not Valid""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 174.000.2411.001.000.344 is not valid. Project Number Not Valid""
+  }
+]",Fail,2025-11-12 05:22:51,45,CAP MGMT,Hold,TX,590.4,590.4,590.4
+INV000194,ABC Synthetic Corp 1 - Fiber Optic Installation Project - Buildout,SYN-INVOICE-000194,ABC Synthetic Corp 1,BVP-02561,2025-09-16 00:00:00,2025-10-02 00:00:00,2025-11-15 00:00:00,57,,,SYN_PO_8,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 164.000.2423.201.000.344 is not valid. Main/Sub Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 6,
+    ""message"": ""GL account 164.000.2423.201.000.344 is not valid. Project Number Not Valid""
+  }
+]",Fail,2025-11-12 03:09:37,60,CAP MGMT,Hold,FL,3287.12,3287.12,3287.12
+INV000195,ABC Synthetic Corp 1 - Professional Services Engagement - Phase 3,INV-SYN-000195,ABC Synthetic Corp 1,BVP-00900,2025-09-23 00:00:00,2025-09-24 00:00:00,2025-11-22 00:00:00,50,,,PO_Synthetic_4,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 6,
+    ""message"": ""GL account 441.000.2411.101.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 8,
+    ""message"": ""GL account 441.000.2411.101.000.344 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 10,
+    ""message"": ""GL account 441.000.2411.101.000.344 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 03:40:11,60,,Hold,CT,1520,1520,1520
+INV000196,Synthetic Vendor Inc 6 - Construction Services Agreement - Region South,SYNTHETIC-INV-000196,Synthetic Vendor Inc 6,BVP-00433,2025-09-18 00:00:00,2025-09-26 00:00:00,2025-11-02 00:00:00,55,,,PO_Synthetic_13,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 151.000.2421.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 151.000.2421.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 151.000.2421.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 03:40:35,45,,Hold,CA,1859.04,1859.04,1859.04
+INV000197,Synthetic Solutions Group 3 - Network Infrastructure Services - Installation,SYN-INVOICE-000197,Synthetic Solutions Group 3,BVP-00461,2025-07-18 00:00:00,2025-11-12 00:00:00,2025-08-17 00:00:00,117,,,Synthetic_PO_69,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 942.000.2423.201.000.345 is not valid. Project Number Not Valid""
+  }
+]",Fail,2025-11-12 19:03:07,30,,Hold,OH,1570,1570,1570
+INV000198,ABC Synthetic Corp 1 - Network Infrastructure Services - Region West,INV-SYN-000198,ABC Synthetic Corp 1,BVP-02561,2025-10-24 00:00:00,2025-10-30 00:00:00,2025-12-23 00:00:00,19,,,PO_Synthetic_1,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""5617198"",
+  ""vendorInvoiceNumber"": ""INV-SYN-000198"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 07:11:08,60,BLANK,Hold,FL,2214,2214,2214
+INV000199,Synthetic Tech Partners 5 - Construction Services Agreement - Site A,SYNTHETIC-INV-000199,Synthetic Tech Partners 5,BVP-02536,2025-10-22 00:00:00,2025-10-27 00:00:00,2025-12-21 00:00:00,21,,,PO_Synthetic_7,TRUE,"Detail from service: The invoice amount is greater than the amount available on the PO. and 
+ Validation Message: {
+  ""vendorId"": ""8020345"",
+  ""vendorInvoiceNumber"": ""SYNTHETIC-INV-000199"",
+  ""status"": ""Error""
+}",Fail,2025-11-12 06:46:37,60,BLANK,Hold,CA,372.76,372.76,372.76
+INV000200,XYZ Services LLC 38 - Equipment and Materials Supply - Region South,SYN-INVOICE-000200,XYZ Services LLC 38,XYZ Services LLC - SOW 4 (CA3A SSP) - BVP Eff 06012025 (003),2025-09-29 00:00:00,2025-11-05 00:00:00,2025-11-13 00:00:00,44,,,PO_Synthetic_70,TRUE,"Detail from service: Validation errors exist. and 
+ Validation Message: [
+  {
+    ""lineNumber"": 1,
+    ""message"": ""GL account 152.000.2422.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 2,
+    ""message"": ""GL account 152.000.2422.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 3,
+    ""message"": ""GL account 152.000.2422.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 4,
+    ""message"": ""GL account 152.000.2422.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  },
+  {
+    ""lineNumber"": 5,
+    ""message"": ""GL account 152.000.2421.101.000.345 is not valid. Cost Code Not Valid For This Project""
+  }
+]",Fail,2025-11-12 04:16:23,45,,Hold,CA,2171.28,2171.28,2171.28
