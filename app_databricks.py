@@ -77,6 +77,7 @@ def get_invoices(_conn, schema_name="default"):
         Invoice_Id,
         Invoice_Name,
         Vendor__Name,
+        PO_Name,
         Invoice_Date__c,
         Total_Amount__c,
         sitetracker__Status__c as Status,
@@ -148,7 +149,7 @@ def get_purchase_orders(_conn, schema_name="default"):
         PO_Name,
         PO_Amount,
         Vendor__Name,
-        Status__c
+        PO_Status__c
     FROM {schema_name}.Purchase_Orders
     """
     return query_databricks(_conn, query)
@@ -696,8 +697,19 @@ def main():
                             # Show invoice summary
                             st.info(f"📄 **{selected_invoice_name}** | Amount: ${invoice_row.get('Total_Amount__c', 0):,.2f}")
                             
-                            # Check if this is a PO amount error - if so, create 3 columns, else 2
-                            is_po_amount_error = "amount is greater than the amount available on the PO" in error_pattern.lower()
+                            # Check if this is a PO amount error - flexible pattern matching
+                            error_pattern_lower = error_pattern.lower()
+                            is_po_amount_error = (
+                                "amount is greater than" in error_pattern_lower and "po" in error_pattern_lower
+                            ) or (
+                                "exceeds" in error_pattern_lower and "po" in error_pattern_lower
+                            ) or (
+                                "po amount" in error_pattern_lower
+                            )
+                            
+                            # Debug info
+                            if is_po_amount_error:
+                                st.caption(f"🔍 Detected PO amount error - 'Send to Linus' tab enabled")
                             
                             # Create columns for drill-downs
                             if is_po_amount_error:
@@ -791,8 +803,16 @@ def main():
                                 with col3:
                                     st.markdown("### 📨 Send to Linus")
                                     
+                                    # Debug information
+                                    st.caption(f"📦 Purchase Orders loaded: {len(purchase_orders_df)} records")
+                                    
                                     # Get PO_Name from the invoice
                                     po_name = invoice_row.get('PO_Name', None)
+                                    
+                                    if po_name:
+                                        st.caption(f"📋 Invoice PO_Name: {po_name}")
+                                    else:
+                                        st.warning("⚠️ Invoice does not have a PO_Name value")
                                     
                                     if po_name and not purchase_orders_df.empty:
                                         # Get PO details

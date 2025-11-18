@@ -82,7 +82,7 @@ Ensure your `Purchase_Orders` table has these columns:
 - `PO_Name` (STRING)
 - `PO_Amount` (DOUBLE)
 - `Vendor__Name` (STRING)
-- `Status__c` (STRING)
+- `PO_Status__c` (STRING)
 
 ### Step 3: Verify Invoices Have PO_Name
 Ensure your `invoices` table includes the `PO_Name` column to link invoices to POs.
