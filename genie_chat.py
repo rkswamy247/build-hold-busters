@@ -48,10 +48,13 @@ def get_databricks_client():
     
     try:
         # EXPLICITLY pass credentials to WorkspaceClient (don't rely on auto-detection)
+        # Set product="streamlit" to prevent runtime initialization in subprocess
         st.write("   Creating WorkspaceClient with explicit credentials...")
         client = WorkspaceClient(
             host=host,
-            token=token
+            token=token,
+            product="streamlit",  # Prevents SparkContext initialization in subprocess
+            product_version="1.0"
         )
         st.success("   ✅ WorkspaceClient created successfully!")
         # Clear any previous error
