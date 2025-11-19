@@ -245,9 +245,10 @@ import time
 subprocess.run(['pkill', '-9', '-f', 'streamlit'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 time.sleep(1)
 
-# Also try to kill anything using port 8501
+# Also try to kill anything using ports 8501 or 8502
 subprocess.run(['fuser', '-k', '8501/tcp'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-time.sleep(2)
+subprocess.run(['fuser', '-k', '8502/tcp'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+time.sleep(3)  # Wait longer for ports to be released
 
 print("✅ Cleanup complete - port should be free now")
 print()
@@ -256,9 +257,10 @@ print("🚀 Launching Streamlit...")
 print()
 
 # Run Streamlit with explicit environment
+# Using port 8502 to avoid conflicts with stuck processes on 8501
 subprocess.run([
     'streamlit', 'run', str(app_file),
-    '--server.port=8501',
+    '--server.port=8502',
     '--server.address=0.0.0.0'
 ], env=env)
 """
