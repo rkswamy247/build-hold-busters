@@ -47,3 +47,6 @@ tmp/
 ~$*.xlsx
 ~$*.xls
 
+# Generated files (auto-created by scripts)
+run_streamlit_app.py
+
