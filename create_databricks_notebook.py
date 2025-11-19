@@ -118,9 +118,21 @@ genie_chat_code = '''{genie_chat_code_escaped}'''
 
 genie_module = app_dir / 'genie_chat.py'
 try:
+    # Delete old file first to ensure fresh write
+    if genie_module.exists():
+        genie_module.unlink()
+        print(f"🗑️  Deleted old genie_chat.py")
+    
     genie_module.write_text(genie_chat_code, encoding='utf-8')
     print(f"✅ Genie chat module written to: {{genie_module}}")
     print(f"{{('✅ Module size: ' + str(len(genie_chat_code)) + ' bytes')}}")
+    
+    # Verify the product parameter is in the file
+    content = genie_module.read_text(encoding='utf-8')
+    if 'product="streamlit"' in content:
+        print("✅ VERIFIED: product='streamlit' parameter is in the file!")
+    else:
+        print("❌ WARNING: product='streamlit' parameter NOT found in file!")
 except Exception as e:
     print(f"❌ Error writing genie_chat module: {{e}}")
 
