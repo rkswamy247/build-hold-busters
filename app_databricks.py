@@ -5,6 +5,7 @@ import os
 from datetime import datetime
 import plotly.express as px
 import plotly.graph_objects as go
+import genie_chat
 
 # Page configuration
 st.set_page_config(
@@ -200,6 +201,17 @@ def main():
     st.markdown("### Databricks-Powered Invoice Hold Analysis")
     st.markdown("---")
     
+    # Initialize Genie session state
+    genie_chat.initialize_genie_session_state()
+    
+    # Initialize chat history
+    if 'chat_history' not in st.session_state:
+        st.session_state.chat_history = []
+    
+    # Track if we should stay on Genie tab (for preserving active tab on rerun)
+    if 'stay_on_genie_tab' not in st.session_state:
+        st.session_state.stay_on_genie_tab = False
+    
     # Sidebar configuration
     st.sidebar.header("⚙️ Configuration")
     
@@ -367,14 +379,16 @@ def main():
     st.markdown("---")
     
     # Tabs for different views
-    tab1, tab2, tab3, tab4, tab5 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
         "📈 Overview", 
         "📋 Invoice Details", 
         "🔍 Deep Analysis",
         "🚨 Error Analysis",
-        "💾 Custom Query"
+        "💾 Custom Query",
+        "🧞 Genie AI"
     ])
     
+    # Overview Tab
     with tab1:
         col1, col2 = st.columns(2)
         
@@ -423,6 +437,7 @@ def main():
             fig_timeline.update_traces(line_color='#1f77b4', line_width=3)
             st.plotly_chart(fig_timeline, use_container_width=True)
     
+    # Invoice Details Tab
     with tab2:
         st.subheader("Invoice Details Table")
         
@@ -459,6 +474,7 @@ def main():
             mime="text/csv"
         )
     
+    # Deep Analysis Tab
     with tab3:
         st.subheader("Deep Dive Analysis")
         
@@ -526,6 +542,7 @@ def main():
                 )
                 st.plotly_chart(fig_integration, use_container_width=True)
     
+    # Error Analysis Tab
     with tab4:
         st.subheader("🚨 Invoices on Hold - Error Pattern Analysis")
         st.markdown("Drill-down by integration error patterns to identify and resolve holds")
@@ -923,6 +940,7 @@ def main():
                 st.warning("Integration_Error_Message__c column not found in data")
                 st.dataframe(hold_invoices, use_container_width=True)
     
+    # Custom Query Tab
     with tab5:
         st.subheader("Custom SQL Query Tool")
         st.info("Execute custom queries against your Databricks tables")
@@ -979,6 +997,206 @@ LIMIT 20;
                     )
                 else:
                     st.warning("Query returned no results")
+    
+    # Genie AI Tab
+    with tab6:
+        st.subheader("🧞 Ask Genie About Your Data")
+        st.markdown("**Powered by Databricks Genie** - AI that understands your data schema!")
+        
+        # Note about tab behavior
+        if len(st.session_state.chat_history) == 0:
+            st.info("💡 **Tip:** After asking a question, you may need to click back to this tab to see the response and continue the conversation.")
+        
+        # Get Genie Space ID from secrets
+        genie_space_id = None
+        if hasattr(st, 'secrets') and 'databricks' in st.secrets:
+            genie_space_id = st.secrets.databricks.get("genie_space_id")
+        
+        if not genie_space_id:
+            st.error("""
+            **Genie Space ID not configured!**
+            
+            Please add your Genie Space ID to `.streamlit/secrets.toml`:
+            ```toml
+            [databricks]
+            genie_space_id = "your-space-id-here"
+            ```
+            
+            To find your Genie Space ID, run:
+            ```
+            python find_genie_space_id.py
+            ```
+            """)
+        else:
+            # Conversation controls
+            col1, col2 = st.columns([4, 1])
+            with col2:
+                if st.button("🔄 New Conversation"):
+                    genie_chat.reset_genie_conversation()
+                    st.session_state.chat_history = []
+                    
+                    # Show feedback status
+                    feedback_count = len(genie_chat.load_feedback_memory())
+                    if feedback_count > 0:
+                        st.success(f"Started new conversation! ({feedback_count} corrections applied)")
+                    else:
+                        st.success("Started new conversation!")
+            
+            # Initialize input counter for clearing after submit
+            if "input_counter" not in st.session_state:
+                st.session_state.input_counter = 0
+            
+            # Display chat history FIRST (so input is always at bottom)
+            for idx, message in enumerate(st.session_state.chat_history):
+                if message["role"] == "user":
+                    st.markdown(f"**You:** {message['content']}")
+                else:
+                    st.markdown(f"**Genie:** {message['content']}")
+                    
+                    # Show query results if available
+                    # First check if we have executed results (from manual SQL execution)
+                    if "executed_result" in message and message["executed_result"] is not None:
+                        st.markdown("**📊 Query Results:**")
+                        st.dataframe(message["executed_result"], use_container_width=True)
+                    # Otherwise check for Genie's built-in results
+                    elif "genie_result" in message and message["genie_result"]:
+                        st.markdown("**📊 Query Results:**")
+                        try:
+                            result = message["genie_result"]
+                            
+                            # Genie result structure: has 'data_array' with rows and columns
+                            if hasattr(result, 'data_array') and result.data_array:
+                                # Get column names
+                                columns = []
+                                if hasattr(result.data_array, 'columns') and result.data_array.columns:
+                                    columns = [col.name for col in result.data_array.columns]
+                                
+                                # Get row data
+                                rows = []
+                                if hasattr(result.data_array, 'rows') and result.data_array.rows:
+                                    for row in result.data_array.rows:
+                                        if hasattr(row, 'values'):
+                                            rows.append(row.values)
+                                
+                                # Create DataFrame
+                                if rows and columns:
+                                    df = pd.DataFrame(rows, columns=columns)
+                                    st.dataframe(df, use_container_width=True)
+                                elif rows:
+                                    # If no column names, just show data
+                                    st.dataframe(pd.DataFrame(rows), use_container_width=True)
+                                else:
+                                    st.info("Query executed successfully but returned no rows")
+                            else:
+                                st.info("Query executed successfully but returned no data")
+                        except Exception as e:
+                            st.warning(f"Could not display results: {str(e)}")
+                            st.info("Results are available but could not be formatted for display")
+                    
+                    # Show SQL if available
+                    if "sql" in message and message["sql"]:
+                        with st.expander("📝 View SQL"):
+                            st.code(message["sql"], language="sql")
+                    
+                    # Feedback buttons
+                    col1, col2 = st.columns([1, 10])
+                    with col1:
+                        if st.button("👍", key=f"thumbs_up_{idx}"):
+                            st.success("Thanks for the feedback!")
+                    with col2:
+                        if st.button("👎", key=f"thumbs_down_{idx}"):
+                            st.session_state[f"feedback_mode_{idx}"] = True
+                    
+                    # Feedback form
+                    if st.session_state.get(f"feedback_mode_{idx}"):
+                        feedback_text = st.text_area(
+                            "What should Genie do better?",
+                            key=f"feedback_text_{idx}"
+                        )
+                        if st.button("Submit Feedback", key=f"submit_feedback_{idx}"):
+                            if feedback_text:
+                                # Save feedback
+                                memory, success = genie_chat.add_feedback_to_memory(
+                                    feedback_text=feedback_text,
+                                    question=st.session_state.chat_history[idx-1]["content"],
+                                    genie_response=message["content"]
+                                )
+                                
+                                if success:
+                                    st.session_state.feedback_memory = genie_chat.load_feedback_memory()
+                                    st.success(f"✅ Feedback saved! ({len(memory)} corrections total)")
+                                    st.session_state[f"feedback_mode_{idx}"] = False
+            
+            # Add separator before input
+            if st.session_state.chat_history:
+                st.markdown("---")
+            
+            # Chat input at the BOTTOM (after chat history)
+            with st.form(key=f"genie_form_{st.session_state.input_counter}", clear_on_submit=True):
+                user_input = st.text_input(
+                    "Ask a question about your data:",
+                    placeholder="Example: What are the top 5 vendors by invoice count?",
+                    key=f"genie_input_{st.session_state.input_counter}"
+                )
+                send_button = st.form_submit_button("Send", help="Press Enter to submit the question")
+            
+            if send_button and user_input:
+                # Add user message to history
+                st.session_state.chat_history.append({
+                    "role": "user",
+                    "content": user_input
+                })
+                
+                # Get Genie's response
+                progress_container = st.empty()
+                with progress_container:
+                    with st.spinner("🧞 Genie is analyzing..."):
+                        genie_response, error = genie_chat.ask_genie(user_input, genie_space_id)
+                
+                progress_container.empty()
+                
+                if error:
+                    st.error(f"Genie: {error}")
+                    # Still increment counter even on error
+                    st.session_state.input_counter += 1
+                    st.rerun()
+                else:
+                    # If Genie generated SQL but no results, execute it ourselves
+                    executed_result = None
+                    if genie_response.get("sql") and not genie_response.get("genie_result"):
+                        try:
+                            connection = get_databricks_connection()
+                            cursor = connection.cursor()
+                            cursor.execute(genie_response["sql"])
+                            
+                            # Fetch results
+                            columns = [desc[0] for desc in cursor.description]
+                            rows = cursor.fetchall()
+                            
+                            # Store as DataFrame for easy display
+                            if rows:
+                                executed_result = pd.DataFrame(rows, columns=columns)
+                            
+                            cursor.close()
+                        except Exception as exec_error:
+                            st.warning(f"Could not execute SQL: {str(exec_error)}")
+                    
+                    # Add assistant message
+                    st.session_state.chat_history.append({
+                        "role": "assistant",
+                        "content": genie_response["text"],
+                        "sql": genie_response.get("sql"),
+                        "genie_result": genie_response.get("genie_result"),
+                        "executed_result": executed_result
+                    })
+                
+                # Increment counter to clear form for next input
+                st.session_state.input_counter += 1
+                
+                # Force rerun to display new messages
+                # Note: This will reset to first tab (Streamlit limitation)
+                # User will need to click back to Genie AI tab to continue
+                st.rerun()
 
 if __name__ == "__main__":
     main()

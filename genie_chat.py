@@ -9,6 +9,15 @@ from datetime import datetime
 import time
 from pathlib import Path
 import re
+import os
+
+# DEBUG: Log environment variables on module load
+import sys
+print("=" * 80, file=sys.stderr)
+print("🔍 GENIE_CHAT MODULE LOADED", file=sys.stderr)
+print(f"   DATABRICKS_HOST: {os.getenv('DATABRICKS_HOST', 'NOT SET')}", file=sys.stderr)
+print(f"   DATABRICKS_TOKEN: {'***' + os.getenv('DATABRICKS_TOKEN', 'NOT_SET')[-4:] if os.getenv('DATABRICKS_TOKEN') else 'NOT SET'}", file=sys.stderr)
+print("=" * 80, file=sys.stderr)
 
 # Persistent feedback file
 FEEDBACK_FILE = Path(".genie_feedback_memory.json")
@@ -20,23 +29,46 @@ FEEDBACK_FILE = Path(".genie_feedback_memory.json")
 
 def get_databricks_client():
     """Get authenticated Databricks workspace client"""
+    # Get credentials from environment
+    host = os.getenv('DATABRICKS_HOST')
+    token = os.getenv('DATABRICKS_TOKEN')
+    
+    # DEBUG: Show what we see
+    st.write("🔍 **DEBUG: Attempting Databricks Connection**")
+    st.write(f"   DATABRICKS_HOST: `{host or 'NOT SET'}`")
+    if token:
+        st.write(f"   DATABRICKS_TOKEN: `***{token[-4:]}`")
+    else:
+        st.write("   DATABRICKS_TOKEN: `NOT SET`")
+    
+    if not host or not token:
+        st.error("❌ Missing credentials! DATABRICKS_HOST and DATABRICKS_TOKEN must be set.")
+        return None
+    
     try:
-        # Try to use default authentication (works in Databricks Apps and with configured CLI)
-        client = WorkspaceClient()
+        # EXPLICITLY pass credentials to WorkspaceClient (don't rely on auto-detection)
+        st.write("   Creating WorkspaceClient with explicit credentials...")
+        client = WorkspaceClient(
+            host=host,
+            token=token
+        )
+        st.success("   ✅ WorkspaceClient created successfully!")
         return client
     except Exception as e:
-        st.error(f"❌ Could not connect to Databricks: {str(e)}")
+        st.error(f"❌ Could not connect to Databricks")
+        st.error(f"   Error type: `{type(e).__name__}`")
+        st.error(f"   Error message: `{str(e)}`")
+        
+        # Show detailed traceback
+        import traceback
+        st.code(traceback.format_exc())
+        
         st.info("""
-        **Setup Required:**
-        
-        Make sure you have Databricks CLI configured:
-        ```
-        databricks configure --token
-        ```
-        
-        Or set environment variables:
-        - `DATABRICKS_HOST`
-        - `DATABRICKS_TOKEN`
+        **Possible Issues:**
+        - Token may have expired (generate a new one in Databricks UI)
+        - Host URL format may be incorrect (should be: https://dbc-xxx.cloud.databricks.com)
+        - Network/firewall issues
+        - Insufficient permissions
         """)
         return None
 
