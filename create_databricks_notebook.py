@@ -228,8 +228,10 @@ print("🔧 Setting environment variables for subprocess...")
 env = os.environ.copy()
 env['DATABRICKS_HOST'] = "https://{server_hostname}"
 env['DATABRICKS_TOKEN'] = "{token}"
-# Ensure PYTHONPATH includes app directory for subprocess
-env['PYTHONPATH'] = str(app_dir) + os.pathsep + env.get('PYTHONPATH', '')
+# Ensure PYTHONPATH includes both app directory AND system Python paths
+import sys
+python_paths = [str(app_dir)] + [p for p in sys.path if p]
+env['PYTHONPATH'] = os.pathsep.join(python_paths)
 
 print(f"   DATABRICKS_HOST: {{env['DATABRICKS_HOST']}}")
 print(f"   DATABRICKS_TOKEN: ***{{env['DATABRICKS_TOKEN'][-4:]}}")
@@ -240,11 +242,11 @@ print("🛑 Killing any existing Streamlit processes...")
 import time
 
 # Try pkill with force
-subprocess.run(['pkill', '-9', '-f', 'streamlit'], capture_output=True)
+subprocess.run(['pkill', '-9', '-f', 'streamlit'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 time.sleep(1)
 
 # Also try to kill anything using port 8501
-subprocess.run(['fuser', '-k', '8501/tcp'], capture_output=True, stderr=subprocess.DEVNULL)
+subprocess.run(['fuser', '-k', '8501/tcp'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 time.sleep(2)
 
 print("✅ Cleanup complete - port should be free now")
