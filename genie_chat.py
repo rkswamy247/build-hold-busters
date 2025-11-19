@@ -42,7 +42,8 @@ def get_databricks_client():
         st.write("   DATABRICKS_TOKEN: `NOT SET`")
     
     if not host or not token:
-        st.error("❌ Missing credentials! DATABRICKS_HOST and DATABRICKS_TOKEN must be set.")
+        error_msg = "❌ Missing credentials! DATABRICKS_HOST and DATABRICKS_TOKEN must be set."
+        st.session_state['genie_connection_error'] = error_msg
         return None
     
     try:
@@ -53,23 +54,34 @@ def get_databricks_client():
             token=token
         )
         st.success("   ✅ WorkspaceClient created successfully!")
+        # Clear any previous error
+        if 'genie_connection_error' in st.session_state:
+            del st.session_state['genie_connection_error']
         return client
     except Exception as e:
-        st.error(f"❌ Could not connect to Databricks")
-        st.error(f"   Error type: `{type(e).__name__}`")
-        st.error(f"   Error message: `{str(e)}`")
-        
-        # Show detailed traceback
         import traceback
-        st.code(traceback.format_exc())
         
-        st.info("""
-        **Possible Issues:**
-        - Token may have expired (generate a new one in Databricks UI)
-        - Host URL format may be incorrect (should be: https://dbc-xxx.cloud.databricks.com)
-        - Network/firewall issues
-        - Insufficient permissions
-        """)
+        # Store error in session state so it persists
+        error_details = f"""
+**❌ Could not connect to Databricks Workspace**
+
+**Error Type:** `{type(e).__name__}`
+
+**Error Message:** `{str(e)}`
+
+**Full Traceback:**
+```
+{traceback.format_exc()}
+```
+
+**Possible Issues:**
+- Token may have expired (generate a new one in Databricks UI)
+- Host URL format may be incorrect (should be: https://dbc-xxx.cloud.databricks.com)
+- Network/firewall issues
+- Insufficient permissions on the token
+- Token doesn't have access to Genie Spaces
+"""
+        st.session_state['genie_connection_error'] = error_details
         return None
 
 
@@ -193,7 +205,9 @@ def ask_genie(user_question, genie_space_id):
     try:
         client = get_databricks_client()
         if not client:
-            return None, "Error: Could not connect to Databricks workspace"
+            # Return the detailed error from session state
+            error_msg = st.session_state.get('genie_connection_error', 'Error: Could not connect to Databricks workspace')
+            return None, error_msg
         
         # Start a new conversation or continue existing one
         if not st.session_state.genie_conversation_id:

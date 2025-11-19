@@ -1156,7 +1156,11 @@ LIMIT 20;
                 progress_container.empty()
                 
                 if error:
-                    st.error(f"Genie: {error}")
+                    # Display error with markdown formatting if it contains markdown
+                    if error.startswith("**"):
+                        st.markdown(error)
+                    else:
+                        st.error(f"Genie: {error}")
                     # Still increment counter even on error
                     st.session_state.input_counter += 1
                     st.rerun()
