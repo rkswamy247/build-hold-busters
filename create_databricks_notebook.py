@@ -215,11 +215,21 @@ os.chdir(app_dir)
 print(f"📁 Changed working directory to: {{os.getcwd()}}")
 print()
 
+# Add app directory to PYTHONPATH so imports work correctly
+print("🔧 Setting up Python environment...")
+import sys
+if str(app_dir) not in sys.path:
+    sys.path.insert(0, str(app_dir))
+    print(f"   ✅ Added {{app_dir}} to Python path")
+print()
+
 # Create environment dict with Databricks credentials
 print("🔧 Setting environment variables for subprocess...")
 env = os.environ.copy()
 env['DATABRICKS_HOST'] = "https://{server_hostname}"
 env['DATABRICKS_TOKEN'] = "{token}"
+# Ensure PYTHONPATH includes app directory for subprocess
+env['PYTHONPATH'] = str(app_dir) + os.pathsep + env.get('PYTHONPATH', '')
 
 print(f"   DATABRICKS_HOST: {{env['DATABRICKS_HOST']}}")
 print(f"   DATABRICKS_TOKEN: ***{{env['DATABRICKS_TOKEN'][-4:]}}")
