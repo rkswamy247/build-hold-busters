@@ -240,27 +240,50 @@ print()
 # Kill any existing Streamlit processes first
 print("🛑 Killing any existing Streamlit processes...")
 import time
+import socket
 
 # Try pkill with force
 subprocess.run(['pkill', '-9', '-f', 'streamlit'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 time.sleep(1)
 
-# Also try to kill anything using ports 8501 or 8502
-subprocess.run(['fuser', '-k', '8501/tcp'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-subprocess.run(['fuser', '-k', '8502/tcp'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-time.sleep(3)  # Wait longer for ports to be released
+# Kill processes on common Streamlit ports
+for port in range(8501, 8510):
+    subprocess.run(['fuser', '-k', f'{{port}}/tcp'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-print("✅ Cleanup complete - port should be free now")
+time.sleep(3)  # Wait for ports to be released
+print("✅ Cleanup complete")
 print()
 
+# Find an available port automatically
+def find_available_port(start_port=8501, max_attempts=10):
+    # Find an available port starting from start_port
+    for port in range(start_port, start_port + max_attempts):
+        try:
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                s.bind(('0.0.0.0', port))
+                return port
+        except OSError:
+            continue
+    return None
+
+print("🔍 Finding available port...")
+port = find_available_port()
+if not port:
+    print("❌ Could not find available port in range 8501-8510")
+    print("💡 Try restarting the cluster")
+    raise RuntimeError("No available ports")
+
+print(f"✅ Found available port: {{port}}")
+print()
 print("🚀 Launching Streamlit...")
+print(f"   Access your app at port: {{port}}")
+print(f"   URL: https://dbc-4a93b454-f17b.cloud.databricks.com/driver-proxy/o/1978110925405963/<cluster-id>/{{port}}/")
 print()
 
-# Run Streamlit with explicit environment
-# Using port 8502 to avoid conflicts with stuck processes on 8501
+# Run Streamlit with explicit environment and auto-detected port
 subprocess.run([
     'streamlit', 'run', str(app_file),
-    '--server.port=8502',
+    f'--server.port={{port}}',
     '--server.address=0.0.0.0'
 ], env=env)
 """
