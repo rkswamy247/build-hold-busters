@@ -1003,6 +1003,14 @@ LIMIT 20;
         st.subheader("🧞 Ask Genie About Your Data")
         st.markdown("**Powered by Databricks Genie** - AI that understands your data schema!")
         
+        # Display any persistent connection errors
+        if 'genie_connection_error' in st.session_state:
+            st.error("## 🚨 Connection Error")
+            st.markdown(st.session_state['genie_connection_error'])
+            if st.button("🔄 Clear Error & Retry", key="clear_error_button"):
+                del st.session_state['genie_connection_error']
+                st.rerun()
+        
         # Note about tab behavior
         if len(st.session_state.chat_history) == 0:
             st.info("💡 **Tip:** After asking a question, you may need to click back to this tab to see the response and continue the conversation.")
@@ -1156,14 +1164,9 @@ LIMIT 20;
                 progress_container.empty()
                 
                 if error:
-                    # Display error with markdown formatting if it contains markdown
-                    if error.startswith("**"):
-                        st.markdown(error)
-                    else:
-                        st.error(f"Genie: {error}")
-                    # Still increment counter even on error
-                    st.session_state.input_counter += 1
-                    st.rerun()
+                    # Don't call st.rerun() on error so the error stays visible
+                    # The persistent error display at the top of the tab will show it
+                    pass
                 else:
                     # If Genie generated SQL but no results, execute it ourselves
                     executed_result = None
