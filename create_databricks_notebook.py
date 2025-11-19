@@ -226,14 +226,18 @@ print(f"   DATABRICKS_TOKEN: ***{{env['DATABRICKS_TOKEN'][-4:]}}")
 print()
 
 # Kill any existing Streamlit processes first
-print("🛑 Checking for existing Streamlit processes...")
-kill_result = subprocess.run(['pkill', '-f', 'streamlit'], capture_output=True)
-if kill_result.returncode == 0:
-    print("   ✅ Killed existing Streamlit process")
-    import time
-    time.sleep(2)  # Wait for port to be released
-else:
-    print("   ℹ️  No existing Streamlit processes found")
+print("🛑 Killing any existing Streamlit processes...")
+import time
+
+# Try pkill with force
+subprocess.run(['pkill', '-9', '-f', 'streamlit'], capture_output=True)
+time.sleep(1)
+
+# Also try to kill anything using port 8501
+subprocess.run(['fuser', '-k', '8501/tcp'], capture_output=True, stderr=subprocess.DEVNULL)
+time.sleep(2)
+
+print("✅ Cleanup complete - port should be free now")
 print()
 
 print("🚀 Launching Streamlit...")
