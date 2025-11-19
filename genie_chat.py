@@ -52,27 +52,37 @@ def get_databricks_client():
     
     try:
         # EXPLICITLY pass credentials to WorkspaceClient (don't rely on auto-detection)
-        # Use Config to explicitly disable runtime features in subprocess
+        # CRITICAL: Monkey-patch to prevent dbutils initialization in subprocess
         st.write("   Creating WorkspaceClient with explicit credentials...")
         
         from databricks.sdk.core import Config
+        import databricks.sdk
         
-        # Create config with runtime disabled
-        config = Config(
-            host=host,
-            token=token,
-            product="streamlit",
-            product_version="1.0",
-            # Explicitly disable dbutils initialization
-            auth_type="pat"  # Use Personal Access Token auth only, no runtime
-        )
+        # Monkey-patch _make_dbutils to always return None (skip runtime initialization)
+        original_make_dbutils = databricks.sdk._make_dbutils
+        databricks.sdk._make_dbutils = lambda config: None
         
-        client = WorkspaceClient(config=config)
-        st.success("   ✅ WorkspaceClient created successfully!")
-        # Clear any previous error
-        if 'genie_connection_error' in st.session_state:
-            del st.session_state['genie_connection_error']
-        return client
+        try:
+            # Create config
+            config = Config(
+                host=host,
+                token=token,
+                product="streamlit",
+                product_version="1.0",
+                auth_type="pat"
+            )
+            
+            # Create client (now won't try to initialize dbutils)
+            client = WorkspaceClient(config=config)
+            
+            st.success("   ✅ WorkspaceClient created successfully!")
+            # Clear any previous error
+            if 'genie_connection_error' in st.session_state:
+                del st.session_state['genie_connection_error']
+            return client
+        finally:
+            # Restore original function
+            databricks.sdk._make_dbutils = original_make_dbutils
     except Exception as e:
         import traceback
         
