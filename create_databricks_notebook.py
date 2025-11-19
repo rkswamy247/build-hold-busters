@@ -224,6 +224,18 @@ env['DATABRICKS_TOKEN'] = "{token}"
 print(f"   DATABRICKS_HOST: {{env['DATABRICKS_HOST']}}")
 print(f"   DATABRICKS_TOKEN: ***{{env['DATABRICKS_TOKEN'][-4:]}}")
 print()
+
+# Kill any existing Streamlit processes first
+print("🛑 Checking for existing Streamlit processes...")
+kill_result = subprocess.run(['pkill', '-f', 'streamlit'], capture_output=True)
+if kill_result.returncode == 0:
+    print("   ✅ Killed existing Streamlit process")
+    import time
+    time.sleep(2)  # Wait for port to be released
+else:
+    print("   ℹ️  No existing Streamlit processes found")
+print()
+
 print("🚀 Launching Streamlit...")
 print()
 
