@@ -380,16 +380,16 @@ def main():
     
     # Tabs for different views
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
-        "🧞 Genie AI",
         "📈 Overview", 
         "📋 Invoice Details", 
         "🔍 Deep Analysis",
         "🚨 Error Analysis",
-        "💾 Custom Query"
+        "💾 Custom Query",
+        "🧞 Genie AI"
     ])
     
     # Overview Tab
-    with tab2:
+    with tab1:
         col1, col2 = st.columns(2)
         
         with col1:
@@ -438,7 +438,7 @@ def main():
             st.plotly_chart(fig_timeline, use_container_width=True)
     
     # Invoice Details Tab
-    with tab3:
+    with tab2:
         st.subheader("Invoice Details Table")
         
         # Search functionality
@@ -475,7 +475,7 @@ def main():
         )
     
     # Deep Analysis Tab
-    with tab4:
+    with tab3:
         st.subheader("Deep Dive Analysis")
         
         col1, col2 = st.columns(2)
@@ -543,7 +543,7 @@ def main():
                 st.plotly_chart(fig_integration, use_container_width=True)
     
     # Error Analysis Tab
-    with tab5:
+    with tab4:
         st.subheader("🚨 Invoices on Hold - Error Pattern Analysis")
         st.markdown("Drill-down by integration error patterns to identify and resolve holds")
         
@@ -941,7 +941,7 @@ def main():
                 st.dataframe(hold_invoices, use_container_width=True)
     
     # Custom Query Tab
-    with tab6:
+    with tab5:
         st.subheader("Custom SQL Query Tool")
         st.info("Execute custom queries against your Databricks tables")
         
@@ -998,8 +998,8 @@ LIMIT 20;
                 else:
                     st.warning("Query returned no results")
     
-    # Genie AI Tab (Now First!)
-    with tab1:
+    # Genie AI Tab
+    with tab6:
         st.subheader("🧞 Ask Genie About Your Data")
         st.markdown("**Powered by Databricks Genie** - AI that understands your data schema!")
         
