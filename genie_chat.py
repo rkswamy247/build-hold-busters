@@ -29,6 +29,10 @@ FEEDBACK_FILE = Path(".genie_feedback_memory.json")
 
 def get_databricks_client():
     """Get authenticated Databricks workspace client"""
+    # Disable dbutils initialization for subprocess (critical for Streamlit)
+    os.environ['DATABRICKS_RUNTIME_VERSION'] = ''  # Disable runtime detection
+    os.environ['SPARK_HOME'] = ''  # Disable Spark detection
+    
     # Get credentials from environment
     host = os.getenv('DATABRICKS_HOST')
     token = os.getenv('DATABRICKS_TOKEN')
@@ -48,14 +52,22 @@ def get_databricks_client():
     
     try:
         # EXPLICITLY pass credentials to WorkspaceClient (don't rely on auto-detection)
-        # Set product="streamlit" to prevent runtime initialization in subprocess
+        # Use Config to explicitly disable runtime features in subprocess
         st.write("   Creating WorkspaceClient with explicit credentials...")
-        client = WorkspaceClient(
+        
+        from databricks.sdk.core import Config
+        
+        # Create config with runtime disabled
+        config = Config(
             host=host,
             token=token,
-            product="streamlit",  # Prevents SparkContext initialization in subprocess
-            product_version="1.0"
+            product="streamlit",
+            product_version="1.0",
+            # Explicitly disable dbutils initialization
+            auth_type="pat"  # Use Personal Access Token auth only, no runtime
         )
+        
+        client = WorkspaceClient(config=config)
         st.success("   ✅ WorkspaceClient created successfully!")
         # Clear any previous error
         if 'genie_connection_error' in st.session_state:
