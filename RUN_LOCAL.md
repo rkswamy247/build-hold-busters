@@ -55,12 +55,17 @@ streamlit run app.py
 
    ```toml
    [databricks]
-   server_hostname = "your-workspace.cloud.databricks.com"
+   server_hostname = "your-workspace.cloud.databricks.com"  # WITHOUT https://
    http_path = "/sql/1.0/warehouses/your-warehouse-id"
    token = "dapi..."
    default_schema = "your_schema.your_database"
-   genie_space_id = "your-genie-space-id"  # Optional for Genie AI
+   genie_space_id = "your-genie-space-id"  # Required for Genie AI
    ```
+   
+   **Important:** 
+   - `server_hostname` should NOT include `https://` (e.g., `dbc-xxx.cloud.databricks.com`)
+   - `token` should start with `dapi`
+   - `genie_space_id` is required for the Genie AI feature to work
 
 3. **Get your credentials from Databricks:**
    - **Server Hostname**: Your Databricks workspace URL (without https://)

@@ -1036,6 +1036,11 @@ LIMIT 20;
             ```
             """)
         else:
+            # Set environment variables for Genie AI (genie_chat.py reads from env vars)
+            import os
+            if hasattr(st, 'secrets') and 'databricks' in st.secrets:
+                os.environ['DATABRICKS_HOST'] = f"https://{st.secrets.databricks.server_hostname}"
+                os.environ['DATABRICKS_TOKEN'] = st.secrets.databricks.token
             # Conversation controls
             col1, col2 = st.columns([4, 1])
             with col2:
@@ -1149,6 +1154,12 @@ LIMIT 20;
                 send_button = st.form_submit_button("Send", help="Press Enter to submit the question")
             
             if send_button and user_input:
+                # Set environment variables for Genie (needed by genie_chat.py)
+                import os
+                if hasattr(st, 'secrets') and 'databricks' in st.secrets:
+                    os.environ['DATABRICKS_HOST'] = f"https://{st.secrets.databricks.server_hostname}"
+                    os.environ['DATABRICKS_TOKEN'] = st.secrets.databricks.token
+                
                 # Add user message to history
                 st.session_state.chat_history.append({
                     "role": "user",
